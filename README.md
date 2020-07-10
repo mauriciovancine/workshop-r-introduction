@@ -1,1 +1,1 @@
-# minicurso-introducao-r
+# Curso Introdução ao R
