@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>XXX Semana de Estudos da Ecologia    Introdução à linguagem R: manipulação e visualização de dados</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maurício Vancine   Helena Oliveira   Lucas Almeida" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# XXX Semana de Estudos da Ecologia <br><br> Introdução à linguagem R: manipulação e visualização de dados
+### Maurício Vancine <br> Helena Oliveira <br> Lucas Almeida <br>
+### <br> xaringan [presentation ninja] <br><br> 06/11/2019
+
+---
+
+
+
+
+class: clear, center, middle
+background-image: url(https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)
+background-size: 40%
+background-position: 50% 50%
+
+---
+
+# Maurício Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+--
+
+### Pesquisa
+- Ecologia Espacial
+- Ecologia Quantitativa
+- Ecologia e Conservação de Anfíbios
+  
+--
+
+### Habilidades
+- Modelos de Distribuição de Espécies (SDMs)
+- Análise de Dados Ecológicos e Geoespaciais
+- **Open source** [R, QGIS, GRASS GIS, Linux, Libreoffice....]
+
+--
+
+### Contato e informações
+|                                                                                          |                                     |
+| :--------------------------------------------------------------------------------------- | :--------------------------------   |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;] | mauricio.vancine@gmail.com          |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;] | @mauriciovancine                    |
+| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]  | mauriciovancine.netlify.com         |
+
+---
+
+# Helena Oliveira
+
+## Bióloga (2021?)
+
+### Pesquisa
+- Ecologia de Comunidades
+- Ecologia de Anfíbios
+- ????
+
+### Habilidades
+- Modelos de Distribuição de Espécies
+- **Open source** [R, Linux, Libreoffice....]
+- ????
+
+### Contato e informações
+|                                                                                          |                                   |
+| :--------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:helenatcdo@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]       | helenatcdo@gmail.com              |
+
+
+---
+
+# Lucas Almeida
+
+## Biólogo (2020)
+
+### Pesquisa
+- Zoologia
+- Herpetologia
+- Comportamento animal
+- ????
+
+### Habilidades
+- Naturalista
+- Modelos de Distribuição de Espécies
+- **Open source** [R]
+- ????
+
+### Contato e informações
+|                                                                                          |                                   |
+| :--------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:almeidals1994@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]    | almeidals1994@gmail.com           |
+
+---
+
+# Participantes
+
+## Apresentações
+
+&lt;br&gt;&lt;br&gt;
+
+### 1. Nome que a sua família e que a UNESP te deram...
+
+### 2. O que faz da vida...
+
+### 3. Já conhece a 'palavra' do R?
+
+### 4. O que raios está fazendo aqui?
+
+---
+
+# Experiência
+
+## Minha história com o R (~480 h)
+
+&lt;br&gt;
+
+- 2011: Assisti, **Curso de R** (40 h) - Prof. Tadeu Siqueira
+
+- 2015: Minicurso, **Introdução ao software R** (08 h) - SEE 2015
+
+- 2015: Monitor, **Ecologia Quantitativa** (60 h) - Prof. Tadeu Siqueira
+
+- 2016: Minicurso, **Introdução software R: manejo de dados, gráficos e análises estatísticas** (16 h) - SeBio 2016
+
+- 2016: Monitor, **Modelagem de Nicho Ecológico no R** (30 h) - UNESP
+
+- 2016: Professor colaborador, **Modelagem de nicho ecológico: teoria e prática** (45 h) - Unicamp
+
+---
+
+# Experiência
+
+## Minha história com o R (~480 h)
+
+&lt;br&gt;
+
+- 2017:	Professor colaborador, **Modelagem de nicho ecológico: teoria e prática** (60 h) - UNESP
+
+- 2017: Estágio docência, **Ecologia Quantitativa** (60 h) - Prof. Tadeu Siqueira
+
+- 2018: Professor colaborador, **Modelos Estatísticos em Ecologia** (12 h) - UNESP
+
+- 2019: Curso, **Introdução à linguagem R: manejo, visualização e análises de dados** (50 h) - Labic
+
+- 2019: Assisti, **Introdução à modelagem hierárquica** (45 h) - UFRGS
+
+- 2019: Professor visitante, **Introdução ao geoprocessamento para etnobiologia e conservação da biodiversidade ** (45 h) - UFRPE
+
+- 2019: Minicurso, **Introdução à linguagem R: manejo, visualização e análises de dados** (8 h) - SeBio 2019
+
+---
+
+# Minicurso
+
+&lt;br&gt;&lt;br&gt;
+
+### Duração
+~08 h
+
+--
+
+### Datas e horários
+06/11 [08:00 h - 12:00 h] &lt;br&gt;
+07/11 [08:00 h - 12:00 h]
+
+--
+
+### Formato
+Prática (6 h) &lt;br&gt;
+Exercícios (2 h)
+
+---
+
+# Minicurso
+
+## Material
+
+### Repositório de dados do minicurso no GitHub
+https://github.com/mauriciovancine/minicurso-r-see-2019
+
+--
+
+&lt;br&gt;
+
+## Organização no seu computador
+Criem uma pasta chamada `github` em `Documentos` ou na famigerada `Área de Trabalho`
+
+--
+
+Adicionem o arquivo `minicurso-r-see-2019-master.zip` nessa pasta
+
+--
+
+Deszipem o arquivo nessa pasta
+
+--
+
+Pronto, arquivos organizados do minicurso =]
+
+---
+
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 350px
+background-position: 75% 75%
+
+# Minicurso
+
+## Conteúdo
+
+### 1 Linguagem R, aplicações e material
+1.1 Linguagem R
+&lt;br&gt;
+1.2 Linguagem R e software RStudio
+&lt;br&gt;
+1.3 Aplicações da linguagem R
+&lt;br&gt;
+1.4 Apostilas, sites e livros
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg)
+background-size: 450px
+background-position: 90% 85%
+
+# Minicurso
+
+## Conteúdo
+
+### 2 Funcionamento da linguagem R
+2.1 RStudio
+&lt;br&gt;
+2.2 Editor/Roteiro (*code*/*script*)
+&lt;br&gt;
+2.3 Comentários (*#*)
+&lt;br&gt;
+2.4 Atribuição (*&lt;-*)
+&lt;br&gt;
+2.5 Objetos
+&lt;br&gt;
+2.6 Operadores
+&lt;br&gt;
+2.7 Funções
+&lt;br&gt;
+2.8 Pacotes
+&lt;br&gt;
+2.9 Ajuda (*help*)
+&lt;br&gt;
+2.10 Ambiente (*environment*/*workspace*)
+&lt;br&gt;
+2.11 Citações
+&lt;br&gt;
+2.12 Principais erros
+
+---
+
+background-image: url(https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/05/5-298x300.png)
+background-size: 300px
+background-position: 80% 90%
+
+# Minicurso
+
+## Conteúdo
+
+### 3 Estrutura e manipulação de dados
+3.1 Atributos dos objetos
+&lt;br&gt;
+3.2 Modos dos objetos (*numeric*, *character* e *logical*)
+&lt;br&gt;
+3.3 Estrutura dos objetos (*vector*, *factor*, *matrix* e *data frame*)
+&lt;br&gt;
+3.4 Manejo de dados unidimensionais
+&lt;br&gt;
+3.5 Manejo de dados bidimensionais
+&lt;br&gt;
+3.6 Valores faltantes e especiais
+&lt;br&gt;
+3.7 Diretório de trabalho
+&lt;br&gt;
+3.8 Importar dados
+&lt;br&gt;
+3.9 Conferir e manejar dados importados
+&lt;br&gt;
+3.10 Exportar dados
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyverse.png)
+background-size: 250px
+background-position: 75% 75%
+
+# Minicurso
+
+## Conteúdo
+
+### 4 Introdução ao tidyverse
+4.1 tidyverse
+&lt;br&gt;
+4.2 readr
+&lt;br&gt;
+4.3 readxl
+&lt;br&gt;
+4.4 tibble
+&lt;br&gt;
+4.5 magrittr (*pipe - %&gt;%*)
+&lt;br&gt;
+4.6 tidyr
+&lt;br&gt;
+4.7 dplyr
+
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 250px
+background-position: 75% 75%
+
+# Minicurso
+
+## Conteúdo
+
+### 5 Visualização de dados
+5.1 Principais pacotes para gráficos no R
+&lt;br&gt;
+5.2 Principais livros e sites
+&lt;br&gt;
+5.3 Colunas como eixos do gráficos (*variáveis = colunas*)
+&lt;br&gt;
+5.4 Principais tipos de gráficos
+&lt;br&gt;
+5.5 Histograma (*histogram*)
+&lt;br&gt;
+5.6 Gráfico de setores (*pie chart* e *donut plot*)
+&lt;br&gt;
+5.7 Gráfico de barras (*bar plot*)
+&lt;br&gt;
+5.8 Gráfico de caixa (*box plot* e *violin plot*)
+&lt;br&gt;
+5.9 Gráfico de dispersão (*scatter plot*)
+
+---
+
+# Minicurso
+  
+## IMPORTANTE!
+  
+&lt;br&gt;
+  
+--
+  
+### **Aproveitem** o máximo possível!
+  
+--
+  
+### **Perguntem** o que não entenderam! Não deixem passar dúvidas!
+  
+--
+
+&lt;br&gt;
+### Estudar R e estatística geraram muitas **oportunidades** de parcerias em **pesquisas** e principalmente **trabalho**!
+
+---
+
+# Minicurso
+
+## IMPORTANTE!
+
+### Só se aprende R...
+
+--
+
+### ...'errando'
+
+--
+
+### Esse curso é apenas o **começo**, o aprendizado é com vocês!
+
+--
+
+### Será como **reaprender** à pensar, falar e escrever
+
+--
+
+### Aprender leva **tempo**! Muito tempo....
+
+--
+
+### Ponto positivo: há **muito material disponível** e **grátis**!
+
+---
+
+background-image: url(https://media0.giphy.com/media/dILrAu24mU729pxPYN/giphy.gif)
+background-size: 700px
+background-position: 50% 60%
+
+# O R: qual o sentido?
+
+---
+
+class: clear, inverse, middle, center
+background-image: url(img/ecologia_estatistica.jpg)
+background-size: 600px
+background-position: 50% 50%
+
+---
+
+# O R: qual o sentido?
+
+## O R precisa de um &lt;u&gt;**objetivo**&lt;/u&gt; para começar a fazer sentido...
+
+--
+
+### Nesse minicurso teremos dois &lt;u&gt;**objetivos**&lt;/u&gt;:
+
+### 1. **Manipular ou gerenciar** dados (planilhas) de forma mais fácil, automática e reproduzível
+
+--
+
+### 2. **Visualizar** os dados (planilhas) para apresentar e entender padrões
+
+--
+
+&lt;br&gt;
+
+### &lt;u&gt;**IMPORTANTE**&lt;/u&gt;: não teremos &lt;u&gt;**estatística**&lt;/u&gt; pelo tempo limitado...
+
+---
+
+class: clear, inverse, middle, center
+
+# O que nos leva à pergunta: como são/estão suas habilidades com **planilhas eletrônicas**?
+
+---
+
+# Planilha eletrônica
+
+## Softwares
+
+### Pago
+1. Microsoft Office (Excel): https://products.office.com/en/excel
+
+### Livre
+2. LibreOffice (Calc): https://www.libreoffice.org/discover/calc/
+3. WPS (SpreadSheets): https://www.wps.com/
+4. FreeOffice (PlanMaker): https://www.freeoffice.com/
+5. OnlyOffice (SpreadSheets): https://www.onlyoffice.com/
+
+### Online:
+6. Google Drive (SpreadSheets): https://docs.google.com/spreadsheets/
+
+---
+
+background-image: url(img/planilhas_eletronicas.png)
+background-size: 700px
+background-position: 50% 75%
+
+# Planilha eletrônica
+
+## Funcionamento
+
+### Configurem seus notebooks sempre com região com &lt;u&gt;**língua inglesa**&lt;/u&gt;
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício Vancine
+
+&lt;br&gt;
+
+Contatos:
+
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]  | mauricio.vancine@gmail.com    |
+| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]   | mauriciovancine.netlify.com   |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]  | @mauriciovancine              |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "rainbow",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%/%total%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
