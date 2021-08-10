@@ -54,19 +54,19 @@ sudo apt update
 sudo apt install -y r-base r-base-core r-recommended r-base-dev
 
 # rstudio
-wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1106-amd64.deb
-sudo dpkg -i rstudio-1.4.1106-amd64.deb
+wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1717-amd64.deb
+sudo dpkg -i rstudio-1.4.1717-amd64.deb
 sudo apt install -fy
-rm rstudio-1.4.1106-amd64.deb
+rm rstudio-1.4.1717-amd64.deb
 ```
 
 ---
 
 ## Material
 
-[Slides](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/slide_workshop_r_introduction.html)  
+[Slides](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/slides_workshop_r_introduction.html)  
 
-[Script](script_workshop_r_introduction.R)
+[Script](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/02_script/script_workshop_r_introduction.R)
 
 [Conjunto de dados](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/03_conjunto_dados.zip)
 
