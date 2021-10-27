@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Resumo
 
-O minicurso apresentará os fundamentos da linguagem R e IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura visando ajudar os usuários a criar um código eficiente e 'organizado'. Os pacotes são focados principalmente na organização de dados (leitura, filtragem, organização, seleção e resumo) e visualização de dados. Serão abordados os seguintes temas: (1) funcionamento da linguagem R, (2) estrutura e manipulação de objetos, (3) tidyverse e (4) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos introdutórios do funcionamento da linguagem, assim como na manipulação e visualização de dados tabulares.
+O minicurso apresentará os fundamentos da linguagem R e do IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura e sintaxe, visando ajudar os usuários a criar um código eficiente e organizado. Os pacotes são focados principalmente na organização (leitura, filtragem, organização, seleção e resumo) e visualização de dados. Serão abordados os seguintes temas: (1) funcionamento da linguagem R, (2) introdução ao tidyverse e (3) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos introdutórios do funcionamento da linguagem através do *tidyverse*, assim como na manipulação e visualização de dados tabulares.
 
 ## Carga horária
 
@@ -28,7 +28,7 @@ Conhecimentos básicos de programação são bem-vindos, mas não são exigidos.
 
 ## Ministrante
 
-Maurício Vancine é Bacharel em Ecologia, Mestre em Zoologia e Doutorando em Ecologia, Evolução e Biodiversidade pela UNESP de Rio Claro. Possui experiência em Ecologia Espacial, Ecologia da Paisagem, Modelos de Distribuição de Espécies e Ecologia de Anfíbios.
+Maurício Vancine é Bacharel em Ecologia, Mestre em Zoologia e Doutorando em Ecologia, Evolução e Biodiversidade pela UNESP de Rio Claro. Possui experiência em Ecologia Espacial, Ecologia da Paisagem, Modelagem Ecológica e Ecologia de Anfíbios.
 
 Mais informações:
 
@@ -54,18 +54,7 @@ Mais informações:
 1. Principais erros
 1. Principal material de estudo
 
-### 2 Estrutura e manipulação de objetos  (2 h)
-
-1. Atributos dos objetos
-1. Manipulação de dados unidimensionais
-1. Manipulação de dados multidimensionais
-1. Valores faltantes e especiais
-1. Diretório de trabalho
-1. Importar dados
-1. Conferência de dados importados
-1. Exportar dados
-
-### 3 tidyverse (3 h)
+### 2 Introdução ao tidyverse (3 h)
 
 1. Contextualização
 1. tidyverse
@@ -75,10 +64,8 @@ Mais informações:
 1. magrittr (pipe - %>%)
 1. tidyr
 1. dplyr
-1. stringr
-1. forcats
 
-### 4 Visualização de dados (2 h)
+### 3 Visualização de dados (2 h)
 
 1. Contextualização
 1. Principais pacotes para gráficos 

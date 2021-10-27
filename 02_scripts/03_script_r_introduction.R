@@ -1,595 +1,752 @@
 #' ---
-#' title: aula 03 - introducao ao tidyverse
+#' title: aula 03 - visualizacao de dados
 #' author: mauricio vancine
 #' date: 2021-10-11
 #' ---
 
-# packages ----------------------------------------------------------------
+# pacotes -----------------------------------------------------------------
 
 library(tidyverse)
-library(here)
-library(readxl)
-library(writexl)
-library(lubridate)
-library(parallel)
+library(palmerpenguins)
+library(ggpubr)
+library(datasauRus)
+library(GGally)
+library(psych)
+library(cowplot)
+library(patchwork)
+library(gganimate)
+library(plotly)
+library(htmlwidgets)
+library(esquisse)
 
-# topics ------------------------------------------------------------------
+# topicos -----------------------------------------------------------------
 
 # 1. contextualizacao
-# 2. tidyverse
-# 3. here
-# 4. readr, readxl e writexl
-# 5. tibble
-# 6. magrittr (pipe - %>%)
-# 7. tidyr
-# 8. dplyr
-# 9. stringr
-# 10. forcats
-# 11. lubridate
-# 12. purrr
+# 2. principais pacotes para graficos 
+# 3. gramatica dos graficos
+# 4. principais livros e sites 
+# 5. principais tipos de graficos 
+# 6. histograma e densidade
+# 7. grafico de setores
+# 8. grafico de barras
+# 9. grafico de caixas
+# 10. grafico de dispersao
+# 11. grafico pareado
+# 12. combinando graficos
+# 13. graficos animados
+# 14. graficos interativos
+# 15. graficos usando uma interface
 
-# 2. tidyverse -----------------------------------------------------------
-# instalar pacote
-# install.packages("tidyverse")
+# 2. principais pacotes para graficos  ----------------------------------
+# graphics
+plot(flipper_length_mm ~ body_mass_g, data = penguins)
 
-# carregar pacote
-library(tidyverse)
+# ggplot2 
+ggplot(data = penguins) + aes(x = body_mass_g, y = flipper_length_mm) + geom_point()
 
-# list all packages in the tidyverse 
-tidyverse::tidyverse_packages(include_self = TRUE)
+# ggpubr
+ggscatter(penguins, x = "body_mass_g", y = "flipper_length_mm")
 
-# 3. here -----------------------------------------------------------------
-# instalar
-# install.packages("here")
-
-# carregar
-library(here)
-
-# conferir
-here::here()
-
-# criar um arquivo .here
-# here::set_here()
-
-# 4. readr, readxl e writexl ----------------------------------------------
-# formato .csv
-# importar sites com here
-si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"),
-                      locale = readr::locale(encoding = "latin1"))
-si
-
-# importar sites sem here
-si <- readr::read_csv("./03_dados/ATLANTIC_AMPHIBIANS_sites.csv",
-                      locale = readr::locale(encoding = "latin1"))
-si
-
-# formato .txt
-# importar sites
-si <- readr::read_tsv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.txt"))
-si
-
-# importar .xlsx
-# install.packages("readxl")
-library("readxl")
-
-# exportar .xlsx
-# install.packages("writexl")
-library("writexl")
-
-# importar sites
-si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx"), 
-                        sheet = 1)
-si
-
-# importar sites
-si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"),
-                      locale = readr::locale(encoding = "latin1"))
-si
-
-# importar especies
-sp <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_species.csv"),
-                      locale = readr::locale(encoding = "latin1"))
-sp
-
-# 5. tibble --------------------------------------------------------------
-
-# view the sites data
-tibble::glimpse(si)
-
-# view the species data
-tibble::glimpse(sp)
-
-# tibble vs data.frame
-
-# 1. nunca converte um tipo character como factor - 
-df <- data.frame(ch = c("a", "b"), nu = 1:2)
-str(df)
-
-tb <- tibble(ch = c("a", "b"), nu = 1:2)
-glimpse(tb)
-
-# 2. a indexacao com colchetes sempre retorna um tibble
-df_ch <- df[, 1]
-class(df_ch)
-
-tb_ch <- tb[, 1]
-class(tb_ch)
-
-# indexacao pelo nome devolve um vetor
-tb_ch <- tb$ch
-class(tb_ch)
-
-# 3. nao faz correspondencia parcial, retorna NULL se a coluna nao existe com o nome especificado
-df$c 
-tb$c
-
-# 6. magrittr (pipe - %>%) -----------------------------------------------
-# sem pipe
-sqrt(sum(1:100))
-
-# com pipe
-1:100 %>% 
-  sum() %>% 
-  sqrt()
-
-# fixar amostragem
-set.seed(42)
-
-# sem pipe
-ve <- sum(sqrt(sort(log10(rpois(100, 10)))))
-ve
-
-# fixar amostragem
-set.seed(42)
-
-# com pipe
-ve <- rpois(100, 10) %>% 
-  log10() %>%
-  sort() %>% 
-  sqrt() %>% 
-  sum()
-ve  
-
-# exercicio 09 ------------------------------------------------------------
-
-
-# -------------------------------------------------------------------------
-
-
-# palmerpenquins ----------------------------------------------------------
-
-# instalar 
-# install.packages("palmerpenguins")
-
+# 6. histograma e densidade -----------------------------------------------
 # carregar
 library(palmerpenguins)
 
-# ajuda dos dados
-?penguins
-?penguins_raw
-
 # visualizar os dados
 penguins
-penguins_raw
 
-# glimpse
-tibble::glimpse(penguins)
-tibble::glimpse(penguins_raw)
+hist(penguins$flipper_length_mm)
 
-# 7. tidyr ---------------------------------------------------------------
-# funcoes
-# 1. unite(): junta dados de múltiplas colunas em uma
-# 2. separate(): separa caracteres em múlplica colunas
-# 3. separate_rows(): separa caracteres em múlplica colunas e linhas
-# 4. drop_na(): retira linhas com NA
-# 5. replace_na(): substitui NA
-# 6. pivot_wider(): long para wide
-# 7. pivot_longer(): wide para long
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray")
 
-# 1. unite()
-# unir colunas
-penguins_raw_unir <- tidyr::unite(data = penguins_raw, 
-                                  col = "region_island",
-                                  Region:Island, 
-                                  sep = ", ",
-                                  remove = FALSE)
-head(penguins_raw_unir[, c("Region", "Island", "region_island")])
-  
-# 2. separate()
-# separar colunas
-penguins_raw_separar <- tidyr::separate(data = penguins_raw, 
-                                        col = Stage,
-                                        into = c("stage", "egg_stage"), 
-                                        sep = ", ",
-                                        remove = FALSE)
-head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins")
 
-# 3. separate_rows()
-# separar colunas em linhas
-penguins_raw_separar_linhas <- tidyr::separate_rows(data = penguins_raw,
-                                                    Stage,
-                                                    sep = ", ")
-head(penguins_raw_separar_linhas[, c("studyName", "Sample Number", "Species", 
-                                     "Region", "Island", "Stage")])
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência")
 
-# 4. drop_na()
-# remover linhas com na
-penguins_raw_todas_na <- tidyr::drop_na(data = penguins_raw)
-head(penguins_raw_todas_na)
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50)
 
-# remover linhas com na de uma coluna
-penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
-                                          any_of("Comments"))
-head(penguins_raw_colunas_na[, "Comments"])
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
 
-# 5. replace_na()
-# substituir nas por 0 em uma coluna
-penguins_raw_subs_na <- tidyr::replace_na(data = penguins_raw,
-                                          list(Comments = "Unknown"))
-head(penguins_raw_subs_na[, "Comments"])
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5,
+     prob = TRUE)
+lines(density(na.omit(penguins$flipper_length_mm)))
 
-# 6. pivot_wider()
-# long para wide
-penguins_raw_pivot_wider <- tidyr::pivot_wider(data = penguins_raw[, c(2, 3, 13)], 
-                                               names_from = Species, 
-                                               values_from = `Body Mass (g)`)
-head(penguins_raw_pivot_wider)
+par(mar = c(5, 5, 5, 5))
+plot(density(na.omit(penguins$flipper_length_mm)),
+     col = "gray50",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
+polygon(density(na.omit(penguins$flipper_length_mm)), 
+        col = "gray50")
 
-# 7. pivot_longer()
-# wide para long
-penguins_raw_pivot_longer <- tidyr::pivot_longer(data = penguins_raw[, c(2, 3, 10:13)], 
-                                                 cols = `Culmen Length (mm)`:`Body Mass (g)`,
-                                                 names_to = "medidas", 
-                                                 values_to = "valores")
-head(penguins_raw_pivot_longer)
+# exportar
+# diretorio
+setwd("/home/mude/data/github/workshop-r-introduction/03_dados")
 
-# exercicio 10 ------------------------------------------------------------
+png("plot_densidade.png", wi = 15, he = 15, un = "cm", res = 300)
 
+par(mar = c(5, 5, 5, 5))
+plot(density(na.omit(penguins$flipper_length_mm)),
+     col = "gray50",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     cex.main = 2,  cex.lab = 2, cex.axis = 1.5)
+polygon(density(na.omit(penguins$flipper_length_mm)), col = "gray50")
 
-# exercicio 11 ------------------------------------------------------------
+dev.off()
 
+# ggplot2
+ggplot(data = penguins)
 
-# 8. dplyr ---------------------------------------------------------------
-# funcoes
-# 1. relocate(): muda a ordem das colunas
-# 2. rename(): muda o nome das colunas
-# 3. select(): seleciona colunas pelo nome ou posição
-# 4. pull(): seleciona uma coluna como vetor
-# 5. mutate(): adiciona novas colunas ou resultados em colunas existentes
-# 6. arrange(): reordena as linhas com base nos valores de colunas
-# 7. filter(): seleciona linhas com base em valores de colunas
-# 8. slice(): seleciona linhas de diferente formas
-# 9. distinct(): remove linhas com valores repetidos com base nos valores de colunas
-# 10. count(): conta observações para um grupo
-# 11. group_by(): agrupa linhas pelos valores das colunas
-# 12. summarise(): resume os dados através de funções considerando valores das colunas
-# 13. *_join(): funções que juntam dados de duas tabelas através de uma coluna chave
+ggplot(data = penguins, aes(x = flipper_length_mm))
 
-# 1. relocate()
-# reordenar colunas - posicao
-penguins_relocate_ncol <- penguins %>% 
-  dplyr::relocate(sex, year, .after = 2)
-head(penguins_relocate_ncol)
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram()
 
-# 2. rename()
-# renomear colunas
-penguins_rename <- penguins %>% 
-  dplyr::rename(bill_length = bill_length_mm,
-                bill_depth = bill_depth_mm,
-                flipper_length = flipper_length_mm,
-                body_mass = body_mass_g)
-head(penguins_rename)
+ggplot(data = penguins,  aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", bins = 10)
 
-# renomear todas as colunas
-penguins_rename_with <- penguins %>% 
-  dplyr::rename_with(toupper)
-head(penguins_rename_with)
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", 
+                 bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# 3. select()
-# selecionar colunas por posicao
-penguins_select_position <- penguins %>% 
-  dplyr::select(3:6)
-head(penguins_select_position)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# selecionar colunas por nomes
-penguins_select_names <- penguins %>% 
-  dplyr::select(bill_length_mm:body_mass_g)
-head(penguins_select_names)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5, position = "dodge") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# remover colunas pelo nome
-penguins_select_names_remove <- penguins %>% 
-  dplyr::select(-(bill_length_mm:body_mass_g))
-head(penguins_select_names_remove)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(alpha = .5, position = "identity") +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# selecionar colunas por padrao - starts_with(), ends_with() e contains()
-penguins_select_contains <- penguins %>% 
-  dplyr::select(contains("_mm"))
-head(penguins_select_contains)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_wrap(~ species, ncol = 2, scale = "free_y") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# 4. pull()
-# coluna para vetor
-penguins_select_pull <- penguins %>% 
-  dplyr::pull(bill_length_mm)
-head(penguins_select_pull, 15)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_grid(species ~ .) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 16)
 
-# 5. mutate()
-# adicionar colunas
-penguins_mutate <- penguins %>% 
-  dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
-head(penguins_mutate)
+ggplot(data = penguins) +
+  aes(x = flipper_length_mm) +
+  geom_density(color = "black", fill = "cyan4", alpha = .5) + 
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade") +
+  theme_bw(base_size = 16)
 
-## modificar varias colunas
-penguins_mutate_across <- penguins %>% 
-  dplyr::mutate(across(where(is.factor), as.character))
-head(penguins_mutate_across)
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade", 
+       fill = "Espécie") +
+  theme_bw(base_size = 16)
 
-# 6. arrange()
-# reordenar os valores por ordem crescente
-penguins_arrange <- penguins %>% 
-  dplyr::arrange(body_mass_g)
-head(penguins_arrange)
+ggplot_densidade <- ggplot(data = penguins, 
+                           aes(x = flipper_length_mm, fill = species)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade", 
+       fill = "Espécie") +
+  theme_bw(base_size = 16)
+ggsave(filename = "histogram_ggplot2.png", plot = ggplot_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
 
-# reordenar os valores por ordem decrescente
-penguins_arrange_desc <- penguins %>% 
-  dplyr::arrange(desc(body_mass_g))
-head(penguins_arrange_desc)
+# ggpubr
+gghistogram(data = penguins, 
+            x = "flipper_length_mm",
+            add = "median",
+            color = "species",
+            fill = "species",
+            palette = c("darkorange", "darkorchid", "cyan4"),
+            xlab = "Comprimento da nadadeira (mm)",
+            ylab = "Densidade")
 
-# reordenar os valores por ordem decrescente
-penguins_arrange_desc_m <- penguins %>% 
-  dplyr::arrange(-body_mass_g)
-head(penguins_arrange_desc_m)
+# 7. grafico de setores ---------------------------------------------------
 
-# reordenar os valores por ordem crescente de varias colunas
-penguins_arrange_across <- penguins %>% 
-  dplyr::arrange(across(where(is.numeric)))
-head(penguins_arrange_across)
+# classico
+par(mar = c(0, 1, 0, 1))
+pie(c(280, 60, 20),
+    c("Sky", "Sunny side of pyramid", "Shady side of pyramid"),
+    col = c("#0292D8", "#F7EA39", "#C4B632"),
+    init.angle = -50, border = NA)
 
-# 7. filter()
-# filtrar linhas por valores de uma coluna
-penguins_filter <- penguins %>% 
-  dplyr::filter(species == "Adelie")
-head(penguins_filter)
+# calculo da proporcao
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+penguins_prop
 
-# filtrar linhas por valores de duas colunas
-penguins_filter_two <- penguins %>% 
-  dplyr::filter(species == "Adelie" & sex == "female")
-head(penguins_filter_two)
+# graphics
+par(mar = c(5, 5, 5, 5))
+pie(penguins_prop$prop,
+    labels = paste(penguins_prop$prop, "%"), 
+    main = "Espécies",
+    col = c("darkorange", "darkorchid", "cyan4"))
+legend("topright", legend = penguins_prop$species, 
+       fill = c("darkorange", "darkorchid", "cyan4"))
 
-# filtrar linhas por mais de um valor e mais de uma coluna
-penguins_filter_in <- penguins %>% 
-  dplyr::filter(species %in% c("Adelie", "Gentoo"),
-                sex == "female")
-head(penguins_filter_in)
+# ggplot2
+ggplot(data = penguins_prop, aes(x = "", y = prop, fill = species)) + 
+  geom_bar(stat = "identity", color = "white") +
+  coord_polar("y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white", 
+            position = position_stack(vjust = .5), size = 8) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_void() +
+  labs(fill = "Espécie")
 
-# filtrar linhas por nas
-penguins_filter_na <- penguins %>% 
-  dplyr::filter(!is.na(sex) == TRUE)
-head(penguins_filter_na)
+# ggpubr
+ggpie(penguins_prop,
+      "prop", 
+      label = "prop",
+      lab.pos = "in", 
+      lab.font = c(8, "white"),
+      fill = "species", 
+      color = "white",
+      palette = c("darkorange", "purple", "cyan4"))
 
-# filtrar linhas por valores em um intervalo
-penguins_filter_between <- penguins %>% 
-  dplyr::filter(between(body_mass_g, 3000, 4000))
-head(penguins_filter_between)
+# ggplot2
+ggplot(data = penguins_prop, aes(x = 2, y = prop, fill = species)) +
+  geom_bar(stat = "identity") +
+  coord_polar(theta = "y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white",
+            position = position_stack(vjust = .5), size = 5) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  xlim(0, 2.5) +
+  theme_void() +
+  theme(legend.position = c(.5, .5),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 15)) +
+  labs(fill = "Espécie")
 
-# filtrar linhas por valores de varias colunas
-penguins_filter_if <- penguins %>% 
-  dplyr::filter(if_all(where(is.integer), ~ . > 200))
-head(penguins_filter_if)
+# ggpubr
+ggdonutchart(penguins_prop,
+             "prop", 
+             label = "prop",
+             lab.pos = "in", 
+             lab.font = c(7, "white"),
+             fill = "species", 
+             color = "white",
+             palette = c("darkorange", "purple", "cyan4"))
 
-# 8. slice()
-# selecionar linhas por intervalos
-penguins_slice <- penguins %>% 
-  dplyr::slice(n = c(1, 3, 300:n()))
-head(penguins_slice)
+# 8. grafico de barras ----------------------------------------------------
 
-# selecionar linhas iniciais
-penguins_slice_head <- penguins %>% 
-  dplyr::slice_head(n = 5)
-head(penguins_slice_head)
-
-# selecionar linhas por valores de uma coluna
-penguins_slice_max <- penguins %>% 
-  dplyr::slice_max(body_mass_g, n = 5)
-head(penguins_slice_max)
-
-# selecionar linhas aleatoriamente
-penguins_slice_sample <- penguins %>% 
-  dplyr::slice_sample(n = 30)
-head(penguins_slice_sample)
-
-# 9. distinct()
-# retirar linhas com valores duplicados
-penguins_distinct <- penguins %>% 
-  dplyr::distinct(body_mass_g)
-head(penguins_distinct)
-
-# retirar linhas com valores duplicados e manter colunas
-penguins_distinct_keep_all <- penguins %>% 
-  dplyr::distinct(body_mass_g, .keep_all = TRUE)
-head(penguins_distinct_keep_all)
-
-# retirar linhas com valores duplicados para varias colunas
-penguins_distinct_keep_all_across <- penguins %>% 
-  dplyr::distinct(across(where(is.integer)), .keep_all = TRUE)
-head(penguins_distinct_keep_all_across)
-
-# 10. count()
-# contagens de valores para uma coluna
-penguins_count <- penguins %>% 
+# numero de individuos coletados
+penguins_count <- penguins %>%
   dplyr::count(species)
 penguins_count
 
-# contagens de valores para mais de uma coluna
-penguins_count_two <- penguins %>% 
-  dplyr::count(species, island)
-penguins_count_two
+# graphics
+barplot(n ~ species,
+        data = penguins_count, 
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Número de indivíduos coletados por espécie",
+        xlab = "Espécies",
+        ylab = "Frequência absoluta",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
 
-# 11. group_by()
-# agrupamento
-penguins_group_by <- penguins %>% 
-  dplyr::group_by(species)
-head(penguins_group_by)
+# ggplot2
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
 
-# agrupamento de várias colunas
-penguins_group_by_across <- penguins %>% 
-  dplyr::group_by(across(where(is.factor)))
-head(penguins_group_by_across)
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  coord_flip() +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
 
-# 12. summarise()
-# resumo
-penguins_summarise <- penguins %>% 
-  dplyr::group_by(species) %>% 
-  dplyr::summarize(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
-                   body_mass_g_sd = sd(body_mass_g, na.rm = TRUE))
-penguins_summarise
+# ggpubr
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "in", 
+          lab.col = "white",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none")
 
-# resumo para várias colunas
-penguins_summarise_across <- penguins %>% 
-  dplyr::group_by(species) %>% 
-  dplyr::summarize(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
-penguins_summarise_across
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "out", 
+          lab.col = "black",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none",
+          orientation = "horiz")
 
-# 13. bind_rows() e bind_cols()
-# selecionar as linhas para dois tibbles
-penguins_01 <- dplyr::slice(penguins, 1:5) %>% dplyr::select(1:3)
-penguins_02 <- dplyr::slice(penguins, 51:55) %>% dplyr::select(4:6)
+# 9. grafico de caixas ----------------------------------------------------
 
-# combinar as linhas
-penguins_bind_rows <- dplyr::bind_rows(penguins_01, penguins_02, .id = "id")
-head(penguins_bind_rows)
+# graphics
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        border = "black",
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
 
-## combinar as colunas
-penguins_bind_cols <- dplyr::bind_cols(penguins_01, penguins_02, .name_repair = "unique")
-head(penguins_bind_cols)
+# ggplot2
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
 
-# 14. *_join()
-## coordenadas
-penguin_islands <- tibble(
-  island = c("Torgersen", "Biscoe", "Dream", "Alpha"),
-  longitude = c(-64.083333, -63.775636, -64.233333, -63),
-  latitude = c(-64.766667, -64.818569, -64.733333, -64.316667))
-penguin_islands
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
 
-# juncao - left
-penguins_left_join <- dplyr::left_join(penguins, penguin_islands, by = "island")
-head(penguins_left_join)
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_violin(width = .3, 
+              show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(title = "Pontos com jitter", x = "Species", y = "Flipper length (mm)")
 
-# manipular dados
-# selecionar colunas
-penguins_dplyr <- penguins %>% 
-  dplyr::select(species, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g)
-penguins_dplyr
+# ggpubr
+ggboxplot(data = penguins, 
+          x = "species", 
+          y = "flipper_length_mm",
+          add = "jitter", 
+          shape = "species",
+          fill = "species",
+          color = "black",
+          palette = c("darkorange", "purple", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Frequência absoluta",
+          legend = "none")
 
-# selecionar colunas e retirar linhas com nas
-penguins_dplyr <- penguins %>% 
-  dplyr::select(species, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %>% 
-  dplyr::filter(if_all(where(is.numeric), ~ !is.na(.)))
-penguins_dplyr
+ggviolin(data = penguins, 
+         x = "species", 
+         y = "flipper_length_mm",
+         add = "jitter", 
+         shape = "species",
+         fill = "species",
+         color = "black",
+         palette = c("darkorange", "purple", "cyan4"),
+         xlab = "Comprimento da nadadeira (mm)",
+         ylab = "Frequência absoluta",
+         legend = "none")
 
-# selecionar colunas, retirar linhas com nas e calcular a media das colunas para as especies
-penguins_dplyr <- penguins %>% 
-  dplyr::select(species, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %>% 
-  dplyr::filter(if_all(where(is.numeric), ~ !is.na(.))) %>% 
-  dplyr::group_by(species) %>% 
-  dplyr::summarize(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
-penguins_dplyr
+# 10. grafico de dispersao ------------------------------------------------
 
-# exercicio 12 ------------------------------------------------------------
+# graphics
+par(mar = c(5, 5, 1, 1))
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5,
+     cex.axis = 1.3,
+     bty = "l")
 
-# exercicio 13 ------------------------------------------------------------
+# ggplot2
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17))+
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
 
-# exercicio 14 ------------------------------------------------------------
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_shape_manual(values = c(19, 15, 17))+
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
 
-# exercicio 15 ------------------------------------------------------------
+# data + plot
+datasaurus_dozen %>% 
+  dplyr::filter(dataset == "dino") %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 5, alpha = .75, pch = 21) +
+  theme_bw(base_size = 16)
+
+# dados totais
+datasaurus_dozen %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 1, alpha = .75, pch = 21) +
+  facet_wrap(~dataset) +
+  theme_bw(base_size = 16)
+
+# ggpubr
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)")
+
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)",
+          ellipse = TRUE, 
+          mean.point = TRUE)
+
+ggscatter(data = datasaurus_dozen %>% 
+            dplyr::filter(dataset == "dino"),
+          x = "x", 
+          y = "y",
+          size = 5,
+          xlab = "X", 
+          ylab = "Y")
+
+ggscatter(data = datasaurus_dozen,
+          x = "x", 
+          y = "y",
+          size = 1,
+          xlab = "X", 
+          ylab = "Y",
+          facet.by = "dataset")
 
 
+# 11. grafico pareado -----------------------------------------------------
 
-# 9. stringr -------------------------------------------------------------
+# graphics
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs(pch = 20,
+        upper.panel = NULL)
 
-# comprimento
-stringr::str_length(string = "penguins")
+# ggally
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  ggpairs() +
+  theme_bw(base_size = 16)
 
-# substituir
-stringr::str_replace(string = "penguins", pattern = "i", replacement = "y")
+penguins %>%
+  dplyr::select(species, sex, body_mass_g, ends_with("_mm")) %>%
+  GGally::ggpairs(aes(color = species)) +
+  scale_colour_manual(values = c("darkorange", "purple", "cyan4")) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 16)
 
-# separar
-stringr::str_split(string = "p-e-n-g-u-i-n-s", pattern = "-", simplify = TRUE)
+# psych
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs.panels(pch = 20, 
+               ellipses = FALSE, 
+               density = FALSE, 
+               stars = TRUE, 
+               hist.col = "gray",
+               digits = 2,
+               rug = FALSE,
+               breaks = 10,
+               ci = TRUE)
 
-# extrair pela posicao
-stringr::str_sub(string = "penguins", end = 3)
+# 12. combinando graficos -------------------------------------------------
 
-# extrair por padrao
-stringr::str_extract(string = "penguins", pattern = "p")
+# graphics
+par(mfrow = c(1, 2))
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
 
-# inserir espaco em branco - esquerda
-stringr::str_pad(string = "penguins", width = 10, side = "left")
 
-# inserir espaco em branco - direita
-stringr::str_pad(string = "penguins", width = 10, side = "right")
+par(mfrow = c(2, 1))
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
 
-# inserir espaco em branco - ambos
-stringr::str_pad(string = "penguins", width = 10, side = "both")
 
-# remover espacos em branco - esquerda
-stringr::str_trim(string = " penguins ", side = "left")
+# ggplot2
+ggplot_boxplot <- ggplot(data = penguins, 
+                         aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+ggplot_boxplot
 
-# remover espacos em branco - direta
-stringr::str_trim(string = " penguins ", side = "right")
+ggplot_scatterplot <- ggplot(data = penguins, 
+                             aes(x = bill_length_mm, 
+                                 y = bill_depth_mm,
+                                 color = species,
+                                 shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17))+
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+ggplot_scatterplot
 
-# remover espacos em branco - ambos
-stringr::str_trim(string = " penguins ", side = "both")
+# cowplot
+# combinacao horizontal
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          align = "h", rel_widths = c(1, 1.5),
+          labels = "AUTO")
 
-# minusculas
-stringr::str_to_lower(string = "Penguins")
+# combinacao vertical
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          ncol = 1, align = "v", 
+          labels = "AUTO")
 
-# maiusculas
-stringr::str_to_upper(string = "penguins")
+# patchwork
+# combinacao horizontal
+ggplot_boxplot + ggplot_scatterplot
 
-# primeiro caracter maiusculo da primeira palavra
-stringr::str_to_sentence(string = "palmer penGuins")
+# combinacao vertical
+ggplot_boxplot / ggplot_scatterplot
 
-# primeiro caracter maiusculo de cada palavra
-stringr::str_to_title(string = "palmer penGuins")
+# 13. graficos animados ---------------------------------------------------
 
-# ordenar - crescente
-stringr::str_sort(x = letters)
+# gganimate - demora uns 10 segundos!!!
+plot_animate <- ggplot(data = penguins,
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm, 
+           color = species)) +
+  geom_point() +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies") +
+  labs(title = "{closest_state}") +
+  transition_states(species) +
+  enter_grow() + 
+  exit_fade()
+plot_animate
 
-# ordenar - decrescente
-stringr::str_sort(x = letters, dec = TRUE)
+# exportar
+gganimate::anim_save(filename = here::here("03_dados", 
+                                           "graficos" ,
+                                           "plot_animate.gif"),
+                     animation = plot_animate)
 
-# alterar valores das colunas
-penguins_stringr_valores <- penguins %>% 
-  dplyr::mutate(species = stringr::str_to_lower(species))
+# 14. graficos interativos ------------------------------------------------
 
-# alterar nome das colunas
-penguins_stringr_nomes <- penguins %>% 
-  dplyr::rename_with(stringr::str_to_title)
+# plotly
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        type = "scatter",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(xaxis = list(title = "Comprimento do bico (mm)"),
+         yaxis = list(title = "Profundidade do bico (mm)"))
 
-# 10. forcats -------------------------------------------------------------
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        z = ~body_mass_g,
+        type = "scatter3d",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(scene = list(xaxis = list(title = "Comprimento do bico (mm)"),
+                      yaxis = list(title = "Profundidade do bico (mm)"),
+                      zaxis = list(title = "Massa (g)")))
 
-# converter dados de string para fator
-forcats::as_factor(penguins_raw$Species) %>% head()
+plot_penguins_scatter_int <- ggplotly(
+  ggplot(data = penguins, 
+         aes(x = bill_length_mm, 
+             y = bill_depth_mm,
+             color = species,
+             shape = species)) +
+    geom_point(size = 3, alpha = .8) +
+    geom_smooth(method = "lm", se = FALSE) +
+    scale_shape_manual(values = c(19, 15, 17)) +
+    scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+    theme_bw(base_size = 15) +
+    labs(x = "Comprimento do bico (mm)", 
+         y = "Profundidade do bico (mm)", 
+         color = "Espécies", shape = "Espécies"))
+plot_penguins_scatter_int
 
-# mudar o nome dos niveis
-forcats::fct_recode(penguins$species, a = "Adelie", c = "Chinstrap", g = "Gentoo") %>% head()
+# export
+htmlwidgets::saveWidget(widget = plot_penguins_scatter_int, 
+                        file = here::here("03_dados", "graficos" ,"plot_penguins_scatter_int.html"))
 
-# inverter os niveis
-forcats::fct_rev(penguins$species) %>% head()
+# 15. graficos usando uma interface ---------------------------------------
 
-# especificar a ordem dos niveis
-forcats::fct_relevel(penguins$species, "Chinstrap", "Gentoo", "Adelie") %>% head()
+# esquisse
 
-# niveis pela ordem em que aparecem
-forcats::fct_inorder(penguins$species) %>% head()
-
-## ordem (decrescente) de frequecia
-forcats::fct_infreq(penguins$species) %>% head()
-
-# agregacao de niveis raros em um nivel
-forcats::fct_lump(penguins$species) %>% head()
-
-# transformar varias colunas em fator
-penguins_raw_multi_factor <- penguins_raw %>% 
-  dplyr::mutate(across(where(is.character), forcats::as_factor))
+# iniciar
+esquisse::esquisser(iris)
+esquisse::esquisser(palmerpenguins::penguins)
 
 # end ---------------------------------------------------------------------

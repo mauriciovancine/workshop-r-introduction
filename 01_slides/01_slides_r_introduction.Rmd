@@ -543,7 +543,7 @@ background-position: 70% 80%
 
 ### Nome do arquivo
 
-## `02_script_intro_geocomp_r.R`
+## `01_script_r_introduction.R`
 
 ---
 
@@ -582,9 +582,9 @@ background-position: 70% 80%
 
 ```{r}
 #' ---
-#' titulo: Introdução à modelagem de distribuição de espécies usando a linguagem R
+#' titulo: Introdução à linguagem R para manipulação e visualização de dados 
 #' autor: seu nome
-#' data: 25-09-2021
+#' data: 10-11-2021
 #' ---
 ```
 
@@ -647,36 +647,6 @@ background-position: 70% 80%
 ```{r}
 # especificando - segue a ordem dos parênteses
 ((1 * 2) + (2 / 2)) ^ 2
-```
-
----
-
-class: inverse, center, middle
-# Exercícios
-
----
-
-background-image: url(img/exercicio01.jpg)
-background-size: 500px
-background-position: 50% 50%
-
-```{r echo=FALSE}
-countdown(minutes = 3, seconds = 00, color_background = "gray30")
-```
-
-# Exercício 01
-
-## Resolvam essa equação...
-
----
-
-# Exercício 01
-
-## Resposta
-
-```{r}
-# exercicio 01
-7 + 7 / 7 + 7 * 7 - 7
 ```
 
 ---
@@ -894,31 +864,6 @@ div
 
 ---
 
-class: inverse, middle, center
-# Exercícios
-
----
-
-# Exercício 02
-
-## Verifique se 3x2³ é maior que 2x3²
-
-```{r echo = FALSE}
-countdown(minutes = 3, seconds = 00, color_background = "gray30")
-```
-
----
-
-# Exercício 02
-
-## Resposta
-```{r}
-# exercicio 02
-3 * 2 ^ 3 >= 2 * 3 ^ 2
-```
-
----
-
 background-image: url(img/code_function.png), url(img/code_function_annotated.png)
 background-size: 250px, 400px
 background-position: 87% 35%, 85% 90%
@@ -1117,55 +1062,6 @@ sq
 ##  **Funções** que **operam e mudam** esses dados
 
 ## 3. Nova **atribuição** desses resultados a novos objetos
-
-
----
-
-class: inverse, middle, center
-# Exercícios
-
----
-
-# Exercício 03
-
-### Criem dois objetos (qualquer nome) com os valores 100 e 300
-
-### Multipliquem esses objetos (função **prod**) e atribuam ao objeto *mult*
-
-### Façam o logaritmo natural (função **log**) do objeto *mult* e atribuam ao objeto *ln*
-
-```{r echo = FALSE}
-countdown(minutes = 4, seconds = 00, color_background = "gray30")
-```
-
----
-
-# Exercício 03
-
-## Resposta
-
-```{r}
-# exercicio 03
-# criar dois objetos
-foo <- 100
-bar <- 300
-```
-
---
-
-```{r}
-# multiplicar e atribuir
-mult <- prod(foo, bar)
-mult 
-```
-
---
-
-```{r}
-# raiz e atribuir
-ln <- log(mult)
-ln
-```
 
 ---
 
@@ -1451,33 +1347,6 @@ nrow(available.packages())
 
 ---
 
-class: inverse, middle, center
-
-# Exercícios
-
----
-
-# Exercício 04
-
-## Instalem o pacote **tidyverse** do CRAN
-
-```{r echo = FALSE}
-countdown(minutes = 2, color_background = "gray30")
-```
-
----
-
-# Exercício 04
-
-## Resposta
-
-```{r eval=FALSE}
-# exercicio 04
-install.packages("tidyverse")
-```
-
----
-
 # 9. Ajuda
 
 ## Descreve as informações de uma função
@@ -1639,7 +1508,6 @@ load("meus_objs.RData")
 ```{r eval=FALSE}
 # salvar um objeto para um arquivo
 saveRDS(obj, file = "meu_obj.rds")
-
 ```
 
 --
@@ -1792,10 +1660,12 @@ Parênteses
 ```{r error=TRUE}
 sum(1, 2
     +
-      ```
-    
-    Aspas
-    ```{r error=TRUE}
+```
+
+--
+
+Aspas
+```{r error=TRUE}
     "string
 +
 ```
@@ -1824,7 +1694,7 @@ OBJ
 # 12. Principais erros
 
 ## 4. Esquecer de carregar um pacote
-```{r echo=TRUE}
+```{r echo=FALSE}
 detach("package:vegan", unload = TRUE)
 ```
 
@@ -1922,6 +1792,19 @@ background-position: 50% 50%
 
 ---
 
+background-image: url(img/hex-livro.png)
+background-size: 350px
+background-position: 50% 60%
+
+# 13. Principal material de estudo
+
+## Ciência de Dados em R (2021)
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Curso-R (2021)](https://livro.curso-r.com/)
+
+---
+
 background-image: url(img/cover_data_science_r.png)
 background-size: 300px
 background-position: 50% 55%
@@ -1971,19 +1854,6 @@ background-position: 50% 50%
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 [Xie et al. (2021)](https://bookdown.org/yihui/rmarkdown-cookbook/)
-
----
-
-background-image: url(img/cover_geocompr.png)
-background-size: 280px
-background-position: 50% 50%
-
-# 13. Principal material de estudo
-
-## Geocomputation with R (2019)
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-[Lovelace et al. (2019)](https://geocompr.robinlovelace.net/)
 
 ---
 
