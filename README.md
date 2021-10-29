@@ -12,7 +12,7 @@ Prof. Maurício Vancine
 15 alunos(as)
 
 **Resumo**  
-O minicurso apresentará os fundamentos da linguagem R e IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura visando ajudar os usuários a criar um código eficiente e 'organizado'. Os pacotes são focados principalmente na organização de dados (leitura, filtragem, organização, seleção e resumo) e visualização de dados. Serão abordados os seguintes temas: (1) apresentação, (2) funcionamento da linguagem R, (3) estrutura e manipulação de objetos, (4) tidyverse e (5) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos introdutórios do funcionamento da linguagem, assim como na manipulação e visualização de dados tabulares.
+O minicurso apresentará os fundamentos da linguagem R e do IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura e sintaxe, visando ajudar os usuários a criar um código eficiente e organizado. Os pacotes são focados principalmente na organização (leitura, filtragem, organização, seleção e resumo) e visualização de dados. Serão abordados os seguintes temas: (1) funcionamento da linguagem R, (2) introdução ao tidyverse e (3) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos introdutórios do funcionamento da linguagem através do *tidyverse*, assim como na manipulação e visualização de dados tabulares.
 
 ---
 
@@ -37,8 +37,8 @@ Será necessário que todos usem seus notebooks ou desktops
 **Softwares**  
 Instalar a versão mais recente do 
 
-1. [R (4.0.x)](https://www.r-project.org)
-2. [RStudio (1.4.x)](https://www.rstudio.com)
+1. [R (4.1.1)](https://www.r-project.org)
+2. [RStudio (2021.09.0-351)](https://www.rstudio.com)
 
 - [Vídeo de instalação do R e do RStudio](https://youtu.be/l1bWvZMNMCM)
 
@@ -54,20 +54,27 @@ sudo apt update
 sudo apt install -y r-base r-base-core r-recommended r-base-dev
 
 # rstudio
-wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1717-amd64.deb
-sudo dpkg -i rstudio-1.4.1717-amd64.deb
-sudo apt install -fy
-rm rstudio-1.4.1717-amd64.deb
+wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.0%2B351-amd64.deb &&
+sudo dpkg -i rstudio-2021.09.0+351-amd64.deb &&
+sudo apt install -fy && 
+rm rstudio-2021.09.0+351-amd64.deb
 ```
 
 ---
 
-## Material
+## Slides
 
-[Slides](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/slides_workshop_r_introduction.html)  
+[0. Apresentações](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/00_slides_r_introduction.html#1) <br>
+[1. Funcionamento da linguagem R](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/01_slides_r_introduction.html#1) <br>
+[2. Introdução ao tidyverse](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/02_slides_r_introduction.html#1) <br>
+[3. Visualização de dados](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/03_slides_r_introduction.html#1) <br>
 
-[Script](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/02_script/script_workshop_r_introduction.R)
+---
 
-[Conjunto de dados](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/03_conjunto_dados.zip)
+## Scripts
+
+[0. Instalar pacotes](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/02_scripts/00_script_r_introduction.R) <br>
+[2. Introdução ao tidyverse](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/02_scripts/02_script_r_introduction.R) <br>
+[3. Introdução ao tidyverse](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/02_scripts/03_script_r_introduction.R) <br>
 
 ---
