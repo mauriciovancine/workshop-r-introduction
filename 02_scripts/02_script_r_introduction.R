@@ -82,33 +82,6 @@ si
 # view the sites data
 tibble::glimpse(si)
 
-# view the species data
-tibble::glimpse(sp)
-
-# tibble vs data.frame
-
-# 1. nunca converte um tipo character como factor - 
-df <- data.frame(ch = c("a", "b"), nu = 1:2)
-str(df)
-
-tb <- tibble(ch = c("a", "b"), nu = 1:2)
-glimpse(tb)
-
-# 2. a indexacao com colchetes sempre retorna um tibble
-df_ch <- df[, 1]
-class(df_ch)
-
-tb_ch <- tb[, 1]
-class(tb_ch)
-
-# indexacao pelo nome devolve um vetor
-tb_ch <- tb$ch
-class(tb_ch)
-
-# 3. nao faz correspondencia parcial, retorna NULL se a coluna nao existe com o nome especificado
-df$c 
-tb$c
-
 # 6. magrittr (pipe - %>%) -----------------------------------------------
 # sem pipe
 sqrt(sum(1:100))

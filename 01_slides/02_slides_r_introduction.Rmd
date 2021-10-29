@@ -584,17 +584,6 @@ tibble::glimpse(si)
 
 ---
 
-# 5. tibble
-
-## Descrição dos modos das colunas através da função `glimpse()` - "espiar os dados"
-
-```{r}
-# descricao dos dados de especies
-tibble::glimpse(sp)
-```
-
----
-
 class: clear
 background-image: url(img/package_magrittr.png)
 background-size: 400px
