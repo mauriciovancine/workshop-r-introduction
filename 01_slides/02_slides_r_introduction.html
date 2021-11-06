@@ -8,6 +8,8 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
@@ -29,7 +31,7 @@ class: clear
 background-image: url(img/general_data_science_r4ds.png)
 background-size: 800px
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 [@allison_horst](https://twitter.com/allison_horst)
 
 ---
@@ -880,6 +882,81 @@ background-size: 900px
 
 ---
 
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 01
+
+## Reescreva cada uma das operações utilizando pipes `%&gt;%`:
+&lt;br&gt;
+`log10(cumsum(1:100))`
+&lt;br&gt;
+`sum(sqrt(abs(rnorm(100))))`
+&lt;br&gt;
+`sum(sort(sample(1:10, 10000, rep = TRUE)))`
+
+<div class="countdown" id="timer_6186dc2b" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 01
+## Solução
+
+```r
+# solucao
+# 1.
+log10(cumsum(1:100))
+
+1:100 %&gt;%
+  cumsum %&gt;% 
+  log10
+```
+
+---
+
+# Exercício 01
+## Solução
+
+
+```r
+# 2.
+sum(sort(abs(rnorm(100))))
+
+rnorm(100) %&gt;% 
+  abs %&gt;% 
+  sort %&gt;% 
+  sum
+```
+
+---
+
+# Exercício 01
+## Solução
+
+
+```r
+# 3.
+sum(sort(sample(1:10, 10000, rep = TRUE)))
+
+1:10 %&gt;% 
+  sample(10000, rep = TRUE) %&gt;% 
+  sort %&gt;% 
+  sum
+```
+
+---
+
+class: inverse, center, middle
+
+# Para apresentar os próximos pacotes, vamos usar dados de pinguins!
+
+---
+
 class: clear
 background-image: url(img/package_palmerpenguins.png)
 background-size: 400px
@@ -1122,7 +1199,7 @@ head(penguins_raw_todas_na)
 
 # 7. tidyr
 
-## **4. `drop_na()`**
+## **3. `drop_na()`**
 
 ### Remove as linhas com NA da coluna "Comments"
 
@@ -1144,6 +1221,138 @@ head(penguins_raw_colunas_na[, "Comments"])
 ## 4 Nest never observed with full clutch.
 ## 5 No blood sample obtained.            
 ## 6 No blood sample obtained for sexing.
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 02
+
+### Faça a união das colunas `studyName` e `Individual ID` na coluna `StudyInd`, separados por ` - ` dos pinguins dos dados `penguins_raw`
+
+<div class="countdown" id="timer_6186dce1" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 02
+
+## Solução
+
+
+```r
+# exercicio 02
+penguins_raw_uni_ind &lt;- penguins_raw %&gt;% 
+  tidyr::unite(col = "StudyInd",
+               c(studyName, `Individual ID`), 
+               sep = " - ",
+               remove = FALSE)
+head(penguins_raw_uni_ind)
+```
+
+```
+## # A tibble: 6 × 18
+##   StudyInd studyName `Sample Number` Species Region Island Stage `Individual ID`
+##   &lt;chr&gt;    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          
+## 1 PAL0708… PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           
+## 2 PAL0708… PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           
+## 3 PAL0708… PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           
+## 4 PAL0708… PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           
+## 5 PAL0708… PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           
+## 6 PAL0708… PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           
+## # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,
+## #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,
+## #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
+```
+
+---
+
+# Exercício 03
+
+### Separe as informações de ano, mês e dia da coluna `Date Egg` dos dados `penguins_raw`
+
+<div class="countdown" id="timer_6186db88" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 03
+
+## Solução
+
+
+```r
+# exercicio 03
+penguins_raw_sep_data &lt;- penguins_raw %&gt;% 
+  tidyr::separate(col = `Date Egg`, 
+                  into = c("Year", "Month", "Day"), 
+                  sep = "-",
+                  remove = FALSE)
+head(penguins_raw_sep_data)
+```
+
+```
+## # A tibble: 6 × 20
+##   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          
+## 1 PAL0708                 1 Adelie Pengu… Anvers Torger… Adult,… N1A1           
+## 2 PAL0708                 2 Adelie Pengu… Anvers Torger… Adult,… N1A2           
+## 3 PAL0708                 3 Adelie Pengu… Anvers Torger… Adult,… N2A1           
+## 4 PAL0708                 4 Adelie Pengu… Anvers Torger… Adult,… N2A2           
+## 5 PAL0708                 5 Adelie Pengu… Anvers Torger… Adult,… N3A1           
+## 6 PAL0708                 6 Adelie Pengu… Anvers Torger… Adult,… N3A2           
+## # … with 13 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Year &lt;chr&gt;, Month &lt;chr&gt;, Day &lt;chr&gt;, Culmen Length (mm) &lt;dbl&gt;,
+## #   Culmen Depth (mm) &lt;dbl&gt;, Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;,
+## #   Sex &lt;chr&gt;, Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
+```
+
+---
+
+# Exercício 04
+
+### Remova as linhas que possuem `NA` na coluna `Body` dos dados `penguins_raw`
+
+<div class="countdown" id="timer_6186de0f" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 04
+
+## Solução
+
+
+```r
+# exercicio 04
+penguins_raw_drop_na_body &lt;- penguins_raw %&gt;% 
+  tidyr::drop_na(`Body Mass (g)`)
+head(penguins_raw_drop_na_body)
+```
+
+```
+## # A tibble: 6 × 17
+##   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          
+## 1 PAL0708                 1 Adelie Pengu… Anvers Torger… Adult,… N1A1           
+## 2 PAL0708                 2 Adelie Pengu… Anvers Torger… Adult,… N1A2           
+## 3 PAL0708                 3 Adelie Pengu… Anvers Torger… Adult,… N2A1           
+## 4 PAL0708                 5 Adelie Pengu… Anvers Torger… Adult,… N3A1           
+## 5 PAL0708                 6 Adelie Pengu… Anvers Torger… Adult,… N3A2           
+## 6 PAL0708                 7 Adelie Pengu… Anvers Torger… Adult,… N4A1           
+## # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,
+## #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,
+## #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
 ```
 
 ---
@@ -1716,12 +1925,12 @@ head(penguins_slice_sample)
 ## # A tibble: 6 × 8
 ##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
 ##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
-## 1 Adelie  Biscoe           41.3          21.1              195        4400 male 
-## 2 Gentoo  Biscoe           44.5          15.7              217        4875 &lt;NA&gt; 
-## 3 Adelie  Torge…           41.4          18.5              202        3875 male 
-## 4 Adelie  Biscoe           37.6          17                185        3600 fema…
-## 5 Adelie  Dream            36            17.9              190        3450 fema…
-## 6 Adelie  Biscoe           35.7          16.9              185        3150 fema…
+## 1 Gentoo  Biscoe           51.3          14.2              218        5300 male 
+## 2 Adelie  Dream            36            17.9              190        3450 fema…
+## 3 Adelie  Dream            37            16.5              185        3400 fema…
+## 4 Gentoo  Biscoe           50            15.2              218        5700 male 
+## 5 Gentoo  Biscoe           50.4          15.7              222        5750 male 
+## 6 Adelie  Biscoe           34.5          18.1              187        2900 fema…
 ## # … with 1 more variable: year &lt;int&gt;
 ```
 
@@ -1916,6 +2125,181 @@ penguins_summarise
 ## 1 Adelie               3701.           459.
 ## 2 Chinstrap            3733.           384.
 ## 3 Gentoo               5076.           504.
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 05
+
+### Usando o conjunto de dados `penguins`, adicione essas novas colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10`, que são a operação `log10` das colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10` e atribua ao mesmo objeto `penguins_log` utilizando o formato tidyverse
+
+<div class="countdown" id="timer_6186da3f" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 05
+
+## Solução
+
+
+```r
+# exercicio 05
+penguins_log &lt;- penguins %&gt;% 
+  dplyr::mutate(bill_length_mm_log10 = log10(bill_length_mm), 
+                bill_depth_mm_log10 = log10(bill_depth_mm), 
+                flipper_length_mm_log10 = log10(flipper_length_mm), 
+                body_mass_g_log10 = log10(body_mass_g))
+penguins_log
+```
+
+```
+## # A tibble: 344 × 12
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # … with 334 more rows, and 6 more variables: sex &lt;fct&gt;, year &lt;int&gt;,
+## #   bill_length_mm_log10 &lt;dbl&gt;, bill_depth_mm_log10 &lt;dbl&gt;,
+## #   flipper_length_mm_log10 &lt;dbl&gt;, body_mass_g_log10 &lt;dbl&gt;
+```
+
+---
+
+# Exercício 06
+
+### Usando o conjunto de dados `penguins`, ordene as linhas em forma decrescente pela coluna `body_mass_g`, atribuindo o resultado a um novo objeto `penguins_arrange` utilizando o formato tidyverse
+
+<div class="countdown" id="timer_6186dae4" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 06
+
+## Solução
+
+
+```r
+# exercicio 06
+penguins_arrange &lt;- penguins %&gt;% 
+  dplyr::arrange(-body_mass_g)
+penguins_arrange
+```
+
+```
+## # A tibble: 344 × 8
+##    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Gentoo  Biscoe           49.2          15.2               221        6300
+##  2 Gentoo  Biscoe           59.6          17                 230        6050
+##  3 Gentoo  Biscoe           51.1          16.3               220        6000
+##  4 Gentoo  Biscoe           48.8          16.2               222        6000
+##  5 Gentoo  Biscoe           45.2          16.4               223        5950
+##  6 Gentoo  Biscoe           49.8          15.9               229        5950
+##  7 Gentoo  Biscoe           48.4          14.6               213        5850
+##  8 Gentoo  Biscoe           49.3          15.7               217        5850
+##  9 Gentoo  Biscoe           55.1          16                 230        5850
+## 10 Gentoo  Biscoe           49.5          16.2               229        5800
+## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+
+---
+
+# Exercício 07
+
+### Usando o conjunto de dados `penguins`, filtre as linhas com `bill_length_mm` maior que 50 mm, `bill_depth_mm` menor que 20 mm, `flipper_length_mm` maior que 220 mm e `body_mass_g` menor que 5500 g, atribuindo o resultado a um novo objeto `penguins_filter` utilizando o formato tidyverse
+
+<div class="countdown" id="timer_6186dc3f" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 07
+
+## Solução
+
+
+```r
+# exercicio 07
+penguins_filter &lt;- penguins %&gt;% 
+  dplyr::filter(bill_length_mm &gt; 50, 
+                bill_depth_mm &lt; 20, 
+                flipper_length_mm &gt; 220, 
+                body_mass_g &lt; 5500)
+penguins_filter
+```
+
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           50.5          15.9              225        5400 male 
+## 2 Gentoo  Biscoe           50.1          15                225        5000 male 
+## 3 Gentoo  Biscoe           52.5          15.6              221        5450 male 
+## 4 Gentoo  Biscoe           52.2          17.1              228        5400 male 
+## 5 Gentoo  Biscoe           50.8          15.7              226        5200 male 
+## 6 Gentoo  Biscoe           51.1          16.5              225        5250 male 
+## # … with 1 more variable: year &lt;int&gt;
+```
+
+---
+
+# Exercício 08
+
+### Usando o conjunto de dados `penguins`, amostre 70% das linhas aleatoriamente com `body_mass_g` menor que  5000 g, atribuindo o resultado a um novo objeto `penguins_sample` utilizando o formato tidyverse
+
+<div class="countdown" id="timer_6186db6d" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+# Exercício 08
+
+## Solução
+
+
+```r
+# exercicio 08
+penguins_sample &lt;- penguins %&gt;% 
+  dplyr::filter(body_mass_g &lt; 5000) %&gt;% 
+  dplyr::slice_sample(prop = .7)
+penguins_sample
+```
+
+```
+## # A tibble: 192 × 8
+##    species   island    bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie    Biscoe              37.9          18.6              172        3150
+##  2 Adelie    Biscoe              45.6          20.3              191        4600
+##  3 Chinstrap Dream               52.7          19.8              197        3725
+##  4 Chinstrap Dream               49.5          19                200        3800
+##  5 Chinstrap Dream               49.3          19.9              203        4050
+##  6 Adelie    Dream               37            16.5              185        3400
+##  7 Gentoo    Biscoe              47.2          15.5              215        4975
+##  8 Adelie    Biscoe              42.7          18.3              196        4075
+##  9 Adelie    Torgersen           36.7          18.8              187        3800
+## 10 Adelie    Biscoe              38.1          17                181        3175
+## # … with 182 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 
 ---

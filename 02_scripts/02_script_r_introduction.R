@@ -21,10 +21,6 @@ library(writexl)
 # 6. magrittr (pipe - %>%)
 # 7. tidyr
 # 8. dplyr
-# 9. stringr
-# 10. forcats
-# 11. lubridate
-# 12. purrr
 
 # 2. tidyverse -----------------------------------------------------------
 # instalar pacote

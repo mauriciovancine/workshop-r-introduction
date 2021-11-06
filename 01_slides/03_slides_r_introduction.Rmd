@@ -2741,7 +2741,7 @@ class: inverse, center, middle
 
 class: inverse, center, middle
 
-# Muito obrigado à todas e todos pela atenção 
+# Muito obrigado à todes pela atenção!
 
 ---
 

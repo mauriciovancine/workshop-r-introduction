@@ -31,7 +31,7 @@ class: clear
 background-image: url(img/general_data_science_r4ds.png)
 background-size: 800px
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 [@allison_horst](https://twitter.com/allison_horst)
 
 ---
@@ -711,6 +711,78 @@ background-size: 900px
 
 ---
 
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 01
+
+## Reescreva cada uma das operações utilizando pipes `%>%`:
+<br>
+`log10(cumsum(1:100))`
+<br>
+`sum(sqrt(abs(rnorm(100))))`
+<br>
+`sum(sort(sample(1:10, 10000, rep = TRUE)))`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 01
+## Solução
+```{r eval=FALSE}
+# solucao
+# 1.
+log10(cumsum(1:100))
+
+1:100 %>%
+  cumsum %>% 
+  log10
+```
+
+---
+
+# Exercício 01
+## Solução
+
+```{r eval=FALSE}
+# 2.
+sum(sort(abs(rnorm(100))))
+
+rnorm(100) %>% 
+  abs %>% 
+  sort %>% 
+  sum
+```
+
+---
+
+# Exercício 01
+## Solução
+
+```{r eval=FALSE}
+# 3.
+sum(sort(sample(1:10, 10000, rep = TRUE)))
+
+1:10 %>% 
+  sample(10000, rep = TRUE) %>% 
+  sort %>% 
+  sum
+```
+
+---
+
+class: inverse, center, middle
+
+# Para apresentar os próximos pacotes, vamos usar dados de pinguins!
+
+---
+
 class: clear
 background-image: url(img/package_palmerpenguins.png)
 background-size: 400px
@@ -908,7 +980,7 @@ head(penguins_raw_todas_na)
 
 # 7. tidyr
 
-## **4. `drop_na()`**
+## **3. `drop_na()`**
 
 ### Remove as linhas com NA da coluna "Comments"
 
@@ -917,6 +989,87 @@ head(penguins_raw_todas_na)
 penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
                                           any_of("Comments"))
 head(penguins_raw_colunas_na[, "Comments"])
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 02
+
+### Faça a união das colunas `studyName` e `Individual ID` na coluna `StudyInd`, separados por ` - ` dos pinguins dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 02
+
+## Solução
+
+```{r}
+# exercicio 02
+penguins_raw_uni_ind <- penguins_raw %>% 
+  tidyr::unite(col = "StudyInd",
+               c(studyName, `Individual ID`), 
+               sep = " - ",
+               remove = FALSE)
+head(penguins_raw_uni_ind)
+```
+
+---
+
+# Exercício 03
+
+### Separe as informações de ano, mês e dia da coluna `Date Egg` dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 03
+
+## Solução
+
+```{r}
+# exercicio 03
+penguins_raw_sep_data <- penguins_raw %>% 
+  tidyr::separate(col = `Date Egg`, 
+                  into = c("Year", "Month", "Day"), 
+                  sep = "-",
+                  remove = FALSE)
+head(penguins_raw_sep_data)
+```
+
+---
+
+# Exercício 04
+
+### Remova as linhas que possuem `NA` na coluna `Body` dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 04
+
+## Solução
+
+```{r}
+# exercicio 04
+penguins_raw_drop_na_body <- penguins_raw %>% 
+  tidyr::drop_na(`Body Mass (g)`)
+head(penguins_raw_drop_na_body)
 ```
 
 ---
@@ -1404,6 +1557,111 @@ penguins_summarise <- penguins %>%
   dplyr::summarize(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
                    body_mass_g_sd = sd(body_mass_g, na.rm = TRUE))
 penguins_summarise
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 05
+
+### Usando o conjunto de dados `penguins`, adicione essas novas colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10`, que são a operação `log10` das colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10` e atribua ao mesmo objeto `penguins_log` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 05
+
+## Solução
+
+```{r}
+# exercicio 05
+penguins_log <- penguins %>% 
+  dplyr::mutate(bill_length_mm_log10 = log10(bill_length_mm), 
+                bill_depth_mm_log10 = log10(bill_depth_mm), 
+                flipper_length_mm_log10 = log10(flipper_length_mm), 
+                body_mass_g_log10 = log10(body_mass_g))
+penguins_log
+```
+
+---
+
+# Exercício 06
+
+### Usando o conjunto de dados `penguins`, ordene as linhas em forma decrescente pela coluna `body_mass_g`, atribuindo o resultado a um novo objeto `penguins_arrange` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 06
+
+## Solução
+
+```{r}
+# exercicio 06
+penguins_arrange <- penguins %>% 
+  dplyr::arrange(-body_mass_g)
+penguins_arrange
+```
+
+---
+
+# Exercício 07
+
+### Usando o conjunto de dados `penguins`, filtre as linhas com `bill_length_mm` maior que 50 mm, `bill_depth_mm` menor que 20 mm, `flipper_length_mm` maior que 220 mm e `body_mass_g` menor que 5500 g, atribuindo o resultado a um novo objeto `penguins_filter` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 07
+
+## Solução
+
+```{r}
+# exercicio 07
+penguins_filter <- penguins %>% 
+  dplyr::filter(bill_length_mm > 50, 
+                bill_depth_mm < 20, 
+                flipper_length_mm > 220, 
+                body_mass_g < 5500)
+penguins_filter
+```
+
+---
+
+# Exercício 08
+
+### Usando o conjunto de dados `penguins`, amostre 70% das linhas aleatoriamente com `body_mass_g` menor que  5000 g, atribuindo o resultado a um novo objeto `penguins_sample` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 08
+
+## Solução
+
+```{r}
+# exercicio 08
+penguins_sample <- penguins %>% 
+  dplyr::filter(body_mass_g < 5000) %>% 
+  dplyr::slice_sample(prop = .7)
+penguins_sample
 ```
 
 ---
