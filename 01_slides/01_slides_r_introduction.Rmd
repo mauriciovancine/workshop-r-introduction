@@ -20,7 +20,6 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE, encoding = "UTF-8", crayon.enabled = TRUE)
 knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
-if(!require(countdown)) devtools::install_github("gadenbuie/countdown")
 ```
 
 class: clear
@@ -184,7 +183,7 @@ background-position: 90% 75%
 
 ## Aplicações
 
-### Análises e visualização de dados
+### Manipulação, visualização e análise de dados
 - Estatísticas univariadas e multivariadas
 - Análises de dados ecológicos (população, comunidades e ecossistemas)
 - Análise de dados espaciais, temporais e sonoros
@@ -335,7 +334,7 @@ background-position: 90% 30%, 90% 85%
 - **ctrl + Shift + R**: insere uma sessão (# ----------------------)
 - **ctrl + Shift + H**: abre uma janela para selecionar o diretório de trabalho
 - **ctrl + Shift + f10**: reinicia o console
-- **ctrl + L**: limpa os comandos do console 
+- **ctrl + L**: limpa os códigos do console 
 - **alt + Shift + K**: abre uma janela com todos os atalhos disponíveis
 
 ---
@@ -1059,7 +1058,7 @@ sq
 
 ## 1. **Atribuição** de dados a objetos
 
-##  **Funções** que **operam e mudam** esses dados
+## 2. **Funções** que **operam e mudam** esses dados
 
 ## 3. Nova **atribuição** desses resultados a novos objetos
 
@@ -1107,7 +1106,7 @@ background-position: 90% 100%
 
 ## 1. Pacotes já **instalados por padrão** e que são **carregados** quando abrimos o R
 
-## 2. Pacotes que **instalamos** e **carregamos** com comandos
+## 2. Pacotes que **instalamos** e **carregamos** com códigos
 
 ---
 
@@ -1654,7 +1653,7 @@ background-position: 50% 50%
 
 # 12. Principais erros
 
-## 1. Esquecer de completar um comando (+)
+## 1. Esquecer de completar um código (+)
 
 Parênteses
 ```{r error=TRUE}
@@ -1726,7 +1725,7 @@ decostand(dune, "hell")
 
 background-image: url(img/code_camel_case.png)
 background-size: 350px
-background-position: 50% 90%
+background-position: 90% 90%
 
 # 12. Principais erros
 
@@ -1739,7 +1738,7 @@ colsums(dune)
 
 background-image: url(img/code_camel_case.png)
 background-size: 350px
-background-position: 50% 90%
+background-position: 90% 90%
 
 # 12. Principais erros
 

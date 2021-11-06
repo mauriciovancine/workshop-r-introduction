@@ -16,7 +16,7 @@ O minicurso apresentará os fundamentos da linguagem R e do IDE RStudio para a m
 
 ## Carga horária
 
-06 horas
+08 horas
 
 ## Repositório do GitHub
 
@@ -54,7 +54,7 @@ Mais informações:
 1. Principais erros
 1. Principal material de estudo
 
-### 2 Introdução ao tidyverse (3 h)
+### 2 Introdução ao tidyverse (4 h)
 
 1. Contextualização
 1. tidyverse
@@ -65,7 +65,7 @@ Mais informações:
 1. tidyr
 1. dplyr
 
-### 3 Visualização de dados (2 h)
+### 3 Visualização de dados (3 h)
 
 1. Contextualização
 1. Principais pacotes para gráficos 
