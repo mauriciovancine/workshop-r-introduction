@@ -21,7 +21,7 @@ output:
 options(htmltools.dir.version = FALSE, 
         encoding = "UTF-8",
         knitr.table.format = "html")
-knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE, eval = FALSE)
 if(!require(countdown)) devtools::install_github("gadenbuie/countdown")
 if(!require(tidyverse)) install.packages("tidyverse")
 if(!require(palmerpenguins)) install.packages("palmerpenguins")
@@ -33,6 +33,12 @@ background-size: 800px
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 [@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+class: inverse, center, middle
+
+# Informando: o valor das incrições será convertido em duas cestas básicas
 
 ---
 

@@ -48,8 +48,8 @@ here::here()
 # 4. readr, readxl e writexl ----------------------------------------------
 # formato .csv
 # importar sites com here
-si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"),)
-si
+dados_sapos <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
+dados_sapos
 
 # importar sites sem here
 si <- readr::read_csv("./03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
