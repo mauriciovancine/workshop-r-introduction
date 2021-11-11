@@ -21,7 +21,7 @@ output:
 options(htmltools.dir.version = FALSE, 
         encoding = "UTF-8",
         knitr.table.format = "html")
-knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE, eval = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE, eval = TRUE)
 if(!require(countdown)) devtools::install_github("gadenbuie/countdown")
 if(!require(tidyverse)) install.packages("tidyverse")
 if(!require(palmerpenguins)) install.packages("palmerpenguins")

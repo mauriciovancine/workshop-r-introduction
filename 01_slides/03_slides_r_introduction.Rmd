@@ -701,7 +701,7 @@ hist(penguins$flipper_length_mm,
      border = "gray",
      main = "Comprimento da nadadeira dos penguins",
      xlab = "Comprimento da nadadeira (mm)",
-     ylab = "Frequência (%)")
+     ylab = "Frequência")
 ```
 ]
 
@@ -722,7 +722,7 @@ hist(penguins$flipper_length_mm,
      border = "gray",
      main = "Comprimento da nadadeira dos penguins",
      xlab = "Comprimento da nadadeira (mm)",
-     ylab = "Frequência (%)",
+     ylab = "Frequência",
      br = 50)
 ```
 ]
@@ -745,7 +745,7 @@ hist(penguins$flipper_length_mm,
      border = "gray",
      main = "Comprimento da nadadeira dos penguins",
      xlab = "Comprimento da nadadeira (mm)",
-     ylab = "Frequência (%)",
+     ylab = "Frequência",
      br = 50,
      cex.main = 2,
      cex.lab = 2, 
@@ -832,7 +832,7 @@ plot(density(na.omit(penguins$flipper_length_mm)),
      col = "gray50",
      main = "Comprimento da nadadeira dos penguins",
      xlab = "Comprimento da nadadeira (mm)",
-     ylab = "Frequência (%)",
+     ylab = "Frequência",
      cex.main = 2,  cex.lab = 2, cex.axis = 1.5)
 polygon(density(na.omit(penguins$flipper_length_mm)), col = "gray50")
 ```
@@ -931,7 +931,7 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
                  bins = 10, alpha = .5) +
   labs(title = "Comprimento da nadadeira dos penguins",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]
@@ -954,7 +954,7 @@ ggplot(data = penguins,
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]
@@ -977,7 +977,7 @@ ggplot(data = penguins,
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]
@@ -1001,7 +1001,7 @@ ggplot(data = penguins,
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]
@@ -1026,7 +1026,7 @@ ggplot(data = penguins,
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]
@@ -1051,7 +1051,7 @@ ggplot(data = penguins,
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
-       y = "Frequência (%)") +
+       y = "Frequência") +
   theme_bw(base_size = 16)
 ```
 ]

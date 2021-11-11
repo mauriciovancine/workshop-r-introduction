@@ -48,11 +48,11 @@ here::here()
 # 4. readr, readxl e writexl ----------------------------------------------
 # formato .csv
 # importar sites com here
-dados_sapos <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
-dados_sapos
+si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
+si
 
 # importar sites sem here
-si <- readr::read_csv("./03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
+si <- readr::read_csv("03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
 si
 
 # formato .txt
@@ -180,9 +180,14 @@ head(penguins_raw_colunas_na[, "Comments"])
 # 13. *_join(): funções que juntam dados de duas tabelas através de uma coluna chave
 
 # 1. relocate()
+# reordenar colunas - nome
+penguins_relocate_col <- penguins %>% 
+  dplyr::relocate(sex, year, .after = island)
+head(penguins_relocate_col)
+
 # reordenar colunas - posicao
 penguins_relocate_ncol <- penguins %>% 
-  dplyr::relocate(sex, year, .after = 2)
+  dplyr::relocate(sex, year, .after = island)
 head(penguins_relocate_ncol)
 
 # 2. rename()
@@ -224,7 +229,7 @@ head(penguins_select_pull, 15)
 # 5. mutate()
 # adicionar colunas
 penguins_mutate <- penguins %>% 
-  dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
+  dplyr::mutate(body_mass_sqrt = sqrt(body_mass_g), .before = sex)
 head(penguins_mutate)
 
 # 6. arrange()
@@ -278,7 +283,7 @@ head(penguins_slice_head)
 
 # selecionar linhas aleatoriamente
 penguins_slice_sample <- penguins %>% 
-  dplyr::slice_sample(n = 30)
+  dplyr::slice_sample(n = 30, replace = FALSE)
 head(penguins_slice_sample)
 
 # 9. distinct()
@@ -295,7 +300,7 @@ head(penguins_distinct_keep_all)
 # 10. count()
 # contagens de valores para uma coluna
 penguins_count <- penguins %>% 
-  dplyr::count(species)
+  dplyr::count(species, sex)
 penguins_count
 
 # contagens de valores para mais de uma coluna

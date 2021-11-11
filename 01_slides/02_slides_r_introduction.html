@@ -8,6 +8,8 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
@@ -246,6 +248,17 @@ library(tidyverse)
 tidyverse::tidyverse_packages(include_self = TRUE)
 ```
 
+```
+##  [1] "broom"         "cli"           "crayon"        "dbplyr"       
+##  [5] "dplyr"         "dtplyr"        "forcats"       "googledrive"  
+##  [9] "googlesheets4" "ggplot2"       "haven"         "hms"          
+## [13] "httr"          "jsonlite"      "lubridate"     "magrittr"     
+## [17] "modelr"        "pillar"        "purrr"         "readr"        
+## [21] "readxl"        "reprex"        "rlang"         "rstudioapi"   
+## [25] "rvest"         "stringr"       "tibble"        "tidyr"        
+## [29] "xml2"          "tidyverse"
+```
+
 ---
 
 background-image: url(img/code_snake_case.png)
@@ -446,6 +459,29 @@ si &lt;- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv")
 si
 ```
 
+```
+## # A tibble: 1,163 × 25
+##    id      reference_number species_number record sampled_habitat active_methods
+##    &lt;chr&gt;              &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;         
+##  1 amp1001             1001             19 ab     fo,ll           as            
+##  2 amp1002             1002             16 co     fo,la,ll        as            
+##  3 amp1003             1002             14 co     fo,la,ll        as            
+##  4 amp1004             1002             13 co     fo,la,ll        as            
+##  5 amp1005             1003             30 co     fo,ll,br        as            
+##  6 amp1006             1004             42 co     tp,pp,la,ll,is  &lt;NA&gt;          
+##  7 amp1007             1005             23 co     sp              as            
+##  8 amp1008             1005             19 co     sp,la,sw        as,sb,tr      
+##  9 amp1009             1005             13 ab     fo              &lt;NA&gt;          
+## 10 amp1010             1006              1 ab     fo              &lt;NA&gt;          
+## # … with 1,153 more rows, and 19 more variables: passive_methods &lt;chr&gt;,
+## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;dbl&gt;,
+## #   year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;, year_finish &lt;dbl&gt;,
+## #   effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;, state_abbreviation &lt;chr&gt;,
+## #   municipality &lt;chr&gt;, site &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
+## #   coordinate_precision &lt;chr&gt;, altitude &lt;dbl&gt;, temperature &lt;dbl&gt;,
+## #   precipitation &lt;dbl&gt;
+```
+
 ---
 
 # 4. readr, readxl e writexl
@@ -462,6 +498,28 @@ si
 ```
 
 
+```
+## # A tibble: 1,163 × 25
+##    id      reference_number species_number record sampled_habitat active_methods
+##    &lt;chr&gt;              &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;         
+##  1 amp1001             1001             19 ab     fo,ll           as            
+##  2 amp1002             1002             16 co     fo,la,ll        as            
+##  3 amp1003             1002             14 co     fo,la,ll        as            
+##  4 amp1004             1002             13 co     fo,la,ll        as            
+##  5 amp1005             1003             30 co     fo,ll,br        as            
+##  6 amp1006             1004             42 co     tp,pp,la,ll,is  &lt;NA&gt;          
+##  7 amp1007             1005             23 co     sp              as            
+##  8 amp1008             1005             19 co     sp,la,sw        as,sb,tr      
+##  9 amp1009             1005             13 ab     fo              &lt;NA&gt;          
+## 10 amp1010             1006              1 ab     fo              &lt;NA&gt;          
+## # … with 1,153 more rows, and 19 more variables: passive_methods &lt;chr&gt;,
+## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;dbl&gt;,
+## #   year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;, year_finish &lt;dbl&gt;,
+## #   effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;, state_abbreviation &lt;chr&gt;,
+## #   municipality &lt;chr&gt;, site &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
+## #   coordinate_precision &lt;chr&gt;, altitude &lt;dbl&gt;, temperature &lt;dbl&gt;,
+## #   precipitation &lt;dbl&gt;
+```
 
 ---
 
@@ -476,6 +534,29 @@ si
 # importar sites
 si &lt;- readr::read_tsv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.txt"))
 si
+```
+
+```
+## # A tibble: 1,163 × 25
+##    id      reference_number species_number record sampled_habitat active_methods
+##    &lt;chr&gt;              &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;         
+##  1 amp1001             1001             19 ab     fo,ll           as            
+##  2 amp1002             1002             16 co     fo,la,ll        as            
+##  3 amp1003             1002             14 co     fo,la,ll        as            
+##  4 amp1004             1002             13 co     fo,la,ll        as            
+##  5 amp1005             1003             30 co     fo,ll,br        as            
+##  6 amp1006             1004             42 co     tp,pp,la,ll,is  &lt;NA&gt;          
+##  7 amp1007             1005             23 co     sp              as            
+##  8 amp1008             1005             19 co     sp,la,sw        as,sb,tr      
+##  9 amp1009             1005             13 ab     fo              &lt;NA&gt;          
+## 10 amp1010             1006              1 ab     fo              &lt;NA&gt;          
+## # … with 1,153 more rows, and 19 more variables: passive_methods &lt;chr&gt;,
+## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;dbl&gt;,
+## #   year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;, year_finish &lt;dbl&gt;,
+## #   effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;, state_abbreviation &lt;chr&gt;,
+## #   municipality &lt;chr&gt;, site &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
+## #   coordinate_precision &lt;chr&gt;, altitude &lt;dbl&gt;, temperature &lt;dbl&gt;,
+## #   precipitation &lt;dbl&gt;
 ```
 
 ---
@@ -552,6 +633,29 @@ si &lt;- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xls
 si
 ```
 
+```
+## # A tibble: 1,163 × 25
+##    id      reference_number species_number record sampled_habitat active_methods
+##    &lt;chr&gt;              &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;         
+##  1 amp1001             1001             19 ab     fo,ll           as            
+##  2 amp1002             1002             16 co     fo,la,ll        as            
+##  3 amp1003             1002             14 co     fo,la,ll        as            
+##  4 amp1004             1002             13 co     fo,la,ll        as            
+##  5 amp1005             1003             30 co     fo,ll,br        as            
+##  6 amp1006             1004             42 co     tp,pp,la,ll,is  NA            
+##  7 amp1007             1005             23 co     sp              as            
+##  8 amp1008             1005             19 co     sp,la,sw        as,sb,tr      
+##  9 amp1009             1005             13 ab     fo              NA            
+## 10 amp1010             1006              1 ab     fo              NA            
+## # … with 1,153 more rows, and 19 more variables: passive_methods &lt;chr&gt;,
+## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;chr&gt;,
+## #   year_start &lt;chr&gt;, month_finish &lt;chr&gt;, year_finish &lt;chr&gt;,
+## #   effort_months &lt;chr&gt;, country &lt;chr&gt;, state &lt;chr&gt;, state_abbreviation &lt;chr&gt;,
+## #   municipality &lt;chr&gt;, site &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
+## #   coordinate_precision &lt;chr&gt;, altitude &lt;dbl&gt;, temperature &lt;chr&gt;,
+## #   precipitation &lt;chr&gt;
+```
+
 ---
 
 class: clear
@@ -593,6 +697,36 @@ background-size: 400px
 ```r
 # descricao dos dados de sites
 tibble::glimpse(si)
+```
+
+```
+## Rows: 1,163
+## Columns: 25
+## $ id                    &lt;chr&gt; "amp1001", "amp1002", "amp1003", "amp1004", "amp…
+## $ reference_number      &lt;dbl&gt; 1001, 1002, 1002, 1002, 1003, 1004, 1005, 1005, …
+## $ species_number        &lt;dbl&gt; 19, 16, 14, 13, 30, 42, 23, 19, 13, 1, 1, 2, 4, …
+## $ record                &lt;chr&gt; "ab", "co", "co", "co", "co", "co", "co", "co", …
+## $ sampled_habitat       &lt;chr&gt; "fo,ll", "fo,la,ll", "fo,la,ll", "fo,la,ll", "fo…
+## $ active_methods        &lt;chr&gt; "as", "as", "as", "as", "as", "NA", "as", "as,sb…
+## $ passive_methods       &lt;chr&gt; "pt", "pt", "pt", "pt", "NA", "NA", "NA", "NA", …
+## $ complementary_methods &lt;chr&gt; "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", …
+## $ period                &lt;chr&gt; "mo,da,tw,ni", "mo,da,tw,ni", "mo,da,tw,ni", "mo…
+## $ month_start           &lt;chr&gt; "9", "12", "12", "12", "7", "NA", "4", "4", "4",…
+## $ year_start            &lt;chr&gt; "2000", "2007", "2007", "2007", "1988", "NA", "2…
+## $ month_finish          &lt;chr&gt; "1", "5", "5", "5", "8", "NA", "4", "4", "4", "7…
+## $ year_finish           &lt;chr&gt; "2002", "2009", "2009", "2009", "2001", "NA", "2…
+## $ effort_months         &lt;chr&gt; "16", "17", "17", "17", "157", "NA", "24", "24",…
+## $ country               &lt;chr&gt; "Brazil", "Brazil", "Brazil", "Brazil", "Brazil"…
+## $ state                 &lt;chr&gt; "Piauí", "Ceará", "Ceará", "Ceará", "Ceará", "Ce…
+## $ state_abbreviation    &lt;chr&gt; "BR-PI", "BR-CE", "BR-CE", "BR-CE", "BR-CE", "BR…
+## $ municipality          &lt;chr&gt; "Canto do Buriti", "São Gonçalo do Amarante", "S…
+## $ site                  &lt;chr&gt; "Parque Nacional Serra das Confusões", "Dunas", …
+## $ latitude              &lt;dbl&gt; -8.680000, -3.545527, -3.574194, -3.515250, -4.2…
+## $ longitude             &lt;dbl&gt; -43.42194, -38.85783, -38.88869, -38.91880, -38.…
+## $ coordinate_precision  &lt;chr&gt; "gm", "dd", "dd", "dd", "gm", "NA", "gms", "gms"…
+## $ altitude              &lt;dbl&gt; 543, 15, 29, 25, 750, 745, 863, 878, 826, 93, 35…
+## $ temperature           &lt;chr&gt; "24.98", "26.53", "26.45", "26.55", "21.35", "20…
+## $ precipitation         &lt;chr&gt; "853", "1318", "1248", "1376", "1689", "1249", "…
 ```
 
 ---
@@ -650,6 +784,10 @@ background-position: 50% 70%
 sqrt(sum(1:100))
 ```
 
+```
+## [1] 71.06335
+```
+
 ---
 
 background-image: url(img/general_fog02.jpg)
@@ -666,6 +804,10 @@ background-position: 50% 80%
 sqrt(sum(1:100))
 ```
 
+```
+## [1] 71.06335
+```
+
 ---
 
 # 6. magrittr (pipe - %&gt;%)
@@ -678,12 +820,20 @@ sqrt(sum(1:100))
 sqrt(sum(1:100))
 ```
 
+```
+## [1] 71.06335
+```
+
 
 ```r
 # com pipe
 1:100 %&gt;% 
   sum() %&gt;% 
   sqrt()
+```
+
+```
+## [1] 71.06335
 ```
 
 ---
@@ -701,6 +851,10 @@ set.seed(42)
 ve &lt;- sum(sqrt(sort(log10(rpois(100, 10)))))
 ve
 ```
+
+```
+## [1] 99.91426
+```
 --
 
 ```r
@@ -714,6 +868,10 @@ ve &lt;- rpois(100, 10) %&gt;%
   sqrt() %&gt;% 
   sum()
 ve  
+```
+
+```
+## [1] 99.91426
 ```
 
 ---
@@ -746,7 +904,9 @@ class: inverse, center, middle
 &lt;br&gt;
 `sum(sort(sample(1:10, 10000, rep = TRUE)))`
 
-
+<div class="countdown" id="timer_618cffc2" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -967,6 +1127,18 @@ penguins_raw_unir &lt;- tidyr::unite(data = penguins_raw,
 head(penguins_raw_unir[, c("Region", "Island", "region_island")])
 ```
 
+```
+## # A tibble: 6 × 3
+##   Region Island    region_island    
+##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;            
+## 1 Anvers Torgersen Anvers, Torgersen
+## 2 Anvers Torgersen Anvers, Torgersen
+## 3 Anvers Torgersen Anvers, Torgersen
+## 4 Anvers Torgersen Anvers, Torgersen
+## 5 Anvers Torgersen Anvers, Torgersen
+## 6 Anvers Torgersen Anvers, Torgersen
+```
+
 ---
 
 # 7. tidyr
@@ -986,6 +1158,18 @@ penguins_raw_separar &lt;- tidyr::separate(data = penguins_raw,
 head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
 ```
 
+```
+## # A tibble: 6 × 3
+##   Stage              stage egg_stage  
+##   &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;      
+## 1 Adult, 1 Egg Stage Adult 1 Egg Stage
+## 2 Adult, 1 Egg Stage Adult 1 Egg Stage
+## 3 Adult, 1 Egg Stage Adult 1 Egg Stage
+## 4 Adult, 1 Egg Stage Adult 1 Egg Stage
+## 5 Adult, 1 Egg Stage Adult 1 Egg Stage
+## 6 Adult, 1 Egg Stage Adult 1 Egg Stage
+```
+
 ---
 
 # 7. tidyr
@@ -999,6 +1183,22 @@ head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
 # remover linhas com na
 penguins_raw_todas_na &lt;- tidyr::drop_na(data = penguins_raw)
 head(penguins_raw_todas_na)
+```
+
+```
+## # A tibble: 6 × 17
+##   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          
+## 1 PAL0708                 7 Adelie Pengu… Anvers Torger… Adult,… N4A1           
+## 2 PAL0708                 8 Adelie Pengu… Anvers Torger… Adult,… N4A2           
+## 3 PAL0708                29 Adelie Pengu… Anvers Biscoe  Adult,… N18A1          
+## 4 PAL0708                30 Adelie Pengu… Anvers Biscoe  Adult,… N18A2          
+## 5 PAL0708                39 Adelie Pengu… Anvers Dream   Adult,… N25A1          
+## 6 PAL0809                69 Adelie Pengu… Anvers Torger… Adult,… N32A1          
+## # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,
+## #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,
+## #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
 ```
 
 ---
@@ -1017,6 +1217,18 @@ penguins_raw_colunas_na &lt;- tidyr::drop_na(data = penguins_raw,
 head(penguins_raw_colunas_na[, "Comments"])
 ```
 
+```
+## # A tibble: 6 × 1
+##   Comments                             
+##   &lt;chr&gt;                                
+## 1 Not enough blood for isotopes.       
+## 2 Adult not sampled.                   
+## 3 Nest never observed with full clutch.
+## 4 Nest never observed with full clutch.
+## 5 No blood sample obtained.            
+## 6 No blood sample obtained for sexing.
+```
+
 ---
 
 class: inverse, center, middle
@@ -1029,7 +1241,9 @@ class: inverse, center, middle
 
 ### Faça a união das colunas `studyName` e `Individual ID` na coluna `StudyInd`, separados por ` - ` dos pinguins dos dados `penguins_raw`
 
-
+<div class="countdown" id="timer_618d02fc" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1048,13 +1262,31 @@ penguins_raw_uni_ind &lt;- penguins_raw %&gt;%
 head(penguins_raw_uni_ind)
 ```
 
+```
+## # A tibble: 6 × 18
+##   StudyInd studyName `Sample Number` Species Region Island Stage `Individual ID`
+##   &lt;chr&gt;    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          
+## 1 PAL0708… PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           
+## 2 PAL0708… PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           
+## 3 PAL0708… PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           
+## 4 PAL0708… PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           
+## 5 PAL0708… PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           
+## 6 PAL0708… PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           
+## # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,
+## #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,
+## #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
+```
+
 ---
 
 # Exercício 03
 
 ### Separe as informações de ano, mês e dia da coluna `Date Egg` dos dados `penguins_raw`
 
-
+<div class="countdown" id="timer_618d024a" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1073,13 +1305,31 @@ penguins_raw_sep_data &lt;- penguins_raw %&gt;%
 head(penguins_raw_sep_data)
 ```
 
+```
+## # A tibble: 6 × 20
+##   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          
+## 1 PAL0708                 1 Adelie Pengu… Anvers Torger… Adult,… N1A1           
+## 2 PAL0708                 2 Adelie Pengu… Anvers Torger… Adult,… N1A2           
+## 3 PAL0708                 3 Adelie Pengu… Anvers Torger… Adult,… N2A1           
+## 4 PAL0708                 4 Adelie Pengu… Anvers Torger… Adult,… N2A2           
+## 5 PAL0708                 5 Adelie Pengu… Anvers Torger… Adult,… N3A1           
+## 6 PAL0708                 6 Adelie Pengu… Anvers Torger… Adult,… N3A2           
+## # … with 13 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Year &lt;chr&gt;, Month &lt;chr&gt;, Day &lt;chr&gt;, Culmen Length (mm) &lt;dbl&gt;,
+## #   Culmen Depth (mm) &lt;dbl&gt;, Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;,
+## #   Sex &lt;chr&gt;, Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
+```
+
 ---
 
 # Exercício 04
 
 ### Remova as linhas que possuem `NA` na coluna `Body` dos dados `penguins_raw`
 
-
+<div class="countdown" id="timer_618d01cf" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1093,6 +1343,22 @@ head(penguins_raw_sep_data)
 penguins_raw_drop_na_body &lt;- penguins_raw %&gt;% 
   tidyr::drop_na(`Body Mass (g)`)
 head(penguins_raw_drop_na_body)
+```
+
+```
+## # A tibble: 6 × 17
+##   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          
+## 1 PAL0708                 1 Adelie Pengu… Anvers Torger… Adult,… N1A1           
+## 2 PAL0708                 2 Adelie Pengu… Anvers Torger… Adult,… N1A2           
+## 3 PAL0708                 3 Adelie Pengu… Anvers Torger… Adult,… N2A1           
+## 4 PAL0708                 5 Adelie Pengu… Anvers Torger… Adult,… N3A1           
+## 5 PAL0708                 6 Adelie Pengu… Anvers Torger… Adult,… N3A2           
+## 6 PAL0708                 7 Adelie Pengu… Anvers Torger… Adult,… N4A1           
+## # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,
+## #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,
+## #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,
+## #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;
 ```
 
 ---
@@ -1219,6 +1485,19 @@ penguins_relocate_col &lt;- penguins %&gt;%
 head(penguins_relocate_col)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island    sex     year bill_length_mm bill_depth_mm flipper_length_mm
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+## 1 Adelie  Torgersen male    2007           39.1          18.7               181
+## 2 Adelie  Torgersen female  2007           39.5          17.4               186
+## 3 Adelie  Torgersen female  2007           40.3          18                 195
+## 4 Adelie  Torgersen &lt;NA&gt;    2007           NA            NA                  NA
+## 5 Adelie  Torgersen female  2007           36.7          19.3               193
+## 6 Adelie  Torgersen male    2007           39.3          20.6               190
+## # … with 1 more variable: body_mass_g &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1233,6 +1512,19 @@ head(penguins_relocate_col)
 penguins_relocate_ncol &lt;- penguins %&gt;% 
   dplyr::relocate(sex, year, .after = 2)
 head(penguins_relocate_ncol)
+```
+
+```
+## # A tibble: 6 × 8
+##   species island    sex     year bill_length_mm bill_depth_mm flipper_length_mm
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+## 1 Adelie  Torgersen male    2007           39.1          18.7               181
+## 2 Adelie  Torgersen female  2007           39.5          17.4               186
+## 3 Adelie  Torgersen female  2007           40.3          18                 195
+## 4 Adelie  Torgersen &lt;NA&gt;    2007           NA            NA                  NA
+## 5 Adelie  Torgersen female  2007           36.7          19.3               193
+## 6 Adelie  Torgersen male    2007           39.3          20.6               190
+## # … with 1 more variable: body_mass_g &lt;int&gt;
 ```
 
 ---
@@ -1254,6 +1546,18 @@ penguins_rename &lt;- penguins %&gt;%
 head(penguins_rename)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island    bill_length bill_depth flipper_length body_mass sex     year
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;      &lt;dbl&gt;          &lt;int&gt;     &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen        39.1       18.7            181      3750 male    2007
+## 2 Adelie  Torgersen        39.5       17.4            186      3800 female  2007
+## 3 Adelie  Torgersen        40.3       18              195      3250 female  2007
+## 4 Adelie  Torgersen        NA         NA               NA        NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen        36.7       19.3            193      3450 female  2007
+## 6 Adelie  Torgersen        39.3       20.6            190      3650 male    2007
+```
+
 ---
 
 # 8. dplyr
@@ -1268,6 +1572,18 @@ head(penguins_rename)
 penguins_select_position &lt;- penguins %&gt;% 
   dplyr::select(3:6)
 head(penguins_select_position)
+```
+
+```
+## # A tibble: 6 × 4
+##   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1           39.1          18.7               181        3750
+## 2           39.5          17.4               186        3800
+## 3           40.3          18                 195        3250
+## 4           NA            NA                  NA          NA
+## 5           36.7          19.3               193        3450
+## 6           39.3          20.6               190        3650
 ```
 
 ---
@@ -1286,6 +1602,18 @@ penguins_select_names &lt;- penguins %&gt;%
 head(penguins_select_names)
 ```
 
+```
+## # A tibble: 6 × 4
+##   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1           39.1          18.7               181        3750
+## 2           39.5          17.4               186        3800
+## 3           40.3          18                 195        3250
+## 4           NA            NA                  NA          NA
+## 5           36.7          19.3               193        3450
+## 6           39.3          20.6               190        3650
+```
+
 ---
 
 # 8. dplyr
@@ -1301,6 +1629,18 @@ penguins_select_names_remove &lt;- penguins %&gt;%
   dplyr::select(-(bill_length_mm:body_mass_g))
 head(penguins_select_names_remove)
 ```
+
+```
+## # A tibble: 6 × 4
+##   species island    sex     year
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen male    2007
+## 2 Adelie  Torgersen female  2007
+## 3 Adelie  Torgersen female  2007
+## 4 Adelie  Torgersen &lt;NA&gt;    2007
+## 5 Adelie  Torgersen female  2007
+## 6 Adelie  Torgersen male    2007
+```
 ---
 
 # 8. dplyr
@@ -1315,6 +1655,18 @@ head(penguins_select_names_remove)
 penguins_select_contains &lt;- penguins %&gt;% 
   dplyr::select(contains("_mm"))
 head(penguins_select_contains)
+```
+
+```
+## # A tibble: 6 × 3
+##   bill_length_mm bill_depth_mm flipper_length_mm
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+## 1           39.1          18.7               181
+## 2           39.5          17.4               186
+## 3           40.3          18                 195
+## 4           NA            NA                  NA
+## 5           36.7          19.3               193
+## 6           39.3          20.6               190
 ```
 
 ---
@@ -1333,6 +1685,10 @@ penguins_select_pull &lt;- penguins %&gt;%
 head(penguins_select_pull, 15)
 ```
 
+```
+##  [1] 39.1 39.5 40.3   NA 36.7 39.3 38.9 39.2 34.1 42.0 37.8 37.8 41.1 38.6 34.6
+```
+
 ---
 
 # 8. dplyr
@@ -1347,6 +1703,19 @@ head(penguins_select_pull, 15)
 penguins_mutate &lt;- penguins %&gt;% 
   dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
 head(penguins_mutate)
+```
+
+```
+## # A tibble: 6 × 9
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750
+## 2 Adelie  Torgersen           39.5          17.4               186        3800
+## 3 Adelie  Torgersen           40.3          18                 195        3250
+## 4 Adelie  Torgersen           NA            NA                  NA          NA
+## 5 Adelie  Torgersen           36.7          19.3               193        3450
+## 6 Adelie  Torgersen           39.3          20.6               190        3650
+## # … with 3 more variables: body_mass_kg &lt;dbl&gt;, sex &lt;fct&gt;, year &lt;int&gt;
 ```
 
 ---
@@ -1365,6 +1734,19 @@ penguins_arrange &lt;- penguins %&gt;%
 head(penguins_arrange)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Chinst… Dream            46.9          16.6              192        2700 fema…
+## 2 Adelie  Biscoe           36.5          16.6              181        2850 fema…
+## 3 Adelie  Biscoe           36.4          17.1              184        2850 fema…
+## 4 Adelie  Biscoe           34.5          18.1              187        2900 fema…
+## 5 Adelie  Dream            33.1          16.1              178        2900 fema…
+## 6 Adelie  Torge…           38.6          17                188        2900 fema…
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1381,6 +1763,19 @@ penguins_arrange_desc &lt;- penguins %&gt;%
 head(penguins_arrange_desc)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           49.2          15.2              221        6300 male 
+## 2 Gentoo  Biscoe           59.6          17                230        6050 male 
+## 3 Gentoo  Biscoe           51.1          16.3              220        6000 male 
+## 4 Gentoo  Biscoe           48.8          16.2              222        6000 male 
+## 5 Gentoo  Biscoe           45.2          16.4              223        5950 male 
+## 6 Gentoo  Biscoe           49.8          15.9              229        5950 male 
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1395,6 +1790,19 @@ head(penguins_arrange_desc)
 penguins_arrange_desc_m &lt;- penguins %&gt;% 
   dplyr::arrange(-body_mass_g)
 head(penguins_arrange_desc_m)
+```
+
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           49.2          15.2              221        6300 male 
+## 2 Gentoo  Biscoe           59.6          17                230        6050 male 
+## 3 Gentoo  Biscoe           51.1          16.3              220        6000 male 
+## 4 Gentoo  Biscoe           48.8          16.2              222        6000 male 
+## 5 Gentoo  Biscoe           45.2          16.4              223        5950 male 
+## 6 Gentoo  Biscoe           49.8          15.9              229        5950 male 
+## # … with 1 more variable: year &lt;int&gt;
 ```
 
 ---
@@ -1462,6 +1870,19 @@ penguins_slice &lt;- penguins %&gt;%
 head(penguins_slice)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge…           40.3          18                195        3250 fema…
+## 3 Chinst… Dream            50.6          19.4              193        3800 male 
+## 4 Chinst… Dream            46.7          17.9              195        3300 fema…
+## 5 Chinst… Dream            52            19                197        4150 male 
+## 6 Chinst… Dream            50.5          18.4              200        3400 fema…
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1476,6 +1897,18 @@ head(penguins_slice)
 penguins_slice_head &lt;- penguins %&gt;% 
   dplyr::slice_head(n = 5)
 head(penguins_slice_head)
+```
+
+```
+## # A tibble: 5 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+## 3 Adelie  Torge…           40.3          18                195        3250 fema…
+## 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+## # … with 1 more variable: year &lt;int&gt;
 ```
 
 ---
@@ -1494,6 +1927,19 @@ penguins_slice_sample &lt;- penguins %&gt;%
 head(penguins_slice_sample)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           51.3          14.2              218        5300 male 
+## 2 Adelie  Dream            36            17.9              190        3450 fema…
+## 3 Adelie  Dream            37            16.5              185        3400 fema…
+## 4 Gentoo  Biscoe           50            15.2              218        5700 male 
+## 5 Gentoo  Biscoe           50.4          15.7              222        5750 male 
+## 6 Adelie  Biscoe           34.5          18.1              187        2900 fema…
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1508,6 +1954,18 @@ head(penguins_slice_sample)
 penguins_distinct &lt;- penguins %&gt;% 
   dplyr::distinct(body_mass_g)
 head(penguins_distinct)
+```
+
+```
+## # A tibble: 6 × 1
+##   body_mass_g
+##         &lt;int&gt;
+## 1        3750
+## 2        3800
+## 3        3250
+## 4          NA
+## 5        3450
+## 6        3650
 ```
 
 ---
@@ -1526,6 +1984,19 @@ penguins_distinct_keep_all &lt;- penguins %&gt;%
 head(penguins_distinct_keep_all)
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+## 3 Adelie  Torge…           40.3          18                195        3250 fema…
+## 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+## 6 Adelie  Torge…           39.3          20.6              190        3650 male 
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # 8. dplyr
@@ -1540,6 +2011,15 @@ head(penguins_distinct_keep_all)
 penguins_count &lt;- penguins %&gt;% 
   dplyr::count(species)
 penguins_count
+```
+
+```
+## # A tibble: 3 × 2
+##   species       n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Adelie      152
+## 2 Chinstrap    68
+## 3 Gentoo      124
 ```
 
 ---
@@ -1558,6 +2038,17 @@ penguins_count_two &lt;- penguins %&gt;%
 penguins_count_two
 ```
 
+```
+## # A tibble: 5 × 3
+##   species   island        n
+##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+## 1 Adelie    Biscoe       44
+## 2 Adelie    Dream        56
+## 3 Adelie    Torgersen    52
+## 4 Chinstrap Dream        68
+## 5 Gentoo    Biscoe      124
+```
+
 ---
 
 # 8. dplyr
@@ -1574,6 +2065,17 @@ penguins_count_two_sort &lt;- penguins %&gt;%
 penguins_count_two_sort
 ```
 
+```
+## # A tibble: 5 × 3
+##   species   island        n
+##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+## 1 Gentoo    Biscoe      124
+## 2 Chinstrap Dream        68
+## 3 Adelie    Dream        56
+## 4 Adelie    Torgersen    52
+## 5 Adelie    Biscoe       44
+```
+
 ---
 
 # 8. dplyr
@@ -1588,6 +2090,20 @@ penguins_count_two_sort
 penguins_group_by &lt;- penguins %&gt;% 
   dplyr::group_by(species)
 head(penguins_group_by)
+```
+
+```
+## # A tibble: 6 × 8
+## # Groups:   species [1]
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+## 3 Adelie  Torge…           40.3          18                195        3250 fema…
+## 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+## 6 Adelie  Torge…           39.3          20.6              190        3650 male 
+## # … with 1 more variable: year &lt;int&gt;
 ```
 
 ---
@@ -1608,6 +2124,15 @@ penguins_summarise &lt;- penguins %&gt;%
 penguins_summarise
 ```
 
+```
+## # A tibble: 3 × 3
+##   species   body_mass_g_mean body_mass_g_sd
+##   &lt;fct&gt;                &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Adelie               3701.           459.
+## 2 Chinstrap            3733.           384.
+## 3 Gentoo               5076.           504.
+```
+
 ---
 
 class: inverse, center, middle
@@ -1620,7 +2145,9 @@ class: inverse, center, middle
 
 ### Usando o conjunto de dados `penguins`, adicione essas novas colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10`, que são a operação `log10` das colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10` e atribua ao mesmo objeto `penguins_log` utilizando o formato tidyverse
 
-
+<div class="countdown" id="timer_618d01ae" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1639,13 +2166,34 @@ penguins_log &lt;- penguins %&gt;%
 penguins_log
 ```
 
+```
+## # A tibble: 344 × 12
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # … with 334 more rows, and 6 more variables: sex &lt;fct&gt;, year &lt;int&gt;,
+## #   bill_length_mm_log10 &lt;dbl&gt;, bill_depth_mm_log10 &lt;dbl&gt;,
+## #   flipper_length_mm_log10 &lt;dbl&gt;, body_mass_g_log10 &lt;dbl&gt;
+```
+
 ---
 
 # Exercício 06
 
 ### Usando o conjunto de dados `penguins`, ordene as linhas em forma decrescente pela coluna `body_mass_g`, atribuindo o resultado a um novo objeto `penguins_arrange` utilizando o formato tidyverse
 
-
+<div class="countdown" id="timer_618d00ff" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1661,13 +2209,32 @@ penguins_arrange &lt;- penguins %&gt;%
 penguins_arrange
 ```
 
+```
+## # A tibble: 344 × 8
+##    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Gentoo  Biscoe           49.2          15.2               221        6300
+##  2 Gentoo  Biscoe           59.6          17                 230        6050
+##  3 Gentoo  Biscoe           51.1          16.3               220        6000
+##  4 Gentoo  Biscoe           48.8          16.2               222        6000
+##  5 Gentoo  Biscoe           45.2          16.4               223        5950
+##  6 Gentoo  Biscoe           49.8          15.9               229        5950
+##  7 Gentoo  Biscoe           48.4          14.6               213        5850
+##  8 Gentoo  Biscoe           49.3          15.7               217        5850
+##  9 Gentoo  Biscoe           55.1          16                 230        5850
+## 10 Gentoo  Biscoe           49.5          16.2               229        5800
+## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+
 ---
 
 # Exercício 07
 
 ### Usando o conjunto de dados `penguins`, filtre as linhas com `bill_length_mm` maior que 50 mm, `bill_depth_mm` menor que 20 mm, `flipper_length_mm` maior que 220 mm e `body_mass_g` menor que 5500 g, atribuindo o resultado a um novo objeto `penguins_filter` utilizando o formato tidyverse
 
-
+<div class="countdown" id="timer_618d0119" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1686,13 +2253,28 @@ penguins_filter &lt;- penguins %&gt;%
 penguins_filter
 ```
 
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           50.5          15.9              225        5400 male 
+## 2 Gentoo  Biscoe           50.1          15                225        5000 male 
+## 3 Gentoo  Biscoe           52.5          15.6              221        5450 male 
+## 4 Gentoo  Biscoe           52.2          17.1              228        5400 male 
+## 5 Gentoo  Biscoe           50.8          15.7              226        5200 male 
+## 6 Gentoo  Biscoe           51.1          16.5              225        5250 male 
+## # … with 1 more variable: year &lt;int&gt;
+```
+
 ---
 
 # Exercício 08
 
 ### Usando o conjunto de dados `penguins`, amostre 70% das linhas aleatoriamente com `body_mass_g` menor que  5000 g, atribuindo o resultado a um novo objeto `penguins_sample` utilizando o formato tidyverse
 
-
+<div class="countdown" id="timer_618d020d" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -1707,6 +2289,23 @@ penguins_sample &lt;- penguins %&gt;%
   dplyr::filter(body_mass_g &lt; 5000) %&gt;% 
   dplyr::slice_sample(prop = .7)
 penguins_sample
+```
+
+```
+## # A tibble: 192 × 8
+##    species   island    bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie    Biscoe              37.9          18.6              172        3150
+##  2 Adelie    Biscoe              45.6          20.3              191        4600
+##  3 Chinstrap Dream               52.7          19.8              197        3725
+##  4 Chinstrap Dream               49.5          19                200        3800
+##  5 Chinstrap Dream               49.3          19.9              203        4050
+##  6 Adelie    Dream               37            16.5              185        3400
+##  7 Gentoo    Biscoe              47.2          15.5              215        4975
+##  8 Adelie    Biscoe              42.7          18.3              196        4075
+##  9 Adelie    Torgersen           36.7          18.8              187        3800
+## 10 Adelie    Biscoe              38.1          17                181        3175
+## # … with 182 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 
 ---

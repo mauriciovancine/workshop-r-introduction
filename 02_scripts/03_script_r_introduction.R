@@ -57,7 +57,7 @@ penguins
 hist(penguins$flipper_length_mm)
 
 hist(penguins$flipper_length_mm,
-     col = "gray50",
+     col = "hotpink",
      border = "gray")
 
 hist(penguins$flipper_length_mm,
@@ -120,9 +120,9 @@ polygon(density(na.omit(penguins$flipper_length_mm)),
 
 # exportar
 # diretorio
-setwd("/home/mude/data/github/workshop-r-introduction/03_dados")
+setwd("03_dados")
 
-png("plot_densidade.png", wi = 15, he = 15, un = "cm", res = 300)
+png("plot_densidade.png", wi = 20, he = 20, un = "cm", res = 300)
 
 par(mar = c(5, 5, 5, 5))
 plot(density(na.omit(penguins$flipper_length_mm)),
@@ -186,7 +186,7 @@ ggplot(data = penguins,
        aes(x = flipper_length_mm, fill = species)) +
   geom_histogram() +
   scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
-  facet_wrap(~ species, ncol = 2, scale = "free_y") +
+  facet_wrap(~ island, ncol = 2, scale = "free_y") +
   labs(title = "Comprimento da nadadeira dos penguins",
        fill = "Espécies",
        x = "Comprimento da nadadeira (mm)", 
@@ -229,7 +229,10 @@ ggplot_densidade <- ggplot(data = penguins,
        y = "Densidade", 
        fill = "Espécie") +
   theme_bw(base_size = 16)
-ggsave(filename = "histogram_ggplot2.png", plot = ggplot_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
+ggplot_densidade
+ggsave(filename = "density_ggplot2.png", 
+       plot = ggplot_densidade, wi = 20, he = 15, 
+       un = "cm", dpi = 300)
 
 # ggpubr
 gghistogram(data = penguins, 
@@ -739,7 +742,7 @@ plot_penguins_scatter_int
 
 # export
 htmlwidgets::saveWidget(widget = plot_penguins_scatter_int, 
-                        file = here::here("03_dados", "graficos" ,"plot_penguins_scatter_int.html"))
+                        file = "plot_penguins_scatter_int.html")
 
 # 15. graficos usando uma interface ---------------------------------------
 
@@ -747,6 +750,6 @@ htmlwidgets::saveWidget(widget = plot_penguins_scatter_int,
 
 # iniciar
 esquisse::esquisser(iris)
-esquisse::esquisser(palmerpenguins::penguins)
+esquisse::esquisser(na.omit(palmerpenguins::penguins))
 
 # end ---------------------------------------------------------------------
