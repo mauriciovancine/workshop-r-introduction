@@ -1,0 +1,462 @@
+---
+title: "Linguagem R para manipulação e visualização de dados"
+author: "<br> [Maurício Vancine](https://mauriciovancine.github.io/) • [LEEC/Unesp](https://leec.eco.br/)"
+date: "Julho de 2022 <br><br><br> Licença: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)"
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: false
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+---
+
+# Gostaria de agradecê-los pela presença no minicurso, sejam muito bem-vindes!
+
+# Gostaria também de agradecer à organização da SEE pelo convite!
+
+# Eu amo ensinar R! `r icons::icon_style(icons::fontawesome("heart"), fill = "#2268bc")`
+
+## Maurício Vancine 
+
+::: columns
+::: {.column width="40%"}
+<center>
+<br>
+![](img/avatar.png)
+[`r icons::icon_style(icons::fontawesome("link"), fill = "#2268bc")`](https://mauriciovancine.github.io/)
+[`r icons::icon_style(icons::fontawesome("envelope", style = "solid"), fill = "#2268bc")`](mailto:mauricio.vancine@gmail.com)
+[`r icons::icon_style(icons::academicons("cv"), fill = "#2268bc")`](https://mauriciovancine.github.io/cv/cv-mauricio-vancine-pt-academic-complete.html)
+[`r icons::icon_style(icons::fontawesome("twitter"), fill = "#2268bc")`](https://twitter.com/mauriciovancine)
+[`r icons::icon_style(icons::fontawesome("github"), fill = "#2268bc")`](https://github.com/mauriciovancine)
+[`r icons::icon_style(icons::academicons("orcid"), fill = "#2268bc")`](https://orcid.org/0000-0001-9650-7575)
+[`r icons::icon_style(icons::academicons("lattes"), fill = "#2268bc")`](http://lattes.cnpq.br/9761288418931193)
+</center>
+:::
+
+::: {.column width="60%"}
+
+- Doutorando em Ecologia (2020-?)
+
+- Ecologia Espacial
+
+- Modelagem Ecológica
+
+- Análise de Dados Ecológicos e Geoespaciais
+
+- Ecologia e Conservação de Anfíbios
+
+- *Open source* [R, QGIS, GRASS GIS, GNU/Linux, ...]
+
+:::
+:::
+
+## Quem são vocês?
+
+1. Nome
+1. Formação
+1. O que faz ou pensa em fazer da vida?
+1. Conhece algo sobre R?
+1. Como se sente em relação ao minicurso?
+
+## Minicurso
+
+::: {.incremental}
+- Carga horária bem enxuta: 08 horas
+- Talvez não vejamos todo o conteúdo
+- Tudo vai ser muito rápido
+- O principal intuito é fazer uma introdução ao tema
+- Vou indicar muito material para estudo
+:::
+
+## Horários
+
+### 10/11
+- 08 h - 11 h [pausa para pegar o Dudu] 12 h - 13 h
+
+### 11/11
+- 08 h - 11 h [pausa para pegar o Dudu] 12 h - 13 h
+
+## Conteúdo
+
+::: panel-tabset
+## 1. Linguagem R
+
+::: columns
+::: {.column width="50%"}
+
+::: nonincremental
+- Linguagem R
+- RStudio
+- Console
+- Scripts
+- Operadores
+- Objetos
+- Funções
+:::
+:::
+
+::: {.column width="50%"}
+::: nonincremental
+- Pacotes
+- Ajuda
+- Ambiente
+- Citações
+- Principais erros
+- Principal material de estudo
+:::
+:::
+:::
+
+## 2. tidyverse
+
+::: nonincremental
+- tidyverse
+- readr, readxl e writexl
+- tibble
+- magrittr (pipe - %>%)
+- tidyr
+- dplyr
+:::
+
+## 3. Visualização de dados
+
+::: columns
+::: {.column width="50%"}
+::: nonincremental
+- Principais pacotes
+- Gramática dos gráficos
+- Principais livros e sites 
+- Principais tipos de gráficos 
+- Histograma e Densidade
+- Gráfico de setores
+- Gráfico de barras
+:::
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- Gráfico de caixas
+- Gráfico de dispersão
+- Gráfico pareado
+- Combinando gráficos
+- Gráficos animados
+- Gráficos interativos
+- Gráficos usando interface
+:::
+:::
+:::
+
+:::
+
+## Material
+
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
+
+![](img/github.png){.absolute width=500 height=500 right=300 top=200}
+
+## Conferindo os computadores
+
+<center>
+<img src="img/general_hard_soft_bg.png" style="width:80%"/>
+</center>
+
+:::footer
+[Café com Código](https://www.instagram.com/cafecomcodigo/?hl=pt)
+:::
+
+background-image: url(img/general_starwars_teamwork.png)
+background-size: 500px
+background-position: 50% 80%
+
+## IMPORTANTE!!!
+
+### Estamos num espaço seguro e amigável
+
+- Sintam-se à vontade para me interromper e tirar dúvidas
+
+<center>
+<img src="img/general_starwars_teamwork.png" style="width:50%"/>
+</center>
+
+# Mas por que aprender uma linguagem R? 
+
+# Minha história com o R
+
+## Aprendizado
+
+### Início
+
+- 2011: Curso de 40 horas com o Prof. Tadeu Siqueira
+
+### Aprofundamento
+
+- 2012-2013: Estudei R sozinho por muito tempo, acreditem eu não entendia nada desse negócio...
+- 2013-2015: Iniciação científica com Modelos de Distribuição de Espécies e Ecologia da Paisagem (Fapesp)
+- 2015: Assistente de Pesquisa no LEEC (Prof. Miltinho)
+
+## Ensino
+
+- 2015: Minicurso de R na SEE
+- 2016: Minicurso de R na SEE
+- 2019: Minicurso de R na SEE
+- 2019: Minicurso de R na SEBio
+- 2019: Curso de SDM no R na Congresso Brasileiro de Herpetologia
+- 2021: Curso de SDM no R no Mastozóologos Organizados em uma Conferência Online (MOCÓ)
+- 2022: Minicurso de R na SEE
+
+## Disciplinas {.smaller}
+
+- 2015: Ecologia Quantitativa
+- 2016: Modelagem de Nicho Ecológico: teoria e prática (Unesp)
+- 2016: Modelagem de Nicho Ecológico: teoria e prática (Unicamp)
+- 2017: Modelagem de Nicho Ecológico: teoria e prática (Unesp)
+- 2018: Modelos Estatísticos em Ecologia (Unesp)
+- 2019: Introdução ao Geoprocessamento para Etnobiologia e Conservação da Biodiversidade (UFRPE)
+- 2020: Modelos Estatísticos em Ecologia (Unesp)
+- 2020: Introdução ao uso de dados geoespaciais no R (Unesp)
+- 2021: Introdução ao uso de dados geoespaciais no R (Unesp)
+
+## Análises Ecológicas no R (2022)
+
+::: columns
+::: {.column width="40%"}
+<center>
+<img src="img/aer.jpeg" href="https://analises-ecologicas.com/" style="width:90%"/>
+</center>
+:::
+
+::: {.column width="60%"}
+
+- 15 capítulos: linguagem R, *tidyverse*, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
+
+- [bookdown](https://analises-ecologicas.com/)
+
+- [PDF](https://canal6.com.br/livreacesso/livro/analises-ecologicas-no-r/)
+
+- [Amazon](https://www.amazon.com.br/An%C3%A1lises-ecol%C3%B3gicas-Ferdo-Rodrigues-Silva/dp/857917564X/ref=sr_1_1?keywords=9788579175640&qid=1654379366&sr=8-1)
+
+- [Código Fonte](https://github.com/paternogbc/livro_aer)
+
+- [YouTube](https://www.youtube.com/channel/UCLSVSCnmvf2k6OoWZCnEO4w)
+
+:::
+:::
+
+:::footer
+[Da Silva et al. (2022)](https://analises-ecologicas.com/)
+:::
+
+## Consultorias
+
+#### 2018-2019: Aquaflora/Lactec - Curitiba, PR, Brasil
+
+- Rompimento da barragem de Fundão em Marina/MG
+
+#### 2019-2021: PROECO Ambiental - Poços de Caldas, MG, Brasil
+
+- Modelagem de Distribuição de Espécies
+
+#### 2018-atual: Seleção Natural - Piracicaba, SP, Brasil
+- Analista de dados ecológicos
+- Métricas da paisagem e Corredores ecológicos
+- Modelagem de Distribuição de Espécies
+
+## Resumindo
+
+::: {.incremental}
+- Saber R não me tornou um **Ecólogo**, esse conhecimento vem da nossa formação (aulas, cursos, discussões, leituras, INTERAÇÕES, etc.)
+
+-  Entretanto, saber R me tornou um **Ecólogo mais preparado**, i.e., com mais ferramentas para poder **pensar operacionalmente** nos problemas: eu sabia a **teoria** e tinha o **conhecimento prático** para poder aplicar as soluções
+
+- Sou grato às **Semanas de Estudos da Ecologia** da Unesp por ter oferecido a oportunidade de ensinar R. Ensinar me fez um **profissional** e **professor** muito melhor
+:::
+
+# 1. Linguagem R
+
+## Definição
+
+O R é uma **linguagem de programação livre** (*open source*), direcionada à **manipulação, análise e visualização de dados**, com diversas **expansões** (*pacotes*) para o uso de **dados com formatos específicos** 
+
+<center>
+<img src="img/r_logo.svg" style="width:40%"/>
+</center>
+
+:::footer
+[R](https://www.r-project.org/)
+:::
+
+## Histórico - Linguagem S {.smaller}
+
+### John M. Chambers (Stanford University, CA, EUA)
+
+#### Versões
+- Old S (1976-1987)
+- New S (1988-1997)
+- S4 (1998)
+
+#### IDE (*Integrated Development Environment*)
+- Interface: S-PLUS (1988-2008)
+
+![](img/person_john_chambers.jpg){.absolute width=400 height=400 right=10 top=200}
+
+:::footer
+[Wickham (2013)](http://vita.had.co.nz/papers/r-s.pdf)
+:::
+
+## Histórico - Linguagem R {.smaller}
+
+### Robert Gentleman e Ross Ihaka (Auckland University, NZ)
+
+#### Versões
+- Desenvolvimento (1997-2000)
+- Versão 1 (2000-2004)
+- Versão 2 (2004-2013)
+- Versão 3 (2013-2020)
+- Versão 4 (2020-atual)
+
+#### IDE (*Integrated Development Environment*)
+- Interface: RStudio (2011-atual)
+- Atualmente: **R Core Team**
+
+![](img/person_gentleman_ihaka.jpg){.absolute width=550 height=400 right=-50 top=200}
+
+:::footer
+[Wickham (2013)](http://vita.had.co.nz/papers/r-s.pdf)
+:::
+
+## Aplicações {.smaller}
+
+### Manipulação, visualização e análise de dados
+- Estatísticas univariadas e multivariadas
+- Análises de dados ecológicos
+- Análise de dados espaciais, temporais e sonoros
+- Análise de dados funcionais, genéticos e filogenéticos
+- Análise de dados geoespaciais e sensoriamento retomo
+- Visualização de todos os dados anteriores
+
+### R Markdown e quarto
+- Textos em HTML, PDF, Word, ODT, Markdown
+- Slides, Websites, Blogs, Livros e Artigos
+- Shiny
+
+![](img/r_markdown_output_formats.png){.absolute width=400 height=400 right=-100 top=150}
+![](img/quarto.png){.absolute width=400 height=100 right=-100 top=570}
+
+:::footer
+[R Markdown](https://rmarkdown.rstudio.com/), [shiny](https://shiny.rstudio.com/), [quarto](https://quarto.org/)
+:::
+
+# 2. RStudio
+
+## IDE 
+
+*Integrated Development Environment* ou Ambiente de Desenvolvimento Integrado
+
+<br><br>
+<center>
+<img src="img/rstudio_logo.svg" style="width:80%"/>
+</center>
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## IDE 
+
+*Integrated Development Environment* ou Ambiente de Desenvolvimento Integrado
+
+![](img/r_rstudio01.png){.absolute width=700 height=200 right=180 top=200}
+![](img/r_rstudio02.png){.absolute width=700 height=300 right=180 top=370}
+
+:::footer
+[Ismay & Kim (2020)](https://moderndive.com/)
+:::
+
+## Posit 
+
+Mudanças no RStudio...
+
+<br>
+<center>
+<img src="img/posit.jpg" style="width:80%"/>
+</center>
+
+:::footer
+[posit](https://posit.co/)
+:::
+
+## Interface
+
+<center>
+<img src="img/rstudio.png" style="width:100%"/>
+</center>
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## Janelas e abas {.smaller}
+
+**1. Editor/Script**: é onde escrevemos nossos códigos em R ou R Markdown  
+**2. Console**: é onde os códigos são rodados e vemos as saídas  
+**3. Environment**: painel com todos os objetos criados na sessão  
+**3. History**: painel com o histórico dos códigos rodados  
+**3. Connection**: painel para conectar banco de dados  
+**3. Git**: painel do controle de versão  
+**3. Tutorial**: painel de tutoriais  
+**4. Files**: painel que mostra os arquivos no diretório de trabalho  
+**4. Plots**: painel onde os gráficos são apresentados  
+**4. Packages**: painel que lista os pacotes  
+**4. Help**: painel onde a documentação das funções é exibida  
+**4. Viewer**: painel de visualização 
+
+![](img/rstudio.png){.absolute width=500 height=250 right=-170 top=400}
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## Atalhos {.smaller}
+
+**f1**: abre o painel de *Help*  
+**ctrl + Enter**: roda a linha selecionada no script  
+**ctrl + Shift + N**: abre um novo script  
+**ctrl + S**: salva um script  
+**ctrl + Z**: desfaz uma operação  
+**ctrl + shift + Z**: refaz uma operação  
+**alt + -**: insere um sinal de atribuição (<-)  
+**ctrl + Shift + M**: insere um operador pipe (%>%)  
+**ctrl + Shift + C**: comenta uma linha no script - insere um (#)   
+**ctrl + Shift + R**: insere uma sessão (# ----------------------)  
+**ctrl + Shift + H**: abre uma janela para selecionar o diretório de trabalho  
+**ctrl + Shift + f10**: reinicia o console  
+**ctrl + L**: limpa os códigos do console   
+**alt + Shift + K**: abre uma janela com todos os atalhos disponíveis
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## Projeto R (.Rproj)
+
+- Facilita o trabalho em múltiplos ambientes 
+- Cada projeto possui seu diretório, documentos e workspace
+- Permite controle de versão (git e GitHub)
+
+<center>
+<img src="img/rstudio_project_logo.png" style="width:30%"/>
+</center>
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+# 3. Console

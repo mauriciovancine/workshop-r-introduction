@@ -1,0 +1,1699 @@
+---
+title: "Introdução à linguagem R para manipulação e visualização de dados <br><br><br>"
+subtitle: "2 Introdução ao tidyverse"
+author: " Maurício H. Vancine"
+institute: "UNESP - Rio Claro <br> Laboratório de Ecologia Espacial e Conservação (LEEC)"
+date: "10/11/2021-11/11/2021"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, custom.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: rainbow
+      highlightLines: false
+      highlightSpans: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%/%total%"
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, 
+        encoding = "UTF-8",
+        knitr.table.format = "html")
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE, eval = TRUE)
+if(!require(countdown)) devtools::install_github("gadenbuie/countdown")
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(palmerpenguins)) install.packages("palmerpenguins")
+```
+
+class: clear
+background-image: url(img/general_data_science_r4ds.png)
+background-size: 800px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+class: inverse, center, middle
+
+# Informando: o valor das incrições será convertido em duas cestas básicas
+
+---
+
+background-image: url(img/package_tidyverse.png)
+background-size: 300px
+background-position: 85% 75%
+
+# 2 Introdução ao tidyverse
+
+## Conteúdo
+
+1. Contextualização
+1. tidyverse
+1. here
+1. readr, readxl e writexl
+1. tibble
+1. magrittr (pipe - %>%)
+1. tidyr
+1. dplyr
+
+<br><br><br><br><br><br>
+[tidyverse](https://www.tidyverse.org/)
+
+---
+
+# 2 Introdução ao tidyverse
+
+## Script
+
+<br><br><br><br>
+
+## .center[`02_script_r_introduction.R`]
+
+---
+
+background-image: url(img/tidyverse-default.png)
+background-size: 500px
+background-position: 90% 80%
+
+# 1. Contextualização
+
+## Descrição
+
+### O tidyverse é um **conjunto de pacotes** designados para **Data Science**
+
+--
+
+### Todos os pacotes compartilham uma **filosofia** de design, gramática e estruturas de dados
+
+--
+
+### É um **"dialeto"** novo para a linguagem R
+
+--
+
+### **tidy**: organizado, arrumado, ordenado
+### **verse**: universo
+
+<br><br>
+[What is the tidyverse?](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+
+---
+
+class: inverse, center
+background-image: url(img/gif_avenger_reference.gif)
+background-size: 800px
+
+# Iniciativa Vingadores do R
+
+---
+
+background-image: url(img/general_data_science.png)
+background-size: 900px
+background-position: 50% 60%
+
+# 1. Contextualização
+
+## Fluxo de trabalho
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+
+---
+
+background-image: url(img/tidyverse_flow.png)
+background-size: 650px
+background-position: 50% 60%
+
+# 1. Contextualização
+
+## Pacotes
+
+---
+
+background-image: url(img/tidyverse_packages.png)
+background-size: 650px
+background-position: 50% 60%
+
+# 1. Contextualização
+
+## Pacotes e suas funções
+
+---
+
+background-image: url(img/person_hadley_wickham.jpg)
+background-size: 550px
+background-position: 50% 60%
+
+# 1. Contextualização
+
+### O idealizador foi o **Hadley Wickham** e atualmente **muitas pessoas** têm contribuído para sua expansão
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Hadley Wickham](http://hadley.nz/)
+
+---
+
+background-image: url(img/tidyverse_papers.png)
+background-size: 400px
+background-position: 50% 90%
+
+# 1. Contextualização
+
+## Artigos
+
+> - Wickham, Hadley. ["Tidy data."](https://www.jstatsoft.org/article/view/v059i10) Journal of Statistical Software 59.10 (2014): 1-23.
+
+> - Wickham, Hadley, et al. ["Welcome to the Tidyverse."](https://joss.theoj.org/papers/10.21105/joss.01686) Journal of Open Source Software 4.43 (2019): 1686.
+
+---
+
+background-image: url(img/cover_data_science_r.png)
+background-size: 300px
+background-position: 50% 55%
+
+# 1. Contextualização
+
+## R for Data Science (2017)
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+
+---
+
+background-image: url(img/tidyverse_site1.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 1. Contextualização
+
+## Sites
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[tidyverse](https://www.tidyverse.org/)
+
+---
+
+background-image: url(img/tidyverse_site2.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 1. Contextualização
+
+## Sites
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[R para data science](https://rpubs.com/modelthinkingbr/dados)
+
+---
+
+class: clear
+background-image: url(img/package_tidyverse.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[tidyverse](https://tidyverse.tidyverse.org/)
+
+---
+
+# 2. tidyverse
+
+## Descrição
+
+### Para utilizar os pacotes do **tidyverse** é preciso instalar e carregar o pacote `tidyverse`
+
+```{r eval=FALSE}
+# instalar pacote
+install.packages("tidyverse")
+```
+
+```{r message=TRUE}
+# carregar pacote
+library(tidyverse)
+```
+
+---
+
+# 2. tidyverse
+
+## Listar todos os pacotes do tidyverse
+
+```{r}
+# listar todos os pacotes no tidyverse 
+tidyverse::tidyverse_packages(include_self = TRUE)
+```
+
+---
+
+background-image: url(img/code_snake_case.png)
+background-size: 500px
+background-position: 80% 80%
+
+# 2. tidyverse
+
+## Sintaxe
+
+### Todas as funções dos pacotes **tidyverse** usam fonte minúscula e usam `_` para separar os nomes internos das funções (snake_case)
+
+<br>
+
+`read_csv()`
+
+`read_xlsx()`
+
+`as_tibble()`
+
+`left_join()`
+
+`group_by()`
+
+---
+
+background-image: url(img/code_snake_case.png)
+background-size: 500px
+background-position: 80% 80%
+
+# 2. tidyverse
+
+## Sintaxe
+
+### É interessante **indicar de quais pacotes as funções** são utilizadas (`pacote::função`), para **evitar erros** com funções de outros pacotes
+
+<br>
+
+`readr::read_csv()`
+
+`readxl::read_xlsx()`
+
+`tibble::as_tibble()`
+
+`dplyr::left_join()`
+
+`dplyr::group_by()`
+
+---
+
+class: clear
+background-image: url(img/here.png)
+background-size: 700px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[here](https://here.r-lib.org/)
+[@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+# 3. here
+
+## Descrição
+
+### Constrói caminhos para os arquivos do seu projeto
+
+### - **Mudar o diretório**: tende à ser chato demais (principalmente se é um código alheio)
+
+--
+
+### - **Fragilidade**: conectado exatamente a um lugar e a um momento (baixa reprodutibilidade)
+
+--
+
+### - **Subdiretórios**: facilita importar ou exportar para subpastas (Lei do Mínimo Esforço)
+
+---
+
+background-image: url(img/here.png)
+background-size: 400px
+background-position: 50% 90%
+
+# 3. here
+
+## Pacote
+
+```{r eval=FALSE}
+# instalar
+install.packages("here")
+
+# carregar
+library(here)
+```
+
+<br><br><br><br><br><br><br><br><br><br>
+[@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+background-image: url(img/here.png)
+background-size: 400px
+background-position: 50% 90%
+
+# 3. here
+
+## Diversos critérios para encontrar o diretório raiz
+
+```{r eval=FALSE}
+# conferir
+here::here()
+
+# criar um arquivo .here
+# here::set_here()
+```
+
+<br><br><br><br><br><br><br><br><br><br>
+[@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+class: clear
+background-image: url(img/package_readr.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[readr](https://readr.tidyverse.org/)
+
+---
+
+background-image: url(img/cheatsheet_readr.png)
+background-size: 600px
+background-position: 50% 70%
+
+# 4. readr, readxl e writexl
+
+## Data Import Cheatsheet
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Data Import Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+
+---
+
+# 4. readr, readxl e writexl
+
+## readr - Descrição
+
+### **Carrega e salva** grandes arquivos de forma **mais rápida**
+
+--
+
+### As funções **read.csv()** e **read.csv2()** são substituídas pelas funções **read_csv()** e **read_csv2()**
+
+--
+
+### Essas funções fornecem **medidores de progresso**
+
+--
+
+### E também **classificam** automaticamente o **modo** dos dados de cada coluna
+
+--
+
+### A classe do objeto atribuído é **tibble**
+
+--
+
+### Para salvar arquivos no formato .csv: **write_csv()** e **write_csv2()**
+
+---
+
+background-image: url(img/general_data_eu_mesmo.png)
+background-size: 600px
+background-position: 50% 80%
+
+# 4. readr, readxl e writexl
+
+## ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America
+
+### Eu mesmo et al. (2018)
+
+<br><br><br><br><br><br><br><br><br><br><br>
+[Vancine et al. (2018)](https://doi.org/10.1002/ecy.2392)
+
+---
+
+# 4. readr, readxl e writexl
+
+## readr
+
+### **Formato .csv**
+
+```{r}
+# importar sites com here
+si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
+si
+```
+
+---
+
+# 4. readr, readxl e writexl
+
+## readr
+
+### **Formato .csv**
+
+```{r eval=FALSE}
+# importar sites sem here
+si <- readr::read_csv("./03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
+si
+```
+
+```{r echo=FALSE}
+si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
+si
+```
+
+---
+
+# 4. readr, readxl e writexl
+
+## readr
+
+### **Formato .txt**
+
+```{r}
+# importar sites
+si <- readr::read_tsv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.txt"))
+si
+```
+
+---
+
+class: clear
+background-image: url(img/package_readxl.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[readxl](https://readxl.tidyverse.org/)
+
+---
+
+# 4. readr, readxl e writexl
+
+## readxl e writexl
+
+### Pacotes para importar e exportar planilhas no formato Excel®
+
+```{r eval=FALSE}
+# importar .xlsx
+install.packages("readxl")
+library("readxl")
+```
+
+```{r eval=FALSE}
+# exportar .xlsx
+install.packages("writexl")
+library("writexl")
+```
+
+---
+
+# 4. readr, readxl e writexl
+
+## readxl - Desccrição
+
+### **Carrega e salva** grandes arquivos de forma **mais rápida** no formato **.xlsx**
+
+--
+
+### Funções **read_xlsx()** e **read_xlsx2()**
+
+--
+
+### Essas funções fornecem **medidores de progresso**
+
+--
+
+### E também **classificam** automaticamente o **modo** dos dados de cada coluna
+
+--
+
+### A classe do objeto atribuído é **tibble**
+
+--
+
+### Para salvar arquivos no formato .xlsx: **write_xlsx()** e **write_xlsx2()**
+
+---
+
+# 4. readr, readxl e writexl
+
+## **Formato .xlsx**
+
+### O argumento `sheet` define a aba a ser importada (número ou nome)
+
+```{r}
+# importar sites
+si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx"), sheet = 1)
+si
+```
+
+---
+
+class: clear
+background-image: url(img/package_tibble.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[tibble](https://tibble.tidyverse.org/)
+
+---
+
+# 5. tibble
+
+### O tibble (classe *tbl_df*) é um **tipo especial de data frame**
+
+--
+
+### É o **formato** aconselhado para que as funções do tidyverse **funcionem**
+
+--
+
+### Converter **data frame** em **tibble** usa-se a função `as_tibble()`
+
+--
+
+### Converter **tibble** em **data frame** usa-se a função `as_data_frame()`
+
+--
+
+### Cada variável pode ser do modo *numbers(int, dbl)*, *character(chr)*, *logical(lgl)* ou *factor(fctr)*
+
+---
+
+# 5. tibble
+
+## Descrição dos modos das colunas através da função `glimpse()` - "espiar os dados"
+
+```{r}
+# descricao dos dados de sites
+tibble::glimpse(si)
+```
+
+---
+
+class: clear
+background-image: url(img/package_magrittr.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[magrittr](https://magrittr.tidyverse.org/)
+
+---
+
+background-image: url(img/person_rene_magritte.jpg), url(img/tidyverse_magritte_pipe.jpg)
+background-size: 350px, 550px
+background-position: 7% 60%, 85% 75%
+
+# 6. magrittr (pipe - %>%)
+
+## René Magritte (1898-1967)
+
+---
+
+# 6. magrittr (pipe - %>%)
+
+## Descrição
+
+### O operador pipe (*%>%*) permite o “encadeamento” de várias funções e **não é preciso de objetos** para armazenar resultados intermediários
+
+--
+
+### Essa função torna os códigos em R **mais simples**, pois realizamos **múltiplas operações** em uma **única linha**
+
+--
+
+### Ele captura o **resultado de uma declaração** e o **torna a entrada da próxima declaração**. Podemos pensar como *“EM SEGUIDA FAÇA”*
+
+--
+
+### O operador pipe é **%>%**
+
+---
+
+background-image: url(img/general_fog01.jpg)
+background-size: 500px
+background-position: 50% 70%
+
+# 6. magrittr (pipe - %>%)
+
+### Atalho: `Crtl + Shift + M`
+
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+---
+
+background-image: url(img/general_fog02.jpg)
+background-size: 350px
+background-position: 50% 80%
+
+# 6. magrittr (pipe - %>%)
+
+### Atalho: `Crtl + Shift + M`
+
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+---
+
+# 6. magrittr (pipe - %>%)
+
+### Atalho: `Crtl + Shift + M`
+
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+```{r}
+# com pipe
+1:100 %>% 
+  sum() %>% 
+  sqrt()
+```
+
+---
+
+# 6. magrittr (pipe - %>%)
+
+### Atalho: `Crtl + Shift + M`
+
+```{r}
+# fixar amostragem
+set.seed(42)
+
+# sem pipe
+ve <- sum(sqrt(sort(log10(rpois(100, 10)))))
+ve
+```
+--
+```{r}
+# fixar amostragem
+set.seed(42)
+
+# com pipe
+ve <- rpois(100, 10) %>% 
+  log10() %>%
+  sort() %>% 
+  sqrt() %>% 
+  sum()
+ve  
+```
+
+---
+
+class: clear, inverse
+background-image: url(img/gif_mario.gif)
+background-size: 700px
+
+---
+
+class: clear, inverse
+background-image: url(img/waterfall.gif)
+background-size: 900px
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 01
+
+## Reescreva cada uma das operações utilizando pipes `%>%`:
+<br>
+`log10(cumsum(1:100))`
+<br>
+`sum(sqrt(abs(rnorm(100))))`
+<br>
+`sum(sort(sample(1:10, 10000, rep = TRUE)))`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 01
+## Solução
+```{r eval=FALSE}
+# solucao
+# 1.
+log10(cumsum(1:100))
+
+1:100 %>%
+  cumsum %>% 
+  log10
+```
+
+---
+
+# Exercício 01
+## Solução
+
+```{r eval=FALSE}
+# 2.
+sum(sort(abs(rnorm(100))))
+
+rnorm(100) %>% 
+  abs %>% 
+  sort %>% 
+  sum
+```
+
+---
+
+# Exercício 01
+## Solução
+
+```{r eval=FALSE}
+# 3.
+sum(sort(sample(1:10, 10000, rep = TRUE)))
+
+1:10 %>% 
+  sample(10000, rep = TRUE) %>% 
+  sort %>% 
+  sum
+```
+
+---
+
+class: inverse, center, middle
+
+# Para apresentar os próximos pacotes, vamos usar dados de pinguins!
+
+---
+
+class: clear
+background-image: url(img/package_palmerpenguins.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+background-image: url(img/lter_penguins.png)
+background-size: 600px
+background-position: 50% 80%
+
+# palmerpenguins
+
+## Dados de medidas de pinguins chamados `palmerpenguins`
+
+#### Esses dados foram coletados e disponibilizados pela [Dra. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) e pela [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), membro da [Long Term Ecological Research Network](https://lternet.edu/)
+
+#### Dois conjuntos de dados: **penguins_raw** (dados brutos) e **penguins** (versão simplificada)
+
+<br><br><br><br><br><br><br><br><br><br><br>
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+background-image: url(img/culmen_depth.png), url(img/lter_penguins.png)
+background-size: 400px, 400px
+background-position: 20% 90%, 80% 90%
+
+# palmerpenguins
+
+## Dados de medidas de pinguins chamados `palmerpenguins`
+
+```{r eval=FALSE}
+# instalar 
+install.packages("palmerpenguins")
+
+# carregar
+library(palmerpenguins)
+
+# ajuda dos dados
+?penguins
+?penguins_raw
+```
+
+<br><br><br><br><br><br><br>
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+background-image: url(img/culmen_depth.png), url(img/lter_penguins.png)
+background-size: 400px, 400px
+background-position: 20% 90%, 80% 90%
+
+# palmerpenguins
+
+## Dados de medidas de pinguins chamados `palmerpenguins`
+
+```{r eval=FALSE}
+# visualizar os dados
+penguins
+penguins_raw
+
+# glimpse
+tibble::glimpse(penguins)
+tibble::glimpse(penguins_raw)
+```
+
+<br><br><br><br><br><br><br><br>
+[palmerpenguins ](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+class: clear
+background-image: url(img/package_tidyr.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[tidyr](https://tidyr.tidyverse.org/)
+
+---
+
+background-image: url(img/cheatsheet_tidyr.png)
+background-size: 600px
+background-position: 50% 70%
+
+# 7. tidyr
+
+## Data Import Cheatsheet
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Data Import Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+
+---
+
+# 7. tidyr
+
+## Descrição
+
+### O pacote tidyr tem **função de tornar** um conjunto de dados **tidy** (organizados), sendo esses fáceis de manipular, modelar e visualizar
+
+--
+
+### Um conjunto de dados está **arrumado ou não**, dependendo de como linhas, colunas e células são combinadas com observações, variáveis e valores
+
+--
+
+## Nos dados tidy:
+### 1. Cada variável em uma coluna
+### 2. Cada observação em uma linha
+### 3. Cada valor como uma célula
+
+---
+
+background-image: url(img/tidyr_data01.png)
+background-size: 1000px
+background-position: 50% 50%
+
+# 7. tidyr
+
+## Conjunto de dados 'tidy'
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+
+---
+
+background-image: url(img/tidyr_data02.jpg)
+background-size: 700px
+background-position: 75% 85%
+
+# 7. tidyr
+
+## Funções
+
+1. **unite()**: junta dados de múltiplas colunas em uma
+1. **separate()**: separa caracteres em múlplica colunas
+1. **drop_na()**: retira linhas com NA
+
+<br><br><br><br><br><br><br><br><br><br><br>
+[@allison_horst](https://twitter.com/allison_horst)
+
+---
+
+# 7. tidyr
+
+## **1. `unite()`**
+
+### Unir as colunas "Region" e "Island" na nova coluna "region_island"
+
+```{r}
+# unir colunas
+penguins_raw_unir <- tidyr::unite(data = penguins_raw, 
+                                  col = "region_island",
+                                  Region:Island, 
+                                  sep = ", ",
+                                  remove = FALSE)
+head(penguins_raw_unir[, c("Region", "Island", "region_island")])
+```
+
+---
+
+# 7. tidyr
+
+## **2. `separate()`**
+
+### Separar a coluna “Stage” nas colunas “stage” e “egg_stage”
+
+```{r}
+# separar colunas
+penguins_raw_separar <- tidyr::separate(data = penguins_raw, 
+                                        col = Stage,
+                                        into = c("stage", "egg_stage"), 
+                                        sep = ", ",
+                                        remove = FALSE)
+head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
+```
+
+---
+
+# 7. tidyr
+
+## **3. `drop_na()`**
+
+### Remove as linhas com NA de todas as colunas
+
+```{r}
+# remover linhas com na
+penguins_raw_todas_na <- tidyr::drop_na(data = penguins_raw)
+head(penguins_raw_todas_na)
+```
+
+---
+
+# 7. tidyr
+
+## **3. `drop_na()`**
+
+### Remove as linhas com NA da coluna "Comments"
+
+```{r}
+# remover linhas com na de uma coluna
+penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
+                                          any_of("Comments"))
+head(penguins_raw_colunas_na[, "Comments"])
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 02
+
+### Faça a união das colunas `studyName` e `Individual ID` na coluna `StudyInd`, separados por ` - ` dos pinguins dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 02
+
+## Solução
+
+```{r}
+# exercicio 02
+penguins_raw_uni_ind <- penguins_raw %>% 
+  tidyr::unite(col = "StudyInd",
+               c(studyName, `Individual ID`), 
+               sep = " - ",
+               remove = FALSE)
+head(penguins_raw_uni_ind)
+```
+
+---
+
+# Exercício 03
+
+### Separe as informações de ano, mês e dia da coluna `Date Egg` dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 03
+
+## Solução
+
+```{r}
+# exercicio 03
+penguins_raw_sep_data <- penguins_raw %>% 
+  tidyr::separate(col = `Date Egg`, 
+                  into = c("Year", "Month", "Day"), 
+                  sep = "-",
+                  remove = FALSE)
+head(penguins_raw_sep_data)
+```
+
+---
+
+# Exercício 04
+
+### Remova as linhas que possuem `NA` na coluna `Body` dos dados `penguins_raw`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 04
+
+## Solução
+
+```{r}
+# exercicio 04
+penguins_raw_drop_na_body <- penguins_raw %>% 
+  tidyr::drop_na(`Body Mass (g)`)
+head(penguins_raw_drop_na_body)
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+class: clear
+background-image: url(img/package_dplyr.png)
+background-size: 400px
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[dplyr](https://dplyr.tidyverse.org/)
+
+---
+
+background-image: url(img/cheatsheet_dplyr.png)
+background-size: 600px
+background-position: 50% 70%
+
+# 8. dplyr
+
+## Data Transformation Cheatsheet
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Data Transformation Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+
+---
+
+background-image: url(img/dplyr_functions.png)
+background-size: 400px
+background-position: 50% 80%
+
+# 8. dplyr
+
+## Descrição
+
+### O **dplyr** é um pacote que **facilita** o trabalho com dados, com uma **gramática de manipulação** de dados **simples e flexível** (filtragem, reordenamento, seleção, ...)
+
+---
+
+# 8. dplyr
+
+## Funções
+
+### Sua gramática simples contém **funções verbais** para manipulação de dados
+
+<br>
+
+-   Verbos: `mutate()`, `select()`, `filter()`, `arrange()`, `summarise()`, `slice()`, `rename()`, etc.
+-   Replicação: `across()`, `if_any()`, `if_all()`, `where()`, `starts_with()`, `ends_with()`, `contains()`, etc.
+-   Agrupamento: `group_by()` e `ungroup()`
+-   Junções: `inner_join()`, `full_join()`, `left_join()`, `right_join()`, etc.
+-   Combinações: `bind_rows()` e `bind_cols()`
+-   Resumos, contagem e seleção: `n()`, `n_distinct()`, `first()`, `last()`, `nth()`, etc.
+
+---
+
+# 8. dplyr
+
+## Funções
+
+### Exemplos
+
+-   `relocate()`: muda a ordem das colunas
+-   `rename()`: muda o nome das colunas
+-   `select()`: seleciona colunas pelo nome ou posição
+-   `pull()`: seleciona uma coluna como vetor
+-   `mutate()`: adiciona novas colunas ou resultados em colunas existentes
+-   `arrange()`: reordena as linhas com base nos valores de colunas
+-   `filter()`: seleciona linhas com base em valores de colunas
+-   `slice()`: seleciona linhas de diferente formas
+-   `distinct()`: remove linhas com valores repetidos com base nos valores de colunas
+-   `count()`: conta observações para um grupo
+-   `group_by()`: agrupa linhas pelos valores das colunas
+-   `summarise()`: resume os dados através de funções considerando valores das colunas
+-   `*_join()`: funções que juntam dados de duas tabelas através de uma coluna chave
+
+---
+
+# 8. dplyr
+
+## Sintaxe
+
+### O **tibble** é sempre o **primeiro argumento** das funções verbais
+
+--
+
+### Todas seguem a mesma sintaxe: 
+
+#### 1. tibble
+#### 2. operador pipe 
+#### 3. nome da função verbal com os argumentos entre parênteses 
+
+--
+
+### As funções verbais **não modificam** o tibble original
+
+```{r eval=FALSE}
+# sintaxe
+tb_dplyr <- tb %>% 
+  funcao_verbal1(argumento1, argumento2, ...) %>% 
+  funcao_verbal2(argumento1, argumento2, ...) %>% 
+  funcao_verbal3(argumento1, argumento2, ...)
+```
+
+---
+
+# 8. dplyr
+
+## **1. `relocate()`**
+
+### Reordena as colunas por nome ou posição
+
+```{r}
+# reordenar colunas - nome
+penguins_relocate_col <- penguins %>% 
+  dplyr::relocate(sex, year, .after = island)
+head(penguins_relocate_col)
+```
+
+---
+
+# 8. dplyr
+
+## **1. `relocate()`**
+
+### Reordena as colunas por nome ou posição
+
+```{r}
+# reordenar colunas - posicao
+penguins_relocate_ncol <- penguins %>% 
+  dplyr::relocate(sex, year, .after = 2)
+head(penguins_relocate_ncol)
+```
+
+---
+
+# 8. dplyr
+
+## **2. `rename()`**
+
+### Renomeia as colunas
+
+```{r}
+# renomear colunas
+penguins_rename <- penguins %>% 
+  dplyr::rename(bill_length = bill_length_mm,
+                bill_depth = bill_depth_mm,
+                flipper_length = flipper_length_mm,
+                body_mass = body_mass_g)
+head(penguins_rename)
+```
+
+---
+
+# 8. dplyr
+
+## **3. `select()`**
+
+### Seleciona colunas pela posição ou pelo nome
+
+```{r}
+# selecionar colunas por posicao
+penguins_select_position <- penguins %>% 
+  dplyr::select(3:6)
+head(penguins_select_position)
+```
+
+---
+
+# 8. dplyr
+
+## **3. `select()`**
+
+### Seleciona colunas pela posição ou pelo nome
+
+```{r}
+# selecionar colunas por nomes
+penguins_select_names <- penguins %>% 
+  dplyr::select(bill_length_mm:body_mass_g)
+head(penguins_select_names)
+```
+
+---
+
+# 8. dplyr
+
+## **3. `select()`**
+
+### Remove as colunas pela posição ou pelo nome
+
+```{r}
+# remover colunas pelo nome
+penguins_select_names_remove <- penguins %>% 
+  dplyr::select(-(bill_length_mm:body_mass_g))
+head(penguins_select_names_remove)
+```
+---
+
+# 8. dplyr
+
+## **3. `select()`**
+
+### Seleciona colunas por um padrão
+
+```{r}
+# selecionar colunas por padrao - starts_with(), ends_with() e contains()
+penguins_select_contains <- penguins %>% 
+  dplyr::select(contains("_mm"))
+head(penguins_select_contains)
+```
+
+---
+
+# 8. dplyr
+
+## **4. `pull()`**
+
+### Seleciona uma coluna como vetor
+
+```{r}
+# coluna para vetor
+penguins_select_pull <- penguins %>% 
+  dplyr::pull(bill_length_mm)
+head(penguins_select_pull, 15)
+```
+
+---
+
+# 8. dplyr
+
+## **5. `mutate()`**
+
+### Adiciona colunas novas ou vindas de operações
+
+```{r}
+# adicionar colunas
+penguins_mutate <- penguins %>% 
+  dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
+head(penguins_mutate)
+```
+
+---
+
+# 8. dplyr
+
+## **6. `arrange()`**
+
+### Reordena de forma crescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem crescente
+penguins_arrange <- penguins %>% 
+  dplyr::arrange(body_mass_g)
+head(penguins_arrange)
+```
+
+---
+
+# 8. dplyr
+
+## **6. `arrange()`**
+
+### Reordena de forma decrescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem decrescente
+penguins_arrange_desc <- penguins %>% 
+  dplyr::arrange(desc(body_mass_g))
+head(penguins_arrange_desc)
+```
+
+---
+
+# 8. dplyr
+
+## **6. `arrange()`**
+
+### Reordena de forma crescente ou decrescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem decrescente
+penguins_arrange_desc_m <- penguins %>% 
+  dplyr::arrange(-body_mass_g)
+head(penguins_arrange_desc_m)
+```
+
+---
+
+# 8. dplyr
+
+## **7. `filter()`**
+
+### Filtro de linhas por valores de uma coluna
+
+```{r eval=FALSE}
+# filtrar linhas por valores de uma coluna
+penguins_filter <- penguins %>% 
+  dplyr::filter(species == "Adelie")
+head(penguins_filter)
+```
+
+---
+
+# 8. dplyr
+
+## **7. `filter()`**
+
+### Filtro de linhas por valores de uma coluna
+
+```{r eval=FALSE}
+# filtrar linhas por valores de duas colunas
+penguins_filter_two <- penguins %>% 
+  dplyr::filter(species == "Adelie" & sex == "female")
+head(penguins_filter_two)
+```
+
+---
+
+# 8. dplyr
+
+## **7. `filter()`**
+
+### Filtro de linhas por valores de uma coluna e vários valores
+
+```{r eval=FALSE}
+# filtrar linhas por mais de um valor e mais de uma coluna
+penguins_filter_in <- penguins %>% 
+  dplyr::filter(species %in% c("Adelie", "Gentoo"),
+                sex == "female")
+head(penguins_filter_in)
+```
+
+---
+
+# 8. dplyr
+
+## **8. `slice()`** 
+
+### Seleção das linhas por intervalos, indicando quais linhas desejamos
+
+```{r}
+# selecionar linhas por intervalos
+penguins_slice <- penguins %>% 
+  dplyr::slice(n = c(1, 3, 300:n()))
+head(penguins_slice)
+```
+
+---
+
+# 8. dplyr
+
+## **8. `slice()`** 
+
+### Seleção das linhas iniciais
+
+```{r}
+# selecionar linhas iniciais
+penguins_slice_head <- penguins %>% 
+  dplyr::slice_head(n = 5)
+head(penguins_slice_head)
+```
+
+---
+
+# 8. dplyr
+
+## **8. `slice()`** 
+
+### Seleção de linhas aleatoriamente
+
+```{r}
+# selecionar linhas aleatoriamente
+penguins_slice_sample <- penguins %>% 
+  dplyr::slice_sample(n = 30)
+head(penguins_slice_sample)
+```
+
+---
+
+# 8. dplyr
+
+## **9. `distinct()`**
+
+###  Retira linhas com valores duplicados com base nos valores de colunas
+
+```{r}
+# retirar linhas com valores duplicados
+penguins_distinct <- penguins %>% 
+  dplyr::distinct(body_mass_g)
+head(penguins_distinct)
+```
+
+---
+
+# 8. dplyr
+
+## **9. `distinct()`**
+
+###  Retira linhas com valores duplicados com base nos valores de colunas, mas mantendo as colunas
+
+```{r}
+# retirar linhas com valores duplicados e manter colunas
+penguins_distinct_keep_all <- penguins %>% 
+  dplyr::distinct(body_mass_g, .keep_all = TRUE)
+head(penguins_distinct_keep_all)
+```
+
+---
+
+# 8. dplyr
+
+## **10. `count()`**
+
+### Conta valores de uma ou mais colunas, geralmente para variáveis categóricas
+
+```{r}
+# contagens de valores para uma coluna
+penguins_count <- penguins %>% 
+  dplyr::count(species)
+penguins_count
+```
+
+---
+
+# 8. dplyr
+
+## **10. `count()`**
+
+### Conta valores de uma ou mais colunas, geralmente para variáveis categóricas
+
+```{r}
+# contagens de valores para mais de uma coluna
+penguins_count_two <- penguins %>% 
+  dplyr::count(species, island)
+penguins_count_two
+```
+
+---
+
+# 8. dplyr
+
+## **10. `count()`**
+
+### Conta valores de uma ou mais colunas, geralmente para variáveis categóricas
+
+```{r}
+# contagens de valores para mais de uma coluna
+penguins_count_two_sort <- penguins %>% 
+  dplyr::count(species, island, sort = TRUE)
+penguins_count_two_sort
+```
+
+---
+
+# 8. dplyr
+
+## **11. `groun_by()`**
+
+### Transforma um tibble em um tibble agrupado, onde as operações são realizadas "por grupo"
+
+```{r}
+# agrupamento
+penguins_group_by <- penguins %>% 
+  dplyr::group_by(species)
+head(penguins_group_by)
+```
+
+---
+
+# 8. dplyr
+
+## **12. `summarise()`**
+
+### Agregação ou resumo dos dados através de funções
+
+```{r}
+# resumo
+penguins_summarise <- penguins %>% 
+  dplyr::group_by(species) %>% 
+  dplyr::summarize(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
+                   body_mass_g_sd = sd(body_mass_g, na.rm = TRUE))
+penguins_summarise
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercícios
+
+---
+
+# Exercício 05
+
+### Usando o conjunto de dados `penguins`, adicione essas novas colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10`, que são a operação `log10` das colunas `bill_length_mm_log10, bill_depth_mm_log10, flipper_length_mm_log10, body_mass_g_log10` e atribua ao mesmo objeto `penguins_log` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 05
+
+## Solução
+
+```{r}
+# exercicio 05
+penguins_log <- penguins %>% 
+  dplyr::mutate(bill_length_mm_log10 = log10(bill_length_mm), 
+                bill_depth_mm_log10 = log10(bill_depth_mm), 
+                flipper_length_mm_log10 = log10(flipper_length_mm), 
+                body_mass_g_log10 = log10(body_mass_g))
+penguins_log
+```
+
+---
+
+# Exercício 06
+
+### Usando o conjunto de dados `penguins`, ordene as linhas em forma decrescente pela coluna `body_mass_g`, atribuindo o resultado a um novo objeto `penguins_arrange` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 06
+
+## Solução
+
+```{r}
+# exercicio 06
+penguins_arrange <- penguins %>% 
+  dplyr::arrange(-body_mass_g)
+penguins_arrange
+```
+
+---
+
+# Exercício 07
+
+### Usando o conjunto de dados `penguins`, filtre as linhas com `bill_length_mm` maior que 50 mm, `bill_depth_mm` menor que 20 mm, `flipper_length_mm` maior que 220 mm e `body_mass_g` menor que 5500 g, atribuindo o resultado a um novo objeto `penguins_filter` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 07
+
+## Solução
+
+```{r}
+# exercicio 07
+penguins_filter <- penguins %>% 
+  dplyr::filter(bill_length_mm > 50, 
+                bill_depth_mm < 20, 
+                flipper_length_mm > 220, 
+                body_mass_g < 5500)
+penguins_filter
+```
+
+---
+
+# Exercício 08
+
+### Usando o conjunto de dados `penguins`, amostre 70% das linhas aleatoriamente com `body_mass_g` menor que  5000 g, atribuindo o resultado a um novo objeto `penguins_sample` utilizando o formato tidyverse
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+---
+
+# Exercício 08
+
+## Solução
+
+```{r}
+# exercicio 08
+penguins_sample <- penguins %>% 
+  dplyr::filter(body_mass_g < 5000) %>% 
+  dplyr::slice_sample(prop = .7)
+penguins_sample
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+background-image: url(img/gif_frog.gif), url(img/gif_frogs.gif), url(img/package_xaringan.png)
+background-size: 250px, 500px, 130px
+background-position: 35% 50%, 90% 55%, 5% 86%
+
+## Maurício Vancine
+
+<br><br>
+
+Contatos:
+
+`r icons::icon_style(icons::fontawesome(name = "envelope", style = "solid"), fill = "#23373b")` [mauricio.vancine@gmail.com]()  
+`r icons::icon_style(icons::fontawesome("twitter"), fill = "#23373b")` [@mauriciovancine](https://twitter.com/mauriciovancine)  
+`r icons::icon_style(icons::fontawesome(name = "github"), fill = "#23373b")` [mauriciovancine](https://github.com/mauriciovancine)
+`r icons::icon_style(icons::fontawesome(name = "link", style = "solid"), fill = "#23373b")` [mauriciovancine.github.io](https://mauriciovancine.github.io)
+
+<br><br><br><br><br>
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis). Animação dos sapos por [@probzz](https://twitter.com/probzz/status/1367613720294170627).
