@@ -17,6 +17,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -488,7 +551,7 @@
 </section>
 <section class="slide level2">
 <h2>IMPORTANTE!!!</h2>
-<h3>Estamos num espaço seguro e amigável</h3>
+<p><strong>Estamos num espaço seguro e amigável</strong></p>
 <ul>
 <li>Sintam-se à vontade para me interromper e tirar dúvidas</li>
 </ul>
@@ -508,11 +571,11 @@
 </section>
 <section class="slide level2">
 <h2>Aprendizado</h2>
-<h3>Início</h3>
+<p><strong>Início</strong></p>
 <ul>
 <li>2011: Curso de 40 horas com o Prof.&nbsp;Tadeu Siqueira</li>
 </ul>
-<h3>Aprofundamento</h3>
+<p><strong>Aprofundamento</strong></p>
 <ul>
 <li>2012-2013: Estudei R sozinho por muito tempo, acreditem eu não entendia nada desse negócio…</li>
 <li>2013-2015: Iniciação científica com Modelos de Distribuição de Espécies e Ecologia da Paisagem (Fapesp)</li>
@@ -569,15 +632,15 @@
 </section>
 <section class="slide level2">
 <h2>Consultorias</h2>
-<h4>2018-2019: Aquaflora/Lactec - Curitiba, PR, Brasil</h4>
+<p><strong>2018-2019: Aquaflora/Lactec - Curitiba, PR, Brasil</strong></p>
 <ul>
 <li>Rompimento da barragem de Fundão em Marina/MG</li>
 </ul>
-<h4>2019-2021: PROECO Ambiental - Poços de Caldas, MG, Brasil</h4>
+<p><strong>2019-2021: PROECO Ambiental - Poços de Caldas, MG, Brasil</strong></p>
 <ul>
 <li>Modelagem de Distribuição de Espécies</li>
 </ul>
-<h4>2018-atual: Seleção Natural - Piracicaba, SP, Brasil</h4>
+<p><strong>2018-atual: Seleção Natural - Piracicaba, SP, Brasil</strong></p>
 <ul>
 <li>Analista de dados ecológicos</li>
 <li>Métricas da paisagem e Corredores ecológicos</li>
@@ -593,6 +656,12 @@
 <li class="fragment"><p>Sou grato às <strong>Semanas de Estudos da Ecologia</strong> da Unesp por ter oferecido a oportunidade de ensinar R. Ensinar me fez um <strong>profissional</strong> e <strong>professor</strong> muito melhor</p></li>
 </ul>
 </div>
+</section>
+<section class="slide level2">
+<h2>Mas não foi (é) fácil…</h2>
+<center>
+<img src="img/general_code_meme.jpg" style="width:100%">
+</center>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -612,13 +681,13 @@
 <section class="slide level2 smaller">
 <h2>Histórico - Linguagem S</h2>
 <h3>John M. Chambers (Stanford University, CA, EUA)</h3>
-<h4>Versões</h4>
+<p><strong>Versões</strong></p>
 <ul>
 <li>Old S (1976-1987)</li>
 <li>New S (1988-1997)</li>
 <li>S4 (1998)</li>
 </ul>
-<h4>IDE (<em>Integrated Development Environment</em>)</h4>
+<p><strong>IDE (<em>Integrated Development Environment</em>)</strong></p>
 <ul>
 <li>Interface: S-PLUS (1988-2008)</li>
 </ul>
@@ -630,7 +699,7 @@
 <section class="slide level2 smaller">
 <h2>Histórico - Linguagem R</h2>
 <h3>Robert Gentleman e Ross Ihaka (Auckland University, NZ)</h3>
-<h4>Versões</h4>
+<p><strong>Versões</strong></p>
 <ul>
 <li>Desenvolvimento (1997-2000)</li>
 <li>Versão 1 (2000-2004)</li>
@@ -638,7 +707,7 @@
 <li>Versão 3 (2013-2020)</li>
 <li>Versão 4 (2020-atual)</li>
 </ul>
-<h4>IDE (<em>Integrated Development Environment</em>)</h4>
+<p><strong>IDE (<em>Integrated Development Environment</em>)</strong></p>
 <ul>
 <li>Interface: RStudio (2011-atual)</li>
 <li>Atualmente: <strong>R Core Team</strong></li>
@@ -650,7 +719,7 @@
 </section>
 <section class="slide level2 smaller">
 <h2>Aplicações</h2>
-<h3>Manipulação, visualização e análise de dados</h3>
+<p><strong>Manipulação, visualização e análise de dados</strong></p>
 <ul>
 <li>Estatísticas univariadas e multivariadas</li>
 <li>Análises de dados ecológicos</li>
@@ -659,7 +728,7 @@
 <li>Análise de dados geoespaciais e sensoriamento retomo</li>
 <li>Visualização de todos os dados anteriores</li>
 </ul>
-<h3>R Markdown e quarto</h3>
+<p><strong>R Markdown e quarto</strong></p>
 <ul>
 <li>Textos em HTML, PDF, Word, ODT, Markdown</li>
 <li>Slides, Websites, Blogs, Livros e Artigos</li>
@@ -767,12 +836,319 @@
 <p><a href="https://www.rstudio.com/">RStudio</a></p>
 </div>
 </section></section>
+<section>
 <section class="title-slide slide level1 center">
 <h1>3. Console</h1>
+
+</section>
+<section class="slide level2">
+<h2>Console</h2>
+<p>O console é onde a linguagem R instalada é carregada para executar os códigos</p>
+<center>
+<img src="img/rstudio_script.png" style="width:55%">
+</center>
+<div class="footer">
+<p><a href="https://www.rstudio.com/">RStudio</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Console</h2>
+<ul>
+<li><p>Na janela do console aparece o símbolo <code>&gt;</code>, seguido de uma barra vertical <code>|</code> que fica piscando (cursor), onde digitamos ou enviamos nossos códigos do script</p></li>
+<li><p>Vamos digitar <code>10 + 2</code> e apertar a tecla <code>Enter</code> para que essa operação seja executada</p></li>
+<li><p>O resultado retorna o valor <code>12</code>, precedido do valor um entre colchetes <code>[1]</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Console</h2>
+<ul>
+<li><p>Os colchetes <code>[]</code> demonstram a posição do elemento numa sequência de valores</p></li>
+<li><p>Vamos criar uma sequência usando o operador <code>:</code> para demonstrar isso</p></li>
+<li><p>o número que aparecer nos colchetes vai depender da largura das janelas</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+[26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>4. Scripts</h1>
+
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<p>Onde os códigos são escritos e salvos no formato .R</p>
+<ul>
+<li>Abrir um script: <code>ctrl + shift + N</code></li>
+</ul>
+<center>
+<img src="img/rstudio_script.jpg" style="width:80%">
+</center>
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<ul>
+<li><p>Os códigos são digitados preferencialmente no script</p></li>
+<li><p>Para executar um código, deixem o cursor em qualquer lugar da linha</p></li>
+<li><p>Executar uma linha: <code>ctrl + enter</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<p><strong>Salvar um script</strong></p>
+<ul>
+<li><code>ctrl + S</code></li>
+</ul>
+<center>
+<img src="img/rstudio_script.png" style="width:50%">
+</center>
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<p><strong>Salvar um script</strong></p>
+<ul>
+<li>Pasta do diretório: <code>~/workshop-r-introduction/</code></li>
+</ul>
+<p>00_plano_ensino<br>
+01_slides<br>
+<strong>02_scripts</strong><br>
+03_dados</p>
+<ul>
+<li>Nome: <code>01_script_r_intro.R</code></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<p><strong>Comentários (#)</strong></p>
+<ul>
+<li><p>Comentários não são lidos pelo R e descrevem informações em nosso script</p></li>
+<li><p>São representados pelo <code>#</code> (hash) ou <code>#'</code> (hash-linha)</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># comentarios</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># o r nao le o codigo depois do # (hash)</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="dv">42</span> <span class="co"># essas palavras nao sao executadas, apenas o 42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Script</h2>
+<p><strong>Comentários (#)</strong></p>
+<ul>
+<li><p>Sempre começo um script com um cabeçalho padrão</p></li>
+<li><p>Me ajuda a lembrar o que o script faz e quando eu o escrevi</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#' ---</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#' titulo: Introdução à linguagem R para manipulação e visualização de dados </span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#' autor: seu nome</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#' data: 10-11-2022</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#' ---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section class="title-slide slide level1 center">
+<h1></h1>
+<center>
+<img src="img/general_comment_gandalf.jpg" style="width:50%">
+</center>
+</section>
+
+<section>
+<section class="title-slide slide level1 center">
+<h1>5. Operadores</h1>
+
+</section>
+<section class="slide level2">
+<h2>Operadores</h2>
+<p><strong>Operadores aritméticos (Números)</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operador</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Adição</td>
+<td style="text-align: center;">a + b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">Subtração</td>
+<td style="text-align: center;">a - b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">*</td>
+<td style="text-align: center;">Multiplicação</td>
+<td style="text-align: center;">a * b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">Divisão</td>
+<td style="text-align: center;">a / b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">%%</td>
+<td style="text-align: center;">Resto da divisão</td>
+<td style="text-align: center;">a %% b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">%/%</td>
+<td style="text-align: center;">Quociente da divisão</td>
+<td style="text-align: center;">a %/% b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">Potenciação</td>
+<td style="text-align: center;">a^b</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Operadores</h2>
+<p><strong>Operadores relacionais (TRUE|FALSE)</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operador</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">&lt;</td>
+<td style="text-align: center;">Menor</td>
+<td style="text-align: center;">a &lt; b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">Maior</td>
+<td style="text-align: center;">a &gt; b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">==</td>
+<td style="text-align: center;">Igual</td>
+<td style="text-align: center;">a == b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&lt;=</td>
+<td style="text-align: center;">Menor ou igual</td>
+<td style="text-align: center;">a &lt;= b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">&gt;=</td>
+<td style="text-align: center;">Maior ou igual</td>
+<td style="text-align: center;">a &gt; = b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">!=</td>
+<td style="text-align: center;">Não igual (diferente)</td>
+<td style="text-align: center;">a!=b</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Operadores</h2>
+<p><strong>Ordem das operações aritméticas</strong></p>
+<p><br></p>
+<p><code>()</code> &gt; <code>^</code> &gt; <code>*</code> ou <code>/</code> &gt; <code>+</code> ou <code>-</code></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># sem especificar - segue a ordem das operações</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="dv">1</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.5</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># especificando - segue a ordem dos parênteses</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>((<span class="dv">1</span> <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>)) <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>6. Objetos</h1>
+
+</section>
+<section class="slide level2">
+<h2>Objetos</h2>
+<p><strong>Atribuição (&lt;-)</strong></p>
+<ul>
+<li><p>Palavras que atribuímos dados possibilitando a manipulação dos mesmos</p></li>
+<li><p><strong>palavra &lt;- dados</strong></p></li>
+<li><p>Atribuição: <code>alt + -</code></p></li>
+</ul>
+<p><img data-src="img/general_assign.jpg" class="absolute" style="top: 250px; right: 50px; width: 350px; height: 450px; "></p>
+</section>
+<section class="slide level2">
+<h2>Objetos</h2>
+<p>Vamos atribuir o valor <code>10</code> à palavra <code>eco</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># atribuicao - simbolo (&lt;-)</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>eco <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1></h1>
+<center>
+<img src="img/gif_where.gif" style="width:100%">
+</center>
+</section>
+<section class="slide level2">
+<h2>Objetos</h2>
+<ul>
+<li><p>Sempre confira a atribuição!</p></li>
+<li><p>Chame o objeto novamente!</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># atribuicao - simbolo (&lt;-)</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>eco <span class="ot">&lt;-</span> <span class="dv">10</span> </span>
+<span id="cb17-3"><a href="#cb17-3"></a>eco</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

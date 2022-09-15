@@ -178,7 +178,7 @@ background-position: 50% 80%
 
 ## IMPORTANTE!!!
 
-### Estamos num espaço seguro e amigável
+**Estamos num espaço seguro e amigável**
 
 - Sintam-se à vontade para me interromper e tirar dúvidas
 
@@ -192,11 +192,11 @@ background-position: 50% 80%
 
 ## Aprendizado
 
-### Início
+**Início**
 
 - 2011: Curso de 40 horas com o Prof. Tadeu Siqueira
 
-### Aprofundamento
+**Aprofundamento**
 
 - 2012-2013: Estudei R sozinho por muito tempo, acreditem eu não entendia nada desse negócio...
 - 2013-2015: Iniciação científica com Modelos de Distribuição de Espécies e Ecologia da Paisagem (Fapesp)
@@ -256,15 +256,16 @@ background-position: 50% 80%
 
 ## Consultorias
 
-#### 2018-2019: Aquaflora/Lactec - Curitiba, PR, Brasil
+**2018-2019: Aquaflora/Lactec - Curitiba, PR, Brasil**
 
 - Rompimento da barragem de Fundão em Marina/MG
 
-#### 2019-2021: PROECO Ambiental - Poços de Caldas, MG, Brasil
+**2019-2021: PROECO Ambiental - Poços de Caldas, MG, Brasil**
 
 - Modelagem de Distribuição de Espécies
 
-#### 2018-atual: Seleção Natural - Piracicaba, SP, Brasil
+**2018-atual: Seleção Natural - Piracicaba, SP, Brasil** 
+
 - Analista de dados ecológicos
 - Métricas da paisagem e Corredores ecológicos
 - Modelagem de Distribuição de Espécies
@@ -278,6 +279,12 @@ background-position: 50% 80%
 
 - Sou grato às **Semanas de Estudos da Ecologia** da Unesp por ter oferecido a oportunidade de ensinar R. Ensinar me fez um **profissional** e **professor** muito melhor
 :::
+
+## Mas não foi (é) fácil...
+
+<center>
+<img src="img/general_code_meme.jpg" style="width:100%"/>
+</center>
 
 # 1. Linguagem R
 
@@ -297,12 +304,14 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ### John M. Chambers (Stanford University, CA, EUA)
 
-#### Versões
+**Versões**
+
 - Old S (1976-1987)
 - New S (1988-1997)
 - S4 (1998)
 
-#### IDE (*Integrated Development Environment*)
+**IDE (*Integrated Development Environment*)**
+
 - Interface: S-PLUS (1988-2008)
 
 ![](img/person_john_chambers.jpg){.absolute width=400 height=400 right=10 top=200}
@@ -315,14 +324,16 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ### Robert Gentleman e Ross Ihaka (Auckland University, NZ)
 
-#### Versões
+**Versões**
+
 - Desenvolvimento (1997-2000)
 - Versão 1 (2000-2004)
 - Versão 2 (2004-2013)
 - Versão 3 (2013-2020)
 - Versão 4 (2020-atual)
 
-#### IDE (*Integrated Development Environment*)
+**IDE (*Integrated Development Environment*)**
+
 - Interface: RStudio (2011-atual)
 - Atualmente: **R Core Team**
 
@@ -334,7 +345,8 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ## Aplicações {.smaller}
 
-### Manipulação, visualização e análise de dados
+**Manipulação, visualização e análise de dados**
+
 - Estatísticas univariadas e multivariadas
 - Análises de dados ecológicos
 - Análise de dados espaciais, temporais e sonoros
@@ -342,7 +354,8 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 - Análise de dados geoespaciais e sensoriamento retomo
 - Visualização de todos os dados anteriores
 
-### R Markdown e quarto
+**R Markdown e quarto**
+
 - Textos em HTML, PDF, Word, ODT, Markdown
 - Slides, Websites, Blogs, Livros e Artigos
 - Shiny
@@ -460,3 +473,221 @@ Mudanças no RStudio...
 :::
 
 # 3. Console
+
+## Console
+
+O console é onde a linguagem R instalada é carregada para executar os códigos
+
+<center>
+<img src="img/rstudio_script.png" style="width:55%"/>
+</center>
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## Console
+
+- Na janela do console aparece o símbolo `>`, seguido de uma barra vertical `|` que fica piscando (cursor), onde digitamos ou enviamos nossos códigos do script 
+
+- Vamos digitar `10 + 2` e apertar a tecla `Enter` para que essa operação seja executada
+
+- O resultado retorna o valor `12`, precedido do valor um entre colchetes `[1]`
+
+```{r}
+10 + 2
+```
+
+## Console
+
+- Os colchetes `[]` demonstram a posição do elemento numa sequência de valores
+
+- Vamos criar uma sequência usando o operador `:` para demonstrar isso
+
+- o número que aparecer nos colchetes vai depender da largura das janelas
+ 
+```{r}
+1:42
+```
+
+# 4. Scripts
+
+## Script
+
+Onde os códigos são escritos e salvos no formato .R
+
+- Abrir um script: `ctrl + shift + N`
+
+<center>
+<img src="img/rstudio_script.jpg" style="width:80%"/>
+</center>
+
+## Script
+
+- Os códigos são digitados preferencialmente no script
+
+- Para executar um código, deixem o cursor em qualquer lugar da linha
+
+- Executar uma linha: `ctrl + enter`
+
+```{r}
+1
+```
+
+<br>
+
+```{r}
+1 + 2
+```
+
+## Script
+
+**Salvar um script**
+
+- `ctrl + S`
+
+<center>
+<img src="img/rstudio_script.png" style="width:50%"/>
+</center>
+
+## Script
+
+**Salvar um script**
+
+- Pasta do diretório: `~/workshop-r-introduction/`
+
+00_plano_ensino  
+01_slides  
+**02_scripts**  
+03_dados  
+
+- Nome: `01_script_r_intro.R`
+
+## Script
+
+**Comentários (#)**
+
+- Comentários não são lidos pelo R e descrevem informações em nosso script
+
+- São representados pelo `#` (hash) ou `#'` (hash-linha)
+
+```{r}
+# comentarios
+# o r nao le o codigo depois do # (hash)
+
+42 # essas palavras nao sao executadas, apenas o 42
+```
+
+## Script
+
+**Comentários (#)**
+
+- Sempre começo um script com um cabeçalho padrão
+
+- Me ajuda a lembrar o que o script faz e quando eu o escrevi
+
+```{r}
+#' ---
+#' titulo: Introdução à linguagem R para manipulação e visualização de dados 
+#' autor: seu nome
+#' data: 10-11-2022
+#' ---
+```
+
+#
+
+<center>
+<img src="img/general_comment_gandalf.jpg" style="width:50%"/>
+</center>
+
+# 5. Operadores
+
+## Operadores
+
+**Operadores aritméticos (Números)**
+
+| Operador |       Descrição      |   Uso   |
+|:--------:|:--------------------:|:-------:|
+|     +    | Adição               |  a + b  |
+|     –    | Subtração            |  a - b  |
+|     *    | Multiplicação        |  a * b  |
+|     /    | Divisão              |  a / b  |
+|    %%    | Resto da divisão     |  a %% b |
+|    %/%   | Quociente da divisão | a %/% b |
+|     ^    | Potenciação          |   a^b   |
+
+## Operadores
+
+**Operadores relacionais (TRUE|FALSE)**
+
+| Operador |       Descrição       |   Uso   |
+|:--------:|:---------------------:|:-------:|
+|     <    | Menor                 |  a < b  |
+|     >    | Maior                 |  a > b  |
+|    ==    | Igual                 |  a == b |
+|    <=    | Menor ou igual        |  a <= b |
+|    >=    | Maior ou igual        | a > = b |
+|    !=    | Não igual (diferente) |   a!=b  |
+
+## Operadores
+
+**Ordem das operações aritméticas**
+
+<br>
+
+`()` > `^` > `*` ou `/` > `+` ou `-`
+
+<br>
+
+```{r}
+# sem especificar - segue a ordem das operações
+1 * 2 + 2 / 2 ^ 2
+```
+
+<br>
+
+```{r}
+# especificando - segue a ordem dos parênteses
+((1 * 2) + (2 / 2)) ^ 2
+```
+
+# 6. Objetos
+
+## Objetos
+
+**Atribuição (<-)**
+
+- Palavras que atribuímos dados possibilitando a manipulação dos mesmos
+
+- **palavra <- dados**
+
+- Atribuição: `alt + -`
+
+![](img/general_assign.jpg){.absolute width=350 height=450 right=50 top=250}
+
+## Objetos
+
+Vamos atribuir o valor `10` à palavra `eco`
+
+```{r}
+# atribuicao - simbolo (<-)
+eco <- 10 
+```
+
+# 
+
+<center>
+<img src="img/gif_where.gif" style="width:100%"/>
+</center>
+
+## Objetos
+
+- Sempre confira a atribuição!
+
+- Chame o objeto novamente!
+
+```{r}
+# atribuicao - simbolo (<-)
+eco <- 10 
+eco
+```
