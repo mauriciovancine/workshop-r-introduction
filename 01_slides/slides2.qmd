@@ -1,0 +1,321 @@
+---
+title: "Linguagem R para manipulação e visualização de dados"
+author: "<br> [Maurício Vancine](https://mauriciovancine.github.io/) • [LEEC/Unesp](https://leec.eco.br/)"
+date: "Novembro de 2022 <br><br><br> Licença: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)"
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: false
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+---
+
+# 2. tidyverse
+
+#
+<center>
+<img src="img/general_data_science_r4ds.png" style="width:100%"/>
+</center>
+ 
+:::footer
+[@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Ciência de dados ambiental (*Environmental Data Science*)
+
+<center>
+<img src="img/EnvDataSci.png" style="width:50%"/>
+</center>
+
+:::footer
+[Introduction to Environmental Data Science](https://bookdown.org/igisc/EnvDataSci/)
+:::
+
+## Ciência de dados para ecólogos <br> (*Data Science for Ecologists*)
+
+<center>
+<img src="img/data_science_eco.png" style="width:70%"/>
+</center>
+
+:::footer
+[Data Science for Ecologists and Environmental Scientists](https://ourcodingclub.github.io/course)
+:::
+
+## Environmental Data Science
+
+<br>
+<center>
+<img src="img/environmental_data science_cut.png" style="width:50%"/>
+</center>
+
+:::footer
+[Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
+:::
+
+
+## Script
+
+Abram o script
+
+<br><br><br><br>
+
+`02_script_r_introduction.R`
+
+# tidyverse
+
+## Descrição
+
+- O tidyverse é um conjunto de pacotes designados para *Data Science*
+
+- Todos os pacotes compartilham uma filosofia de design, gramática e estruturas de dados
+
+- É um "dialeto novo" para a linguagem R
+
+**tidy**: organizado, arrumado, ordenado  
+**verse**: universo
+
+:::footer
+[What is the tidyverse?](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+:::
+
+## Fluxo de trabalho
+
+<br><br>
+
+<center>
+<img src="img/general_data_science.png" style="width:100%"/>
+</center>
+
+:::footer
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+:::
+
+## Pacotes
+
+<center>
+<img src="img/tidyverse_flow.png" style="width:70%"/>
+</center>
+
+## Pacotes e suas funções
+
+<br>
+<center>
+<img src="img/tidyverse_packages.png" style="width:70%"/>
+</center>
+
+## Artigos {.smaller}
+
+- Wickham, Hadley. ["Tidy data."](https://www.jstatsoft.org/article/view/v059i10) Journal of Statistical Software 59.10 (2014): 1-23.
+
+- Wickham, Hadley, et al. ["Welcome to the Tidyverse."](https://joss.theoj.org/papers/10.21105/joss.01686) Journal of Open Source Software 4.43 (2019): 1686.
+
+<center>
+<img src="img/tidyverse_papers.png" style="width:45%"/>
+</center>
+
+## Livro
+
+<center>
+<img src="img/cover_data_science_r.png" style="width:35%"/>
+</center>
+
+:::footer
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+:::
+
+## Site
+
+<br>
+<center>
+<img src="img/tidyverse_site.png" style="width:100%"/>
+</center>
+
+:::footer
+[tidyverse](https://www.tidyverse.org/)
+:::
+
+# 
+<center>
+<img src="img/package_tidyverse.png" style="width:50%"/>
+</center>
+
+:::footer
+[tidyverse](https://tidyverse.tidyverse.org/)
+:::
+
+## tidyverse
+
+- Para utilizar os pacotes é preciso instalar e carregar o pacote `tidyverse`
+
+```{r eval=FALSE}
+# instalar pacote
+install.packages("tidyverse")
+```
+
+```{r message=TRUE}
+# carregar pacote
+library(tidyverse)
+```
+
+## Pacotes do tidyverse
+
+**Listar os pacotes**
+
+```{r}
+# listar todos os pacotes no tidyverse 
+tidyverse::tidyverse_packages(include_self = TRUE)
+```
+
+## Sintaxe
+
+- Todas as funções dos pacotes tidyverse usam `fonte minúscula` e `_` para separar os nomes internos das funções (`snake_case`)
+
+`read_csv()`
+
+`read_xlsx()`
+
+`as_tibble()`
+
+`left_join()`
+
+`group_by()`
+
+![](img/code_snake_case.png){.absolute width=500 height=250 right=150 top=350}
+
+## Sintaxe
+
+- Geralmente indica-se de quais pacotes as funções são utilizadas (`pacote::função`) para evitar erros com outros pacotes
+
+`readr::read_csv()`
+
+`readxl::read_xlsx()`
+
+`tibble::as_tibble()`
+
+`dplyr::left_join()`
+
+`dplyr::group_by()`
+
+# 
+<center>
+<img src="img/package_readr.png" style="width:50%"/>
+</center>
+
+:::footer
+[readr](https://readr.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+- Carrega e salva grandes arquivos de forma rápida
+
+- As funções fornecem medidores de progresso (*big data*)
+
+- Classificam o modo (tipo dos dados) de cada coluna
+
+- A classe do objeto atribuído é **tibble**
+
+- Funções:
+
+  - `read_csv()`: lê arquivos *Comma-separated values*
+  - `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
+  - `read_tsv()`: lê arquivos *Tab-separated values*
+  - `read_delim()`: lê arquivos *delim-separated values*
+  - `write_csv()`: escreve arquivos *Comma-separated values*
+  - `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
+  - `write_delim()`: escreve arquivos *delim-separated values*
+
+## Importar dados
+
+ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America
+
+<center>
+<img src="img/general_data_eu_mesmo.png" style="width:75%"/>
+</center>
+
+:::footer
+[Vancine et al. (2018)](https://doi.org/10.1002/ecy.2392)
+:::
+
+## Importar dados
+
+**Formato .csv**
+
+```{r}
+# importar sites com here
+si <- readr::read_csv("03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
+si
+```
+
+## Importar dados
+
+**Formato .txt**
+
+```{r}
+# importar sites com here
+si <- readr::read_tsv("03_dados/ATLANTIC_AMPHIBIANS_sites.txt")
+si
+```
+
+# 
+<center>
+<img src="img/package_readxl.png" style="width:50%"/>
+</center>
+
+:::footer
+[readxl](https://readxl.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+Pacotes para importar e exportar planilhas no formato Excel®
+
+- Carrega e salva grandes arquivos de forma rápida
+
+- As funções fornecem medidores de progresso (*big data*)
+
+- Classificam o modo (tipo dos dados) de cada coluna
+
+- A classe do objeto atribuído é **tibble**
+
+- Funções:
+
+  - `read_excel()`: lê arquivos de planilhas Excel®
+  - `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
+  - `write_xlsx()`: escreve arquivos de planilhas Excel®
+
+```{r eval=FALSE}
+# importar .xlsx
+install.packages("readxl")
+library("readxl")
+
+# exportar .xlsx
+install.packages("writexl")
+library("writexl")
+```
+
+## Importar dados
+
+**Formato .xlsx**
+
+```{r}
+# importar sites com here
+si <- readxl::read_excel("03_dados/ATLANTIC_AMPHIBIANS_sites.xlsx")
+si
+```
+
+# 
+<center>
+<img src="img/package_tibble.png" style="width:50%"/>
+</center>
+
+:::footer
+[tibble](https://tibble.tidyverse.org/)
+:::
