@@ -1,5 +1,5 @@
 #' ---
-#' title: aula 03 - visualizacao de dados
+#' title: visualizacao de dados
 #' author: mauricio vancine
 #' date: 2022-11-11
 #' ---
@@ -8,8 +8,8 @@
 
 library(tidyverse)
 library(palmerpenguins)
-library(ggpubr)
 library(datasauRus)
+library(ggpubr)
 library(GGally)
 library(psych)
 library(cowplot)
@@ -37,6 +37,7 @@ library(esquisse)
 # 14. graficos usando uma interface
 
 # 1. pacotes para graficos  ---------------------------------------------
+
 # graphics
 plot(flipper_length_mm ~ body_mass_g, data = penguins)
 
@@ -54,7 +55,7 @@ penguins
 hist(penguins$flipper_length_mm)
 
 hist(penguins$flipper_length_mm,
-     col = "hotpink",
+     col = "gray50",
      border = "gray")
 
 hist(penguins$flipper_length_mm,
@@ -117,7 +118,7 @@ polygon(density(na.omit(penguins$flipper_length_mm)),
 
 # exportar
 # diretorio
-setwd("03_dados")
+setwd("/home/mude/data/github/mauriciovancine/workshop-r-introduction/03_dados/")
 
 png("plot_densidade.png", wi = 20, he = 20, un = "cm", res = 300)
 
@@ -240,6 +241,27 @@ gghistogram(data = penguins,
             palette = c("darkorange", "darkorchid", "cyan4"),
             xlab = "Comprimento da nadadeira (mm)",
             ylab = "Densidade")
+
+ggdensity(data = penguins, 
+          x = "flipper_length_mm",
+          add = "median",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "darkorchid", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Densidade")
+
+ggpubr_densidade <- ggdensity(data = penguins, 
+                              x = "flipper_length_mm",
+                              add = "median",
+                              color = "species",
+                              fill = "species",
+                              palette = c("darkorange", "darkorchid", "cyan4"),
+                              xlab = "Comprimento da nadadeira (mm)",
+                              ylab = "Densidade")
+
+ggsave(filename = "densidade_ggpubr.png", 
+       plot = ggpubr_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
 
 # 7. grafico de setores ---------------------------------------------------
 
@@ -693,10 +715,8 @@ plot_animate <- ggplot(data = penguins,
 plot_animate
 
 # exportar
-gganimate::anim_save(filename = here::here("03_dados", 
-                                           "graficos" ,
-                                           "plot_animate.gif"),
-                     animation = plot_animate)
+gganimate::anim_save(filename = "plot_animate.gif",
+                     animation = plot_animate, wi = 700, he = 500, un = "px")
 
 # 14. graficos interativos ------------------------------------------------
 

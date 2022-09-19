@@ -1,5 +1,5 @@
 #' ---
-#' title: install packages
+#' title: instalar pacotes
 #' author: mauricio vancine
 #' date: 2022-11-11
 #' ---
@@ -25,8 +25,9 @@ if(!require(ggpubr)) install.packages("ggpubr", dep = TRUE, quiet = TRUE)
 if(!require(psych)) install.packages("psych", dep = TRUE, quiet = TRUE)
 if(!require(cowplot)) install.packages("cowplot", dep = TRUE, quiet = TRUE)
 if(!require(patchwork)) install.packages("patchwork", dep = TRUE, quiet = TRUE)
-if(!require(gganimate)) devtools::install_github('thomasp85/gganimate')
+if(!require(gganimate)) install.packages("gganimate", dep = TRUE, quiet = TRUE)
 if(!require(plotly)) install.packages("plotly", dep = TRUE, quiet = TRUE)
+if(!require(htmlwidgets)) install.packages("htmlwidgets", dep = TRUE, quiet = TRUE)
 if(!require(esquisse)) install.packages("esquisse", dep = TRUE, quiet = TRUE)
 
 # end ---------------------------------------------------------------------

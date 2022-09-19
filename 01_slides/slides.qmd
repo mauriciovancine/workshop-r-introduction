@@ -17,7 +17,7 @@ format:
       message: false
 ---
 
-# Gostaria de agradecê-los pela presença no minicurso, sejam muito bem-vindes!
+# Gostaria de agradecê-los pela presença, sejam muito bem-vindes!
 
 # Gostaria também de agradecer à organização da SEE pelo convite!
 
@@ -96,7 +96,7 @@ format:
 - Linguagem R
 - RStudio
 - Console
-- Scripts
+- Script
 - Operadores
 - Objetos
 - Funções
@@ -111,7 +111,7 @@ format:
 - Citações
 - Principais erros
 - Material de estudo
-- Extra: estrutura da objetos
+- Extra: estrutura dos objetos
 :::
 :::
 :::
@@ -145,7 +145,7 @@ format:
 ::: {.column width="50%"}
 
 ::: nonincremental
-- Gráfico de caixas
+- Gráfico de caixass
 - Gráfico de dispersão
 - Gráfico pareado
 - Combinando gráficos
@@ -162,7 +162,13 @@ format:
 
 Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r)
 
-![](img/github.png){.absolute width=500 height=500 right=300 top=200}
+<center>
+<img src="img/github.png" style="width:50%"/>
+</center>
+
+:::footer
+[GitHub](https://github.com/mauriciovancine/workshop-intro-r)
+:::
 
 ## Conferindo os computadores
 
@@ -184,7 +190,7 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 <img src="img/general_starwars_teamwork.png" style="width:50%"/>
 </center>
 
-# Mas por que aprender uma linguagem R? 
+# Mas por que aprender a linguagem R? Inglês não basta?!
 
 # Minha história com o R
 
@@ -213,10 +219,11 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 
 ## Disciplinas {.smaller}
 
-- 2015: Ecologia Quantitativa
+- 2015: Ecologia Quantitativa (Monitor voluntário)
 - 2016: Modelagem de Nicho Ecológico: teoria e prática (Unesp)
 - 2016: Modelagem de Nicho Ecológico: teoria e prática (Unicamp)
 - 2017: Modelagem de Nicho Ecológico: teoria e prática (Unesp)
+- 2017: Ecologia Quantitativa (Estágio docência)
 - 2018: Modelos Estatísticos em Ecologia (Unesp)
 - 2019: Introdução ao Geoprocessamento para Etnobiologia e Conservação da Biodiversidade (UFRPE)
 - 2020: Modelos Estatísticos em Ecologia (Unesp)
@@ -274,9 +281,9 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 ::: {.incremental}
 - Saber R não me tornou um **Ecólogo**, esse conhecimento vem da nossa formação (aulas, cursos, discussões, leituras, INTERAÇÕES, etc.)
 
--  Entretanto, saber R me tornou um **Ecólogo mais preparado**, i.e., com mais ferramentas para poder **pensar operacionalmente** nos problemas: eu sabia a **teoria** e tinha o **conhecimento prático** para poder aplicar as soluções
+-  Entretanto, saber R me tornou um **Ecólogo mais preparado**, i.e., com mais ferramentas para poder **pensar operacionalmente** nos problemas: eu sabia a **teoria** e tinha o **conhecimento prático** para aplicar soluções
 
-- Sou grato às **Semanas de Estudos da Ecologia** da Unesp por ter oferecido a oportunidade de ensinar R. Ensinar me fez um **profissional** e **professor** muito melhor
+- Sou grato às **Semanas de Estudos da Ecologia** da Unesp pela oportunidade de ensinar R. Ensinar me fez um **profissional** e **professor** muito melhor
 :::
 
 ## Mas não foi fácil... E ainda não é...
@@ -443,19 +450,19 @@ Mudanças no RStudio...
 ## Atalhos {.smaller}
 
 **f1**: abre o painel de *Help*  
-**ctrl + Enter**: roda a linha selecionada no script  
-**ctrl + Shift + N**: abre um novo script  
+**ctrl + enter**: roda a linha selecionada no script  
+**ctrl + shift + N**: abre um novo script  
 **ctrl + S**: salva um script  
 **ctrl + Z**: desfaz uma operação  
 **ctrl + shift + Z**: refaz uma operação  
 **alt + -**: insere um sinal de atribuição (<-)  
-**ctrl + Shift + M**: insere um operador pipe (%>%)  
-**ctrl + Shift + C**: comenta uma linha no script - insere um (#)   
-**ctrl + Shift + R**: insere uma sessão (# ----------------------)  
-**ctrl + Shift + H**: abre uma janela para selecionar o diretório de trabalho  
-**ctrl + Shift + f10**: reinicia o console  
+**ctrl + shift + M**: insere um operador pipe (%>%)  
+**ctrl + shift + C**: comenta uma linha no script - insere um (#)   
+**ctrl + shift + R**: insere uma sessão (# ----------------------)  
+**ctrl + shift + H**: abre uma janela para selecionar o diretório de trabalho  
+**ctrl + shift + f10**: reinicia o console  
 **ctrl + L**: limpa os códigos do console   
-**alt + Shift + K**: abre uma janela com todos os atalhos disponíveis
+**alt + shift + K**: abre uma janela com todos os atalhos disponíveis
 
 :::footer
 [RStudio](https://www.rstudio.com/)
@@ -514,7 +521,7 @@ O console é onde a linguagem R instalada é carregada para executar os códigos
 1:42
 ```
 
-# Scripts
+# Script
 
 ## Script
 
@@ -825,7 +832,7 @@ eco_sum
 
 **Argumentos**
 
-- Os argumentos podem ser de dois tipos:
+Os argumentos podem ser de dois tipos:
 
 1. **Objetos ou valores**: dados onde a função irá atuar
 
@@ -1047,7 +1054,7 @@ Conjunto de funções para executar tarefas específicas
 Duas fontes
 
 - CRAN (*Comprehensive R Archive Network*)
-- GitHub
+- GitHub (Repositório de códigos)
 
 ```{r eval=FALSE}
 # numero de pacotes no cran
@@ -1163,6 +1170,10 @@ Citação da linguagem R
 citation()
 ```
 
+:::footer
+[LaTeX](https://www.latex-project.org/), [BibTeX](http://www.bibtex.org/), [Zotero](https://www.zotero.org/)
+:::
+
 ## Citações
 
 Citação dos pacotes
@@ -1209,7 +1220,7 @@ Help me help you: um bestiário para entender erros e pedir ajuda no R
 </center>
 
 :::footer
-[Help me help you: um bestiário para entender erros e pedir ajuda no R](Help me help you: um bestiário para entender erros e pedir ajuda no R)
+[Help me help you: um bestiário para entender erros e pedir ajuda no R](https://anotherecoblog.wordpress.com/2020/08/26/help-me-help-you-um-bestiario-para-entender-erros-e-pedir-ajuda-no-r/)
 :::
 
 
@@ -1221,13 +1232,13 @@ Parênteses
 
 ```{r error=TRUE}
 sum(1, 2
-    +
-      ```
++
+```
     
-    Aspas
+Aspas
     
-    ```{r error=TRUE}
-    "string
+```{r error=TRUE}
+"string
 +
 ```
 
@@ -1724,17 +1735,17 @@ Geralmente indica-se de quais pacotes as funções são utilizadas (`pacote::fun
 
 - Classificam o modo (tipo dos dados) de cada coluna
 
-- A classe do objeto atribuído é **tibble**
+- A classe do objeto atribuído é `tibble`
 
 - Funções:
 
-- `read_csv()`: lê arquivos *Comma-separated values*
-- `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
-- `read_tsv()`: lê arquivos *Tab-separated values*
-- `read_delim()`: lê arquivos *delim-separated values*
-- `write_csv()`: escreve arquivos *Comma-separated values*
-- `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
-- `write_delim()`: escreve arquivos *delim-separated values*
+  - `read_csv()`: lê arquivos *Comma-separated values*
+  - `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
+  - `read_tsv()`: lê arquivos *Tab-separated values*
+  - `read_delim()`: lê arquivos *delim-separated values*
+  - `write_csv()`: escreve arquivos *Comma-separated values*
+  - `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
+  - `write_delim()`: escreve arquivos *delim-separated values*
 
 ## Diretório
 
@@ -1775,7 +1786,7 @@ ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forest
 **Formato .csv**
 
 ```{r}
-# importar sites com here
+# importar csv
 si <- readr::read_csv("../03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
 si
 ```
@@ -1785,7 +1796,7 @@ si
 **Formato .txt**
 
 ```{r}
-# importar sites com here
+# importar txt
 si <- readr::read_tsv("../03_dados/ATLANTIC_AMPHIBIANS_sites.txt")
 si
 ```
@@ -1809,13 +1820,13 @@ Pacotes para importar e exportar planilhas no formato Excel®
 
 - Classificam o modo (tipo dos dados) de cada coluna
 
-- A classe do objeto atribuído é **tibble**
+- A classe do objeto atribuído é `tibble`
 
 - Funções:
 
-- `read_excel()`: lê arquivos de planilhas Excel®
-- `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
-- `write_xlsx()`: escreve arquivos de planilhas Excel®
+  - `read_excel()`: lê arquivos de planilhas Excel®
+  - `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
+  - `write_xlsx()`: escreve arquivos de planilhas Excel®
 
 ```{r eval=FALSE}
 # importar .xlsx
@@ -1832,7 +1843,7 @@ library("writexl")
 **Formato .xlsx**
 
 ```{r}
-# importar sites com here
+# importar xlsx
 si <- readxl::read_excel("../03_dados/ATLANTIC_AMPHIBIANS_sites.xlsx")
 si
 ```
@@ -1850,7 +1861,7 @@ si
 
 - Dados importados de planilhas eletrônicas são data frames (quadro de dados)
 
-- tibble (classe *tbl_df*) é um tipo especial de data frame
+- `tibble` (classe `tbl_df`) é um tipo especial de data frame
 
 - Classe adequada para o funcionamento das das funções do tidyverse
 
@@ -1923,7 +1934,7 @@ obj <- dados %>%
   funcao2()
 ```
 
-# Se preparem para finalmente entender funções compostas...
+# Se preparem para uma revisão de funções compostas fog() e gof()
 
 ## Função composta
 
@@ -2324,14 +2335,13 @@ Gramática simples que contém funções verbais para a manipulação de dados
 
 **Agrupamento**
 
-`count()`: conta observações para uma coluna
+`count()`: conta observações para uma coluna  
 `group_by()`: agrupa linhas pelos valores das colunas  
 `summarise()`: resume os dados através de funções considerando valores das colunas  
-`*_join()`: funções que juntam dados de duas tabelas através de uma coluna chave  
 
 ## Sintaxe
 
-O tibble é sempre o primeiro argumento das funções verbais
+O `tibble` é sempre o primeiro argumento das funções verbais
 
 Todas seguem a mesma sintaxe: 
 
@@ -2542,12 +2552,12 @@ head(penguins_slice_head)
 
 ## slice
 
-Seleciona linhas aleatoriamente
+Seleciona linhas aleatoriamente, com e sem reposição
 
 ```{r}
 # selecionar linhas aleatoriamente
 penguins_slice_sample <- penguins %>% 
-  dplyr::slice_sample(n = 30)
+  dplyr::slice_sample(n = 30, replace = FALSE)
 head(penguins_slice_sample)
 ```
 
@@ -2777,15 +2787,6 @@ Abram o script
 - De forma simplificada, os gráficos são representações dos nossos dados tabulares
 :::
 
-# 
-<center>
-<img src="img/meme_fake_news.jpg" style="width:60%"/>
-</center>
-
-:::footer
-[Corações e Mentes](https://coracoesementes.org.br/)
-:::
-
 # Principais pacotes
 
 ## Principais pacotes {.smaller}
@@ -2989,53 +2990,24 @@ Wickham (2008) criou o pacote `ggplot2`, onde “gg” representa a contração 
 [Wickham (2008)](https://ggplot2-book.org/)
 :::
 
-# Material de estudo
-
-## Livros
-
-- [ggplot2 (2016)](https://ggplot2.tidyverse.org/)
-
-- [R Graphics Cookbook (2018)](http://www.cookbook-r.com/Graphs/)
-
-- [R for Data Science (2017)](https://r4ds.had.co.nz/)
-
-- [Data Visualization with R (2018)](https://rkabacoff.github.io/datavis/)
-
-- [Fundamentals of Data Visualization (2019)](https://serialmentor.com/dataviz/)
-
-- [Interactive web-based data visualization with R, plotly, and shiny (2019)](https://plotly-r.com/)
-
-## Sites
-
-- [ggplot2: Reference](https://ggplot2.tidyverse.org/reference/)
-
-- [R Graph Gallery](https://www.r-graph-gallery.com/)
-
-- [from Data to Viz](https://www.data-to-viz.com/)
-
-- [Statistical tools for high-throughput data analysis (STHDA)](http://www.sthda.com/english/)
-
-<center>
-<img src="img/plot_tree_s.png" style="width:30%"/>
-</center>
-
 # Principais tipos de gráficos
 
 ## Elementos de um gráfico 
 
 Representações das colunas (eixos) e linhas (elementos)
 
+<br>
 <center>
 <img src="img/plot_data_table_scatterplot.png" style="width:80%"/>
 </center>
 
 ## Tipos de variáveis
 
-![](img/plot_variables.png){.absolute width=400 height=200 right=300 top=100}
+![](img/plot_variables.png){.absolute width=500 height=250 right=300 top=100}
 
-![](img/nominal_ordinal_binary.png){.absolute width=500 height=350 right=500 top=300}
+![](img/nominal_ordinal_binary.png){.absolute width=500 height=350 right=500 top=350}
 
-![](img/continuous_discrete.png){.absolute width=500 height=350 right=0 top=300}
+![](img/continuous_discrete.png){.absolute width=500 height=350 right=0 top=350}
 
 :::footer
 [Matthiopoulos (2011)](http://greenmaths.st-andrews.ac.uk/), [@allison_horst](https://twitter.com/allison_horst)
@@ -3069,6 +3041,59 @@ Representações das colunas (eixos) e linhas (elementos)
 :::footer
 [histogram](https://www.data-to-viz.com/graph/histogram.html), [density](https://www.data-to-viz.com/graph/density.html)
 :::
+
+## Histograma (*Histogram*) 
+
+<br>
+<center>
+<img src="img/hist_fig1.gif" style="width:80%"/>
+</center>
+
+. . . 
+
+<br>
+
+<center>
+<img src="img/hist_fig2.gif" style="width:80%"/>
+</center>
+
+:::footer
+[Intro to Histograms](https://plotly.com/chart-studio-help/histogram/)
+:::
+
+## Histograma (*Histogram*) 
+
+<center>
+<img src="img/hist_fig3.gif" style="width:55%"/>
+</center>
+
+:::footer
+[Intro to Histograms](https://plotly.com/chart-studio-help/histogram/)
+:::
+
+## Densidade (*Density*) 
+
+<br><br>
+<center>
+<img src="img/hist_fig5.jpg" style="width:100%"/>
+</center>
+
+:::footer
+[Intro to Histograms](https://plotly.com/chart-studio-help/histogram/)
+:::
+
+## Densidade (*Density*) 
+
+![](img/hist_fig6.gif){.absolute width=550 height=350 right=550 top=250}
+
+. . . 
+
+![](img/hist_fig7.gif){.absolute width=560 height=340 right=-50 top=265}
+
+:::footer
+[Intro to Histograms](https://plotly.com/chart-studio-help/histogram/)
+:::
+
 
 # 
 <center>
@@ -3814,7 +3839,7 @@ ggplot_densidade <- ggplot(data = penguins,
        fill = "Espécie") +
   theme_bw(base_size = 20)
 
-ggsave(filename = here::here("03_dados", "graficos", "density_ggplot2.png"), 
+ggsave(filename = "density_ggplot2.png", 
        plot = ggplot_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
 ```
 
@@ -3872,14 +3897,14 @@ gghistogram(data = penguins,
 ::: {.column width="50%"}
 ```{r}
 #| eval: false
-gghistogram(data = penguins, 
-            x = "flipper_length_mm",
-            add = "median",
-            color = "species",
-            fill = "species",
-            palette = c("darkorange", "darkorchid", "cyan4"),
-            xlab = "Comprimento da nadadeira (mm)",
-            ylab = "Frequência")
+ggdensity(data = penguins, 
+          x = "flipper_length_mm",
+          add = "median",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "darkorchid", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Densidade")
 ```
 
 :::
@@ -3901,22 +3926,22 @@ ggdensity(data = penguins,
 :::
 :::
 
-## Densidade (*Density*)
+## Histograma (*Histogram*) 
 
 **ggpubr**
 
 ```{r}
 #| eval: false
-ggpubr_densidade <- ggdensity(data = penguins, 
+ggpubr_densidade <- ggdensity(data = penguins,
                               x = "flipper_length_mm",
                               add = "median",
-                              fill = "cyan4",
-                              rug = TRUE,
-                              add_density = TRUE,
+                              color = "species",
+                              fill = "species",
+                              palette = c("darkorange", "darkorchid", "cyan4"),
                               xlab = "Comprimento da nadadeira (mm)",
                               ylab = "Densidade")
 
-ggsave(filename = here::here("03_dados", "graficos", "densidade_ggpubr.png"), 
+ggsave(filename = "densidade_ggpubr.png", 
        plot = ggpubr_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
 ```
 
@@ -4556,9 +4581,9 @@ ggbarplot(penguins_count,
 :::
 :::
 
-# Gráfico de caixa <br> (*Box plot*)
+# Gráfico de caixas <br> (*Box plot*)
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 - Representa dados de duas colunas
 
@@ -4572,7 +4597,7 @@ ggbarplot(penguins_count,
 [boxplot](https://www.data-to-viz.com/caveat/boxplot.html)
 :::
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 - Intervalo inter-quartil (*interquartile range* - IQR)
 
@@ -4587,6 +4612,88 @@ ggbarplot(penguins_count,
 [Understanding Boxplots](https://www.kdnuggets.com/2019/11/understanding-boxplots.html)
 :::
 
+## Gráfico de caixas (*Box plot*)
+
+<br>
+<center>
+<img src="img/boxplotfig1.gif" style="width:80%"/>
+</center>
+
+. . . 
+
+<center>
+<img src="img/boxplotfig2.gif" style="width:80%"/>
+</center>
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
+## Gráfico de caixas (*Box plot*)
+
+<br>
+<center>
+<img src="img/boxplotfig3.gif" style="width:80%"/>
+</center>
+
+. . . 
+
+<center>
+<img src="img/boxplotfig4.gif" style="width:80%"/>
+</center>
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
+## Gráfico de caixas (*Box plot*)
+
+<br>
+<center>
+<img src="img/boxplotfig5.gif" style="width:80%"/>
+</center>
+
+. . . 
+
+![](img/boxplotfig7.gif){.absolute width=1000 height=350 right=-190 top=340}
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
+## Gráfico de caixas (*Box plot*)
+
+<br><br><br>
+<center>
+<img src="img/boxplotfig6.gif" style="width:100%"/>
+</center>
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
+## Gráfico de caixas (*Box plot*)
+
+<br>
+<center>
+<img src="img/boxplotfig8.gif" style="width:60%"/>
+</center>
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
+## Gráfico de caixas (*Box plot*)
+
+<br>
+<center>
+<img src="img/boxplotfig9.gif" style="width:80%"/>
+</center>
+
+:::footer
+[Intro to Box Plots](https://plotly.com/chart-studio-help/what-is-a-box-plot/)
+:::
+
 # 
 <center>
 <img src="img/package_graphics.png" style="width:50%"/>
@@ -4596,7 +4703,7 @@ ggbarplot(penguins_count,
 [graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
 :::
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 **graphics**
 
@@ -4647,7 +4754,7 @@ boxplot(flipper_length_mm ~ as.factor(species),
 [ggplot2](https://ggplot2.tidyverse.org/)
 :::
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 **ggplot2**
 
@@ -4683,7 +4790,7 @@ ggplot(data = penguins,
 :::
 :::
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 **ggplot2**
 
@@ -4725,7 +4832,7 @@ ggplot(data = penguins,
 :::
 :::
 
-## Gráfico de caixa (*Violin plot*)
+## Gráfico de caixas (*Violin plot*)
 
 **ggplot2**
 
@@ -4776,7 +4883,7 @@ ggplot(data = penguins,
 [ggpubr](https://rpkgs.datanovia.com/ggpubr/)
 :::
 
-## Gráfico de caixa (*Box plot*)
+## Gráfico de caixas (*Box plot*)
 
 **ggpubr**
 
@@ -4820,7 +4927,7 @@ ggboxplot(data = penguins,
 :::
 :::
 
-## Gráfico de caixa (*Violin plot*)
+## Gráfico de caixas (*Violin plot*)
 
 **ggpubr**
 
@@ -5917,6 +6024,7 @@ plot_animate
 :::
 
 ::: {.column width="50%"}
+<br>
 <center>
 <img src="img/plot_animate.gif" style="width:100%"/>
 </center>
@@ -5929,7 +6037,7 @@ plot_animate
 
 ```{r}
 #| eval: false
-gganimate::anim_save(filename = "03_dados/graficos/plot_animate.gif",
+gganimate::anim_save(filename = "plot_animate.gif",
                      animation = plot_animate, wi = 700, he = 500, un = "px")
 ```
 
@@ -6096,7 +6204,7 @@ library(htmlwidgets)
 
 # export
 htmlwidgets::saveWidget(widget = plot_penguins_scatter_int, 
-                        file = "03_dados/graficos/plot_penguins_scatter_int.html")
+                        file = "plot_penguins_scatter_int.html")
 ```
 
 # Gráficos usando interface
@@ -6123,8 +6231,7 @@ htmlwidgets::saveWidget(widget = plot_penguins_scatter_int,
 library(esquisse)
 
 # iniciar
-esquisse::esquisser(iris)
-esquisse::esquisser(penguins)
+esquisse::esquisser(na.omit(palmerpenguins::penguins))
 ```
 
 :::
@@ -6137,6 +6244,36 @@ esquisse::esquisser(penguins)
 :::
 
 # Dúvidas?
+
+# Material de estudo
+
+## Livros
+
+- [ggplot2 (2016)](https://ggplot2.tidyverse.org/)
+
+- [R Graphics Cookbook (2018)](http://www.cookbook-r.com/Graphs/)
+
+- [R for Data Science (2017)](https://r4ds.had.co.nz/)
+
+- [Data Visualization with R (2018)](https://rkabacoff.github.io/datavis/)
+
+- [Fundamentals of Data Visualization (2019)](https://serialmentor.com/dataviz/)
+
+- [Interactive web-based data visualization with R, plotly, and shiny (2019)](https://plotly-r.com/)
+
+## Sites
+
+- [ggplot2: Reference](https://ggplot2.tidyverse.org/reference/)
+
+- [R Graph Gallery](https://www.r-graph-gallery.com/)
+
+- [from Data to Viz](https://www.data-to-viz.com/)
+
+- [The Data Visualisation Catalogue](https://datavizcatalogue.com/index.html)
+
+- [plotly](https://plotly.com)
+
+- [Statistical tools for high-throughput data analysis (STHDA)](http://www.sthda.com/english/)
 
 ## Muito obrigado!
 

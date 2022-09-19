@@ -1,5 +1,5 @@
 #' ---
-#' title: aula 02 - introducao ao tidyverse
+#' title: aula 02 - tidyverse
 #' author: mauricio vancine
 #' date: 2022-11-11
 #' ---
@@ -7,7 +7,6 @@
 # packages ----------------------------------------------------------------
 
 library(tidyverse)
-library(here)
 library(readxl)
 library(writexl)
 
@@ -32,18 +31,22 @@ tidyverse::tidyverse_packages(include_self = TRUE)
 
 # 2. readr, readxl e writexl ----------------------------------------------
 
-# formato .csv
-# importar sites com here
-si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
-si
+# diretorio
+# definir diretorio
+setwd("/home/mude/data/github/mauriciovancine/workshop-r-introduction/03_dados")
 
-# importar sites sem here
-si <- readr::read_csv("03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
+# conferir diretorio
+getwd()
+
+# listar arquivos
+dir()
+
+# formato .csv
+si <- readr::read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 si
 
 # formato .txt
-# importar sites
-si <- readr::read_tsv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.txt"))
+si <- readr::read_tsv("ATLANTIC_AMPHIBIANS_sites.txt")
 si
 
 # importar .xlsx
@@ -55,16 +58,30 @@ library("readxl")
 library("writexl")
 
 # importar sites
-si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx"), 
-                        sheet = 1)
+si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx"), sheet = 1)
 si
 
 # 3. tibble --------------------------------------------------------------
+
+# tibble
+tb <- tibble::tibble(a = 1:10)
+tb
+
+as.data.frame(tb)
 
 # view the sites data
 tibble::glimpse(si)
 
 # 4. magrittr (pipe - %>%) -----------------------------------------------
+
+# # sem pipe
+# obj <- funcao2(funcao1(dados))
+# 
+# # pipe
+# obj <- dados %>% 
+#   funcao1() %>% 
+#   funcao2()
+
 # sem pipe
 sqrt(sum(1:100))
 
@@ -77,19 +94,22 @@ sqrt(sum(1:100))
 set.seed(42)
 
 # sem pipe
-ve <- sum(sqrt(sort(log10(rpois(100, 10)))))
+ve <- sqrt(sum(sample(0:60, 6)))
 ve
 
 # fixar amostragem
 set.seed(42)
 
 # com pipe
-ve <- rpois(100, 10) %>% 
-  log10() %>%
-  sort() %>% 
-  sqrt() %>% 
-  sum()
+ve <- sample(0:60, 6) %>% 
+  sum() %>%
+  sqrt() 
 ve  
+
+
+# exercicio 01 ------------------------------------------------------------
+
+
 
 # palmerpenquins ----------------------------------------------------------
 
@@ -121,7 +141,7 @@ tibble::glimpse(penguins_raw)
 # 6. pivot_wider(): long para wide
 # 7. pivot_longer(): wide para long
 
-# 1. unite()
+## unite ----
 # unir colunas
 penguins_raw_unir <- tidyr::unite(data = penguins_raw, 
                                   col = "region_island",
@@ -130,7 +150,7 @@ penguins_raw_unir <- tidyr::unite(data = penguins_raw,
                                   remove = FALSE)
 head(penguins_raw_unir[, c("Region", "Island", "region_island")])
   
-# 2. separate()
+## separate ----
 # separar colunas
 penguins_raw_separar <- tidyr::separate(data = penguins_raw, 
                                         col = Stage,
@@ -139,7 +159,7 @@ penguins_raw_separar <- tidyr::separate(data = penguins_raw,
                                         remove = FALSE)
 head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
 
-# 3. drop_na()
+## drop_na ----
 # remover linhas com na
 penguins_raw_todas_na <- tidyr::drop_na(data = penguins_raw)
 head(penguins_raw_todas_na)
@@ -149,7 +169,21 @@ penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
                                           any_of("Comments"))
 head(penguins_raw_colunas_na[, "Comments"])
 
+# exercicio 02 ------------------------------------------------------------
+
+
+
+# exercicio 03 ------------------------------------------------------------
+
+
+
+# exercicio 04 ------------------------------------------------------------
+
+
+
+
 # 6. dplyr ---------------------------------------------------------------
+
 # funcoes
 # 1. relocate(): muda a ordem das colunas
 # 2. rename(): muda o nome das colunas
@@ -165,7 +199,7 @@ head(penguins_raw_colunas_na[, "Comments"])
 # 12. summarise(): resume os dados através de funções considerando valores das colunas
 # 13. *_join(): funções que juntam dados de duas tabelas através de uma coluna chave
 
-# 1. relocate()
+## relocate ----
 # reordenar colunas - nome
 penguins_relocate_col <- penguins %>% 
   dplyr::relocate(sex, year, .after = island)
@@ -173,10 +207,10 @@ head(penguins_relocate_col)
 
 # reordenar colunas - posicao
 penguins_relocate_ncol <- penguins %>% 
-  dplyr::relocate(sex, year, .after = island)
+  dplyr::relocate(sex, year, .after = 2)
 head(penguins_relocate_ncol)
 
-# 2. rename()
+## rename ----
 # renomear colunas
 penguins_rename <- penguins %>% 
   dplyr::rename(bill_length = bill_length_mm,
@@ -185,7 +219,7 @@ penguins_rename <- penguins %>%
                 body_mass = body_mass_g)
 head(penguins_rename)
 
-# 3. select()
+## select ----
 # selecionar colunas por posicao
 penguins_select_position <- penguins %>% 
   dplyr::select(3:6)
@@ -206,19 +240,19 @@ penguins_select_contains <- penguins %>%
   dplyr::select(contains("_mm"))
 head(penguins_select_contains)
 
-# 4. pull()
+## pull ----
 # coluna para vetor
 penguins_select_pull <- penguins %>% 
   dplyr::pull(bill_length_mm)
 head(penguins_select_pull, 15)
 
-# 5. mutate()
+## mutate ----
 # adicionar colunas
 penguins_mutate <- penguins %>% 
-  dplyr::mutate(body_mass_sqrt = sqrt(body_mass_g), .before = sex)
+  dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
 head(penguins_mutate)
 
-# 6. arrange()
+## arrange ----
 # reordenar os valores por ordem crescente
 penguins_arrange <- penguins %>% 
   dplyr::arrange(body_mass_g)
@@ -234,7 +268,7 @@ penguins_arrange_desc_m <- penguins %>%
   dplyr::arrange(-body_mass_g)
 head(penguins_arrange_desc_m)
 
-# 7. filter()
+## filter ----
 # filtrar linhas por valores de uma coluna
 penguins_filter <- penguins %>% 
   dplyr::filter(species == "Adelie")
@@ -256,7 +290,7 @@ penguins_filter_na <- penguins %>%
   dplyr::filter(!is.na(sex) == TRUE)
 head(penguins_filter_na)
 
-# 8. slice()
+## slice ----
 # selecionar linhas por intervalos
 penguins_slice <- penguins %>% 
   dplyr::slice(n = c(1, 3, 300:n()))
@@ -272,7 +306,7 @@ penguins_slice_sample <- penguins %>%
   dplyr::slice_sample(n = 30, replace = FALSE)
 head(penguins_slice_sample)
 
-# 9. distinct()
+## distinct ----
 # retirar linhas com valores duplicados
 penguins_distinct <- penguins %>% 
   dplyr::distinct(body_mass_g)
@@ -283,10 +317,10 @@ penguins_distinct_keep_all <- penguins %>%
   dplyr::distinct(body_mass_g, .keep_all = TRUE)
 head(penguins_distinct_keep_all)
 
-# 10. count()
+## count ----
 # contagens de valores para uma coluna
 penguins_count <- penguins %>% 
-  dplyr::count(species, sex)
+  dplyr::count(species)
 penguins_count
 
 # contagens de valores para mais de uma coluna
@@ -299,18 +333,34 @@ penguins_count_two_sort <- penguins %>%
   dplyr::count(species, island, sort = TRUE)
 penguins_count_two_sort
 
-# 11. group_by()
+## group_by ----
 # agrupamento
 penguins_group_by <- penguins %>% 
   dplyr::group_by(species)
 head(penguins_group_by)
 
-# 12. summarise()
+## summarise ----
 # resumo
 penguins_summarise <- penguins %>% 
   dplyr::group_by(species) %>% 
   dplyr::summarize(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
                    body_mass_g_sd = sd(body_mass_g, na.rm = TRUE))
 penguins_summarise
+
+# exercicio 05 ------------------------------------------------------------
+
+
+
+# exercicio 06 ------------------------------------------------------------
+
+
+
+# exercicio 07 ------------------------------------------------------------
+
+
+
+# exercicio 08 ------------------------------------------------------------
+
+
 
 # end ---------------------------------------------------------------------

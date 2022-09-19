@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="350px" height="356px" viewBox="0 0 350 356" enable-background="new 0 0 350 356" xml:space="preserve">
+<g id="Layer_1">
+	<g>
+		<g opacity="0.5">
+			<path fill="#BF7CF2" d="M51.125,295.875c93.617,0,94.466-204.41,132.785-204.41c33.955,0,51.296,203.851,126.965,204.66"/>
+		</g>
+		<g>
+			<path fill="#C68CF2" d="M309.333,296.334c-45.994-0.492-68.963-73.213-88.649-132.28c-12.802-38.414-23.858-71.589-36.773-71.589     c-14.205,0-23.618,31.676-34.517,68.354c-8.859,29.813-18.901,63.605-33.945,90.125C97.915,281.851,77.25,296.334,51.5,296.334     l-0.375-1.459c56.345,0,78.527-74.646,96.351-134.626c11.586-38.989,20.737-69.784,36.434-69.784     c14.356,0,25.087,32.195,38.671,72.956c19.485,58.465,43.85,131.937,88.419,132.413L309.333,296.334z"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_2">
+	<line fill="none" stroke="#333333" x1="50.851" y1="72.682" x2="45.673" y2="72.682"/>
+	<line fill="none" stroke="#333333" x1="50.851" y1="147.01" x2="45.673" y2="147.01"/>
+	<line fill="none" stroke="#333333" x1="50.851" y1="221.338" x2="45.673" y2="221.338"/>
+	<line fill="none" stroke="#333333" x1="128.443" y1="295.784" x2="128.443" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="167.172" y1="295.784" x2="167.172" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="205.909" y1="295.784" x2="205.909" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="244.639" y1="295.784" x2="244.639" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="283.369" y1="295.784" x2="283.369" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="89.711" y1="295.784" x2="89.711" y2="300.962"/>
+	<line fill="none" stroke="#333333" x1="50.982" y1="44.231" x2="50.982" y2="295.784"/>
+	<line fill="none" stroke="#333333" x1="322.381" y1="296.067" x2="50.7" y2="296.067"/>
+	<g>
+		<text transform="matrix(1 0 0 1 40.1689 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">0</text>
+	</g>
+	<text transform="matrix(1 0 0 1 86.0752 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">1</text>
+	<text transform="matrix(1 0 0 1 124.9473 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">2</text>
+	<text transform="matrix(1 0 0 1 164.3193 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">3</text>
+	<text transform="matrix(1 0 0 1 25.0762 224.25)" fill="#666666" font-family="'Helvetica'" font-size="12">0.1</text>
+	<text transform="matrix(1 0 0 1 25.0762 149.917)" fill="#666666" font-family="'Helvetica'" font-size="12">0.2</text>
+	<text transform="matrix(1 0 0 1 25.0762 75.917)" fill="#666666" font-family="'Helvetica'" font-size="12">0.3</text>
+	<text transform="matrix(1 0 0 1 202.3193 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">4</text>
+	<text transform="matrix(1 0 0 1 241.1914 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">5</text>
+	<text transform="matrix(1 0 0 1 279.8135 314.0957)" fill="#666666" font-family="'Helvetica'" font-size="12">6</text>
+	<polyline fill="none" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" points="46.006,49.197 50.898,43.666    55.756,49.197  "/>
+	<polyline fill="none" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" points="317.703,291.255 323.234,296.146    317.703,301.005  "/>
+	<text transform="matrix(1 0 0 1 21.7178 31.0254)" fill="#333333" font-family="'Helvetica'" font-size="14">(Density)</text>
+	<text transform="matrix(1 0 0 1 156.1133 335.5928)" fill="#333333" font-family="'Helvetica'" font-size="14">(Intervals)</text>
+	<text transform="matrix(1 0 0 1 155.5776 212.8384)"><tspan x="0" y="0" fill="#333333" font-family="'Helvetica'" font-size="14">Shape of</tspan><tspan x="-6.527" y="16.8" fill="#333333" font-family="'Helvetica'" font-size="14">distribution</tspan></text>
+</g>
+</svg>
