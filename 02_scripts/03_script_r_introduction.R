@@ -1,7 +1,7 @@
 #' ---
 #' title: aula 03 - visualizacao de dados
 #' author: mauricio vancine
-#' date: 2021-10-11
+#' date: 2022-11-11
 #' ---
 
 # pacotes -----------------------------------------------------------------
@@ -21,23 +21,22 @@ library(esquisse)
 
 # topicos -----------------------------------------------------------------
 
-# 1. contextualizacao
-# 2. principais pacotes para graficos 
-# 3. gramatica dos graficos
-# 4. principais livros e sites 
-# 5. principais tipos de graficos 
-# 6. histograma e densidade
-# 7. grafico de setores
-# 8. grafico de barras
-# 9. grafico de caixas
-# 10. grafico de dispersao
-# 11. grafico pareado
-# 12. combinando graficos
-# 13. graficos animados
-# 14. graficos interativos
-# 15. graficos usando uma interface
+# 1. pacotes para graficos 
+# 2. gramatica dos graficos
+# 3. principais livros e sites 
+# 4. principais tipos de graficos 
+# 5. histograma e densidade
+# 6. grafico de setores
+# 7. grafico de barras
+# 8. grafico de caixas
+# 9. grafico de dispersao
+# 10. grafico pareado
+# 11. combinando graficos
+# 12. graficos animados
+# 13. graficos interativos
+# 14. graficos usando uma interface
 
-# 2. principais pacotes para graficos  ----------------------------------
+# 1. pacotes para graficos  ---------------------------------------------
 # graphics
 plot(flipper_length_mm ~ body_mass_g, data = penguins)
 
@@ -47,9 +46,7 @@ ggplot(data = penguins) + aes(x = body_mass_g, y = flipper_length_mm) + geom_poi
 # ggpubr
 ggscatter(penguins, x = "body_mass_g", y = "flipper_length_mm")
 
-# 6. histograma e densidade -----------------------------------------------
-# carregar
-library(palmerpenguins)
+# 5. histograma e densidade -----------------------------------------------
 
 # visualizar os dados
 penguins
@@ -678,7 +675,7 @@ ggplot_boxplot / ggplot_scatterplot
 
 # 13. graficos animados ---------------------------------------------------
 
-# gganimate - demora uns 10 segundos!!!
+# gganimate - demora uns 10 segundos!
 plot_animate <- ggplot(data = penguins,
        aes(x = bill_length_mm, 
            y = bill_depth_mm, 
@@ -749,7 +746,6 @@ htmlwidgets::saveWidget(widget = plot_penguins_scatter_int,
 # esquisse
 
 # iniciar
-esquisse::esquisser(iris)
 esquisse::esquisser(na.omit(palmerpenguins::penguins))
 
 # end ---------------------------------------------------------------------

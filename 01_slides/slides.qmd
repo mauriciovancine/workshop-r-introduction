@@ -111,6 +111,7 @@ format:
 - Citações
 - Principais erros
 - Material de estudo
+- Extra: estrutura da objetos
 :::
 :::
 :::
@@ -131,19 +132,20 @@ format:
 ::: columns
 ::: {.column width="50%"}
 ::: nonincremental
+- Contextualização
 - Principais pacotes
 - Gramática dos gráficos
 - Principais tipos de gráficos 
 - Histograma e Densidade
 - Gráfico de setores
 - Gráfico de barras
-- Gráfico de caixas
 :::
 :::
 
 ::: {.column width="50%"}
 
 ::: nonincremental
+- Gráfico de caixas
 - Gráfico de dispersão
 - Gráfico pareado
 - Combinando gráficos
@@ -158,7 +160,7 @@ format:
 
 ## Material
 
-Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r)
 
 ![](img/github.png){.absolute width=500 height=500 right=300 top=200}
 
@@ -171,10 +173,6 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 :::footer
 [Café com Código](https://www.instagram.com/cafecomcodigo/?hl=pt)
 :::
-
-background-image: url(img/general_starwars_teamwork.png)
-background-size: 500px
-background-position: 50% 80%
 
 ## IMPORTANTE!!!
 
@@ -265,7 +263,7 @@ background-position: 50% 80%
 
 - Modelagem de Distribuição de Espécies
 
-**2018-atual: Seleção Natural - Piracicaba, SP, Brasil** 
+**2018-2022: Seleção Natural - Piracicaba, SP, Brasil** 
 
 - Analista de dados ecológicos
 - Métricas da paisagem e Corredores ecológicos
@@ -281,7 +279,7 @@ background-position: 50% 80%
 - Sou grato às **Semanas de Estudos da Ecologia** da Unesp por ter oferecido a oportunidade de ensinar R. Ensinar me fez um **profissional** e **professor** muito melhor
 :::
 
-## Mas não foi (é) fácil...
+## Mas não foi fácil... E ainda não é...
 
 <center>
 <img src="img/general_code_meme.jpg" style="width:100%"/>
@@ -303,7 +301,9 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ## Histórico - Linguagem S {.smaller}
 
-### John M. Chambers (Stanford University, CA, EUA)
+**John M. Chambers (Stanford University, CA, EUA)**
+
+<br>
 
 **Versões**
 
@@ -323,7 +323,9 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ## Histórico - Linguagem R {.smaller}
 
-### Robert Gentleman e Ross Ihaka (Auckland University, NZ)
+**Robert Gentleman e Ross Ihaka (Auckland University, NZ)**
+
+<br>
 
 **Versões**
 
@@ -372,7 +374,7 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ## IDE 
 
-*Integrated Development Environment* ou Ambiente de Desenvolvimento Integrado
+Ambiente de Desenvolvimento Integrado (*Integrated Development Environment*)
 
 <br><br>
 <center>
@@ -385,7 +387,7 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 
 ## IDE 
 
-*Integrated Development Environment* ou Ambiente de Desenvolvimento Integrado
+Ambiente de Desenvolvimento Integrado (*Integrated Development Environment*)
 
 ![](img/r_rstudio01.png){.absolute width=700 height=180 right=180 top=200}
 ![](img/r_rstudio02.png){.absolute width=700 height=280 right=180 top=370}
@@ -465,6 +467,7 @@ Mudanças no RStudio...
 - Cada projeto possui seu diretório, documentos e workspace
 - Permite controle de versão (git e GitHub)
 
+<br>
 <center>
 <img src="img/rstudio_project_logo.png" style="width:25%"/>
 </center>
@@ -506,7 +509,7 @@ O console é onde a linguagem R instalada é carregada para executar os códigos
 - Vamos criar uma sequência usando o operador `:` para demonstrar isso
 
 - o número que aparecer nos colchetes vai depender da largura das janelas
- 
+
 ```{r}
 1:42
 ```
@@ -1100,7 +1103,7 @@ library()
 library(vegan)
 ```
 
-**Verificar pacotes instalados**
+**Verificar pacotes carregados**
 
 ```{r}
 # verificar pacotes carregados
@@ -1142,7 +1145,7 @@ library(vegan)
 
 - São atualizados com certa frequência e não se atualizam sozinhos
 - A instalação de um pacote pode depender da versão mais atual de outros pacotes
-- Geralmente é uma função que demora para rodar
+- Geralmente é uma função que pode demorar para rodar
 
 ```{r eval=FALSE}
 # atualizacao dos pacotes instalados 
@@ -1153,14 +1156,16 @@ update.packages(ask = FALSE, checkBuilt = TRUE)
 
 ## Citações
 
-Citação da linguagem R e pacotes em trabalhos
+Citação da linguagem R
 
 ```{r}
 # citacao do R
 citation()
 ```
 
-<br>
+## Citações
+
+Citação dos pacotes
 
 ```{r}
 # citacao dos pacotes
@@ -1216,13 +1221,13 @@ Parênteses
 
 ```{r error=TRUE}
 sum(1, 2
-+
-```
-
-Aspas
-
-```{r error=TRUE}
-"string
+    +
+      ```
+    
+    Aspas
+    
+    ```{r error=TRUE}
+    "string
 +
 ```
 
@@ -1322,5 +1327,4845 @@ colSums(dune)
 
 # Dúvidas?
 
+## Script
+
+Abram o script e instalem todos os pacotes que usaremos nas próximas aulas
+
+<br><br><br><br>
+
+`00_script_r_introduction.R`
+
+# Atributos de objetos
+
+## Modo dos objetos (*mode*)
+
+A natureza dos elementos definirá os modos dos objetos
+
+::: columns
+::: {.column width="50%"}
+![](img/modes.png)
+:::
+
+::: {.column width="50%"}
+
+```{r}
+logical <- TRUE
+logical
+
+numeric <- 3.14
+numeric
+
+integer <- 2L
+integer
+
+complex <- 3 + 2i
+complex
+
+character <- "a"
+character
+```
+
+:::
+:::
+
+## Estrutura dos objetos (*class*)
+
+Organização dos elementos dos objetos
+
+<center>
+<img src="img/r_data_structures_general.png" style="width:70%"/>
+</center>
+
+## Estrutura dos objetos (*class*) {.smaller}
+
+**Vector** 
+
+Sequência de valores que representam uma variável contínua ou descrição textual
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+![](img/r_data_structures_general.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+# concatenar
+c(1, 2, 3)
+c("amostra1", "amostra2", "amostra3")
+
+# sequencia
+seq(1, 10, 2)
+
+# repetir
+rep(42, 5)
+
+# combinar
+paste("amostra", 1:3)
+
+# amostrar
+sample(1:60, 6)
+```
+
+:::
+:::
+
+## Estrutura dos objetos (*class*) {.smaller}
+
+**Matrix** 
+
+Representa os dados no formato de tabela, com linhas (locais) e colunas (variáveis)
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+![](img/r_data_structures_general.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+# dispor uma sequencia
+ve <- 1:9
+ma_col <- matrix(data = ve, nrow = 3, ncol = 3, byrow = FALSE)
+ma_col
+
+# combinar vetores
+vec_1 <- c(1, 2, 3)
+vec_2 <- c(4, 5, 6)
+
+ma_rbind <- rbind(vec_1, vec_2)
+ma_rbind
+
+ma_cbind <- cbind(vec_1, vec_2)
+ma_cbind
+```
+
+:::
+:::
+
+
+## Estrutura dos objetos (*class*) {.smaller}
+
+**Array** 
+
+Representa combinação de tabelas, com linhas (locais), colunas (variáveis) e dimensões (tempo)
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+![](img/r_data_structures_general.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+# dispor uma sequencia
+ve <- sample(c(0, 1), 27, rep = TRUE)
+ar <- array(data = ve, dim = c(3, 3, 3))
+ar
+```
+
+:::
+:::
+
+## Estrutura dos objetos (*class*) {.smaller}
+
+**List** 
+
+Tipo especial de vetor que aceita objetos como elementos
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+![](img/r_data_structures_general.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+# concatenar objetos
+li <- list(ve, # vector
+           ma_rbind, # matrix
+           ma_cbind) # outra matrix
+li
+```
+
+:::
+:::
+
+## Estrutura dos objetos (*class*) {.smaller}
+
+**Data frame** 
+
+Representa os dados no formato de tabela, com linhas e colunas, mas misturando modos
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+![](img/r_data_structures_general.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+# combinando vetores horizontalmente
+sp <- c("sp1", "sp2", "sp3")
+ab <- c(12, 8, 9)
+ha <- c("flo", "cer", "past")
+
+df <- data.frame(sp, ab, ha)
+df
+```
+
+```{r}
+# combinando vetores horizontalmente com nomes
+df <- data.frame(
+  especies = paste0("sp", 1:3), 
+  abundancia = sample(5:10, 3), 
+  vegetacao = c("flo", "cer", "past")
+)
+df
+```
+
+:::
+:::
+
+# Dúvidas?
+
 # 2. tidyverse
 
+#
+<center>
+<img src="img/general_data_science_r4ds.png" style="width:100%"/>
+</center>
+
+:::footer
+[@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Ciência de dados ambiental (*Environmental Data Science*)
+
+<center>
+<img src="img/EnvDataSci.png" style="width:50%"/>
+</center>
+
+:::footer
+[Introduction to Environmental Data Science](https://bookdown.org/igisc/EnvDataSci/)
+:::
+
+## Ciência de dados para ecólogos <br> (*Data Science for Ecologists*)
+
+<center>
+<img src="img/data_science_eco.png" style="width:70%"/>
+</center>
+
+:::footer
+[Data Science for Ecologists and Environmental Scientists](https://ourcodingclub.github.io/course)
+:::
+
+## Environmental Data Science
+
+<br>
+<center>
+<img src="img/environmental_data science_cut.png" style="width:50%"/>
+</center>
+
+:::footer
+[Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
+:::
+
+## Script
+
+Abram o script
+
+<br><br><br><br>
+
+`02_script_r_introduction.R`
+
+# tidyverse
+
+## Descrição
+
+- O tidyverse é um conjunto de pacotes designados para *Data Science*
+
+- Todos os pacotes compartilham uma filosofia de design, gramática e estruturas de dados
+
+- É um "dialeto novo" para a linguagem R
+
+**tidy**: organizado, arrumado, ordenado  
+**verse**: universo
+
+:::footer
+[What is the tidyverse?](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+:::
+
+## Fluxo de trabalho
+
+<br><br>
+
+<center>
+<img src="img/general_data_science.png" style="width:100%"/>
+</center>
+
+:::footer
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+:::
+
+## Pacotes
+
+<center>
+<img src="img/tidyverse_flowchart.png" style="width:90%"/>
+</center>
+
+## Artigos {.smaller}
+
+- Wickham, Hadley. ["Tidy data."](https://www.jstatsoft.org/article/view/v059i10) Journal of Statistical Software 59.10 (2014): 1-23.
+
+- Wickham, Hadley, et al. ["Welcome to the Tidyverse."](https://joss.theoj.org/papers/10.21105/joss.01686) Journal of Open Source Software 4.43 (2019): 1686.
+
+<center>
+<img src="img/tidyverse_papers.png" style="width:45%"/>
+</center>
+
+## Livro
+
+<center>
+<img src="img/cover_data_science_r.png" style="width:35%"/>
+</center>
+
+:::footer
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+:::
+
+## Site
+
+<br>
+<center>
+<img src="img/tidyverse_site.png" style="width:100%"/>
+</center>
+
+:::footer
+[tidyverse](https://www.tidyverse.org/)
+:::
+
+# 
+<center>
+<img src="img/package_tidyverse.png" style="width:50%"/>
+</center>
+
+:::footer
+[tidyverse](https://tidyverse.tidyverse.org/)
+:::
+
+## tidyverse
+
+Para utilizar os pacotes é preciso instalar e carregar o pacote `tidyverse`
+
+```{r eval=FALSE}
+# instalar pacote
+install.packages("tidyverse")
+```
+
+```{r message=TRUE}
+# carregar pacote
+library(tidyverse)
+```
+
+## Pacotes do tidyverse
+
+**Listar os pacotes**
+
+```{r}
+# listar todos os pacotes no tidyverse 
+tidyverse::tidyverse_packages(include_self = TRUE)
+```
+
+## Sintaxe
+
+Todas as funções dos pacotes tidyverse usam `fonte minúscula` e `_` para separar os nomes internos das funções (`snake_case`)
+
+`read_csv()`
+
+`read_xlsx()`
+
+`as_tibble()`
+
+`left_join()`
+
+`group_by()`
+
+![](img/code_snake_case.png){.absolute width=500 height=250 right=150 top=350}
+
+## Sintaxe
+
+Geralmente indica-se de quais pacotes as funções são utilizadas (`pacote::função`) para evitar erros com outros pacotes
+
+`readr::read_csv()`
+
+`readxl::read_xlsx()`
+
+`tibble::as_tibble()`
+
+`dplyr::left_join()`
+
+`dplyr::group_by()`
+
+# 
+<center>
+<img src="img/package_readr.png" style="width:50%"/>
+</center>
+
+:::footer
+[readr](https://readr.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+- Carrega e salva grandes arquivos de forma rápida
+
+- As funções fornecem medidores de progresso (*big data*)
+
+- Classificam o modo (tipo dos dados) de cada coluna
+
+- A classe do objeto atribuído é **tibble**
+
+- Funções:
+
+- `read_csv()`: lê arquivos *Comma-separated values*
+- `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
+- `read_tsv()`: lê arquivos *Tab-separated values*
+- `read_delim()`: lê arquivos *delim-separated values*
+- `write_csv()`: escreve arquivos *Comma-separated values*
+- `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
+- `write_delim()`: escreve arquivos *delim-separated values*
+
+## Diretório
+
+Caminho no computador para importar e exportar dados
+
+**Definir diretório**
+
+```{r}
+# definir diretorio
+setwd("/home/mude/data/github/mauriciovancine/workshop-r-introduction/01_slides")
+```
+
+**Conferir diretório**
+
+```{r}
+# conferir diretorio
+getwd()
+
+# listar arquivos
+dir()
+```
+
+
+## Importar dados
+
+ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America
+
+<center>
+<img src="img/general_data_eu_mesmo.png" style="width:75%"/>
+</center>
+
+:::footer
+[Vancine et al. (2018)](https://doi.org/10.1002/ecy.2392)
+:::
+
+## Importar dados
+
+**Formato .csv**
+
+```{r}
+# importar sites com here
+si <- readr::read_csv("../03_dados/ATLANTIC_AMPHIBIANS_sites.csv")
+si
+```
+
+## Importar dados
+
+**Formato .txt**
+
+```{r}
+# importar sites com here
+si <- readr::read_tsv("../03_dados/ATLANTIC_AMPHIBIANS_sites.txt")
+si
+```
+
+# 
+<center>
+<img src="img/package_readxl.png" style="width:50%"/>
+</center>
+
+:::footer
+[readxl](https://readxl.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+Pacotes para importar e exportar planilhas no formato Excel®
+
+- Carrega e salva grandes arquivos de forma rápida
+
+- As funções fornecem medidores de progresso (*big data*)
+
+- Classificam o modo (tipo dos dados) de cada coluna
+
+- A classe do objeto atribuído é **tibble**
+
+- Funções:
+
+- `read_excel()`: lê arquivos de planilhas Excel®
+- `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
+- `write_xlsx()`: escreve arquivos de planilhas Excel®
+
+```{r eval=FALSE}
+# importar .xlsx
+install.packages("readxl")
+library("readxl")
+
+# exportar .xlsx
+install.packages("writexl")
+library("writexl")
+```
+
+## Importar dados
+
+**Formato .xlsx**
+
+```{r}
+# importar sites com here
+si <- readxl::read_excel("../03_dados/ATLANTIC_AMPHIBIANS_sites.xlsx")
+si
+```
+
+# 
+<center>
+<img src="img/package_tibble.png" style="width:50%"/>
+</center>
+
+:::footer
+[tibble](https://tibble.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+- Dados importados de planilhas eletrônicas são data frames (quadro de dados)
+
+- tibble (classe *tbl_df*) é um tipo especial de data frame
+
+- Classe adequada para o funcionamento das das funções do tidyverse
+
+```{r eval=FALSE}
+# tibble
+tb <- tibble::tibble(a = 1:10)
+tb
+
+as.data.frame(tb)
+```
+
+<br>
+<center>
+<img src="img/tibble.webp" style="width:40%"/>
+</center>
+
+## Espiando os dados {.smaller}
+
+- Descrição dos dados: linhas (*Rows*) e colunas (*Columns*) 
+
+- Descrição das colunas: *numbers(int, dbl)*, *character(chr)*, *logical(lgl)* ou *factor(fctr)*
+
+```{r}
+# descricao dos dados de sites
+tibble::glimpse(si)
+```
+
+# 
+<center>
+<img src="img/package_magrittr.png" style="width:50%"/>
+</center>
+
+:::footer
+[magrittr](https://magrittr.tidyverse.org/)
+:::
+
+## René Magritte (1898-1967)
+
+- Artista surrealista belga
+
+- "Ceci n'est pas une pipe"
+
+- Isso não é um cachimbo
+
+![](img/tidyverse_magritte_pipe.jpg){.absolute width=500 height=300 right=550 top=350}
+
+![](img/person_rene_magritte.jpg){.absolute width=500 height=500 right=-50 top=150}
+
+## Descrição {.smaller}
+
+- *Pipe* pode ser traduzido como "cano" ou "tubo"
+
+- Permite o “encadeamento” de várias funções sem armazenar resultados intermediários
+
+- Captura o resultado de uma função e torna a entrada da próxima função
+
+- Os códigos se tornam mais simples, pois permite a leitura sequencial do mesmo
+
+- Operador pipe: `%>%`
+
+- Atalho: `crtl + shift + M`
+
+```{r eval=FALSE}
+# sem pipe
+obj <- funcao2(funcao1(dados))
+
+# pipe
+obj <- dados %>% 
+  funcao1() %>% 
+  funcao2()
+```
+
+# Se preparem para finalmente entender funções compostas...
+
+## Função composta
+
+**Função composta no R**
+
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+![](img/general_fog01.jpg){.absolute width=500 height=250 right=550 top=350}
+
+![](img/general_fog02.jpg){.absolute width=450 height=450 right=0 top=250}
+
+## pipe {.smaller}
+
+**Sem pipe**
+
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+**Com pipe**
+
+```{r}
+# com pipe
+1:100 %>% 
+  sum() %>% 
+  sqrt()
+```
+
+![](img/gif_mario.gif){.absolute width=350 height=300 right=430 top=400}
+
+![](img/waterfall.gif){.absolute width=400 height=300 right=0 top=400}
+
+## pipe
+
+**Sem pipe**
+
+```{r}
+# fixar amostragem
+set.seed(42)
+
+# sem pipe
+ve <- sqrt(sum(sample(0:60, 6)))
+ve
+```
+**Com pipe**
+
+```{r}
+# fixar amostragem
+set.seed(42)
+
+# com pipe
+ve <- sample(0:60, 6) %>% 
+  sum() %>%
+  sqrt() 
+ve  
+```
+
+## Exercício 01
+
+Reescreva cada uma das operações utilizando pipes `%>%`
+
+`log10(cumsum(1:100))`
+
+`sum(sqrt(abs(rnorm(100))))`
+
+`sum(log((sample(1:10, 10000, rep = TRUE)))`
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30", font_size = "2em", play_sound = TRUE)
+```
+
+## Exercício 01
+
+**Solução**
+
+```{r eval=FALSE}
+# solucao 1
+log10(cumsum(1:100))
+
+1:100 %>%
+  cumsum() %>% 
+  log10()
+```
+
+## Exercício 01
+
+**Solução**
+
+```{r eval=FALSE}
+# solucao 2
+sum(sqrt(abs(rnorm(100))))
+
+rnorm(100) %>% 
+  abs() %>% 
+  sqrt() %>% 
+  sum()
+```
+
+## Exercício 01
+
+**Solução**
+
+```{r eval=FALSE}
+# solucao 3
+sum(log(sample(1:10, 10000, rep = TRUE)))
+
+sample(1:10, 10000, rep = TRUE) %>% 
+  log() %>% 
+  sum()
+```
+
+# Para apresentar os próximos pacotes, vamos usar dados de pinguins!
+
+# 
+<center>
+<img src="img/package_palmerpenguins.png" style="width:50%"/>
+</center>
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+## palmerpenguins {.smaller}
+
+- Dados de medidas de pinguins chamados `palmerpenguins`
+
+- Dados coletados e disponibilizados pela [Dra. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) e pela [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), membro da [Long Term Ecological Research Network](https://lternet.edu/)
+
+- Dois conjuntos de dados: 
+
+- `penguins_raw` (dados brutos)
+- `penguins` (versão simplificada)
+
+![](img/lter_penguins.png){.absolute width=700 height=400 right=-50 top=300}
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+## palmerpenguins
+
+```{r eval=FALSE}
+# instalar 
+install.packages("palmerpenguins")
+
+# carregar
+library(palmerpenguins)
+
+# ajuda dos dados
+?penguins
+?penguins_raw
+```
+
+```{r echo=FALSE}
+library(palmerpenguins)
+```
+
+<center>
+<img src="img/culmen_depth.png" style="width:50%"/>
+</center>
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+## palmerpenguins
+
+```{r eval=FALSE}
+# visualizar os dados
+penguins
+penguins_raw
+
+# glimpse
+tibble::glimpse(penguins)
+tibble::glimpse(penguins_raw)
+```
+
+<br>
+<center>
+<img src="img/culmen_depth.png" style="width:50%"/>
+</center>
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+# 
+<center>
+<img src="img/package_tidyr.png" style="width:50%"/>
+</center>
+
+:::footer
+[tidyr](https://tidyr.tidyverse.org/)
+:::
+
+## Descrição {.smaller}
+
+- Funções para tornar um conjunto de dados *tidy* (organizados), facilitando a manipulação, modelagem e visualização
+
+- Um conjunto de dados é condiderando *tidy* quando:
+
+1. Cada variável está em uma coluna
+2. Cada observação está em uma linha
+3. Cada valor está em uma célula
+
+<center>
+<img src="img/tidyr_data01.png" style="width:100%"/>
+</center>
+
+:::footer
+[Wickham & Grolemund (2017)](https://r4ds.had.co.nz/)
+:::
+
+## Funções {.smaller}
+
+<center>
+<img src="img/tidyr_data02.jpg" style="width:100%"/>
+</center>
+
+:::footer
+[@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## unite
+
+Une dados de múltiplas colunas em apenas uma coluna
+
+```{r}
+# unir colunas
+penguins_raw_unir <- tidyr::unite(data = penguins_raw, 
+                                  col = "region_island",
+                                  Region:Island, 
+                                  sep = ", ",
+                                  remove = FALSE)
+head(penguins_raw_unir[, c("Region", "Island", "region_island")])
+```
+
+## separate
+
+Separa caracteres de uma coluna em múltiplas colunas
+
+```{r}
+# separar colunas
+penguins_raw_separar <- tidyr::separate(data = penguins_raw, 
+                                        col = Stage,
+                                        into = c("stage", "egg_stage"), 
+                                        sep = ", ",
+                                        remove = FALSE)
+head(penguins_raw_separar[, c("Stage", "stage", "egg_stage")])
+```
+
+## drop_na
+
+Remove linhas com `NA` de todas as colunas
+
+```{r}
+# remover linhas com na
+penguins_raw_todas_na <- tidyr::drop_na(data = penguins_raw)
+head(penguins_raw_todas_na)
+```
+
+## drop_na
+
+Remove linhas com `NA` de uma única coluna
+
+```{r}
+# remover linhas com na de uma coluna
+penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
+                                          any_of("Comments"))
+head(penguins_raw_colunas_na[, "Comments"])
+```
+
+# Exercícios
+
+## Exercício 02
+
+Use os dados `penguins_raw`
+
+Faça a união das colunas `studyName` e `Individual ID` na coluna `StudyInd`
+
+Separe as colunas por ` - `
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 02
+
+**Solução**
+
+```{r}
+# exercicio 02
+penguins_raw_uni_ind <- penguins_raw %>% 
+  tidyr::unite(col = "StudyInd",
+               c(studyName, `Individual ID`), 
+               sep = " - ",
+               remove = FALSE)
+head(penguins_raw_uni_ind[, c("studyName", "Individual ID", "StudyInd")])
+```
+
+## Exercício 03
+
+Use os dados `penguins_raw`
+
+Separe as informações de ano, mês e dia da coluna `Date Egg`
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 03
+
+**Solução**
+
+```{r}
+# exercicio 03
+penguins_raw_sep_data <- penguins_raw %>% 
+  tidyr::separate(col = `Date Egg`, 
+                  into = c("Year", "Month", "Day"), 
+                  sep = "-",
+                  remove = FALSE)
+head(penguins_raw_sep_data[, c("Date Egg", "Year", "Month", "Day")])
+```
+
+## Exercício 04
+
+Use os dados `penguins_raw`
+
+Remova as linhas que possuem `NA` na coluna `Body`
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 04
+
+**Solução**
+
+```{r}
+# exercicio 04
+penguins_raw_drop_na_body <- penguins_raw %>% 
+  tidyr::drop_na(`Body Mass (g)`)
+head(penguins_raw_drop_na_body)
+```
+
+# Dúvidas?
+
+# 
+<center>
+<img src="img/package_dplyr.png" style="width:50%"/>
+</center>
+
+:::footer
+[dplyr](https://dplyr.tidyverse.org/)
+:::
+
+## Descrição
+
+Funções que facilitam a manipulação de dados
+
+<center>
+<img src="img/dplyr_functions.png" style="width:60%"/>
+</center>
+
+## Funções {.smaller}
+
+Gramática simples que contém funções verbais para a manipulação de dados
+
+<br>
+
+-   Verbos: `mutate()`, `select()`, `filter()`, `arrange()`, `summarise()`, `slice()`, `rename()`, etc.
+-   Replicação: `across()`, `if_any()`, `if_all()`, `where()`, `starts_with()`, `ends_with()`, `contains()`, etc.
+-   Agrupamento: `group_by()` e `ungroup()`
+-   Junções: `inner_join()`, `full_join()`, `left_join()`, `right_join()`, etc.
+-   Combinações: `bind_rows()` e `bind_cols()`
+-   Resumos, contagem e seleção: `n()`, `n_distinct()`, `first()`, `last()`, `nth()`, etc.
+
+## Funções {.smaller}
+
+**Colunas**
+
+`relocate()`: muda a ordem das colunas  
+`rename()`: muda o nome das colunas  
+`select()`: seleciona colunas pelo nome ou posição  
+`pull()`: seleciona uma coluna como vetor  
+`mutate()`: adiciona novas colunas ou resultados em colunas existentes  
+
+**Linhas**
+
+`arrange()`: reordena as linhas com base nos valores de colunas  
+`filter()`: seleciona linhas com base em valores de colunas  
+`slice()`: seleciona linhas de diferente formas  
+`distinct()`: remove linhas com valores repetidos com base nos valores de colunas  
+
+**Agrupamento**
+
+`count()`: conta observações para uma coluna
+`group_by()`: agrupa linhas pelos valores das colunas  
+`summarise()`: resume os dados através de funções considerando valores das colunas  
+`*_join()`: funções que juntam dados de duas tabelas através de uma coluna chave  
+
+## Sintaxe
+
+O tibble é sempre o primeiro argumento das funções verbais
+
+Todas seguem a mesma sintaxe: 
+
+1. tibble
+1. operador pipe 
+1. nome da função verbal com os argumentos entre parênteses 
+
+As funções verbais não modificam o tibble original
+
+```{r eval=FALSE}
+# sintaxe
+tb_dplyr <- tb %>% 
+  funcao_verbal1(argumento1, argumento2, ...) %>% 
+  funcao_verbal2(argumento1, argumento2, ...) %>% 
+  funcao_verbal3(argumento1, argumento2, ...)
+```
+
+## relocate
+
+Reordena colunas por nome ou posição
+
+```{r}
+# reordenar colunas - nome
+penguins_relocate_col <- penguins %>% 
+  dplyr::relocate(sex, year, .after = island)
+head(penguins_relocate_col)
+```
+
+## relocate
+
+Reordena colunas por nome ou posição
+
+```{r}
+# reordenar colunas - posicao
+penguins_relocate_ncol <- penguins %>% 
+  dplyr::relocate(sex, year, .after = 2)
+head(penguins_relocate_ncol)
+```
+
+## rename
+
+Renomeia colunas
+
+```{r}
+# renomear colunas
+penguins_rename <- penguins %>% 
+  dplyr::rename(bill_length = bill_length_mm,
+                bill_depth = bill_depth_mm,
+                flipper_length = flipper_length_mm,
+                body_mass = body_mass_g)
+head(penguins_rename)
+```
+
+## select
+
+Seleciona colunas pela posição ou nome
+
+```{r}
+# selecionar colunas por posicao
+penguins_select_position <- penguins %>% 
+  dplyr::select(3:6)
+head(penguins_select_position)
+```
+
+## select
+
+Seleciona colunas pela posição ou nome
+
+```{r}
+# selecionar colunas por nomes
+penguins_select_names <- penguins %>% 
+  dplyr::select(bill_length_mm:body_mass_g)
+head(penguins_select_names)
+```
+
+## select
+
+Remove colunas pela posição ou nome
+
+```{r}
+# remover colunas pelo nome
+penguins_select_names_remove <- penguins %>% 
+  dplyr::select(-(bill_length_mm:body_mass_g))
+head(penguins_select_names_remove)
+```
+
+## select
+
+Seleciona ou remove colunas por um padrão nos nomes
+
+```{r}
+# selecionar colunas por padrao - starts_with(), ends_with() e contains()
+penguins_select_contains <- penguins %>% 
+  dplyr::select(contains("_mm"))
+head(penguins_select_contains)
+```
+
+## pull
+
+Seleciona uma coluna como vetor
+
+```{r}
+# coluna para vetor
+penguins_select_pull <- penguins %>% 
+  dplyr::pull(bill_length_mm)
+head(penguins_select_pull, 15)
+```
+
+## mutate
+
+Adiciona colunas novas ou advindas de operações
+
+```{r}
+# adicionar colunas
+penguins_mutate <- penguins %>% 
+  dplyr::mutate(body_mass_kg = body_mass_g/1e3, .before = sex)
+head(penguins_mutate)
+```
+
+## arrange
+
+Reordena linhas de forma crescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem crescente
+penguins_arrange <- penguins %>% 
+  dplyr::arrange(body_mass_g)
+head(penguins_arrange)
+```
+
+## arrange
+
+Reordena linhas de forma decrescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem decrescente
+penguins_arrange_desc <- penguins %>% 
+  dplyr::arrange(desc(body_mass_g))
+head(penguins_arrange_desc)
+```
+
+## arrange
+
+Reordena linhas de forma decrescente pelos valores de uma coluna
+
+```{r}
+# reordenar os valores por ordem decrescente
+penguins_arrange_desc_m <- penguins %>% 
+  dplyr::arrange(-body_mass_g)
+head(penguins_arrange_desc_m)
+```
+
+## filter
+
+Filtra linhas por valores de uma coluna
+
+```{r}
+# filtrar linhas por valores de uma coluna
+penguins_filter <- penguins %>% 
+  dplyr::filter(species == "Adelie")
+head(penguins_filter)
+```
+
+## filter
+
+Filtra linhas por valores de várias colunas
+
+```{r}
+# filtrar linhas por valores de duas colunas
+penguins_filter_two <- penguins %>% 
+  dplyr::filter(species == "Adelie" & sex == "female")
+head(penguins_filter_two)
+```
+
+## filter
+
+Filtra linhas por vários valores de várias colunas
+
+```{r}
+# filtrar linhas por mais de um valor e mais de uma coluna
+penguins_filter_in <- penguins %>% 
+  dplyr::filter(species %in% c("Adelie", "Gentoo"),
+                sex == "female")
+head(penguins_filter_in)
+```
+
+## slice
+
+Seleciona linhas por intervalos, indicando quais linhas desejamos
+
+```{r}
+# selecionar linhas por intervalos
+penguins_slice <- penguins %>% 
+  dplyr::slice(n = c(1, 3, 300:n()))
+head(penguins_slice)
+```
+
+## slice
+
+Seleciona linhas iniciais
+
+```{r}
+# selecionar linhas iniciais
+penguins_slice_head <- penguins %>% 
+  dplyr::slice_head(n = 5)
+head(penguins_slice_head)
+```
+
+## slice
+
+Seleciona linhas aleatoriamente
+
+```{r}
+# selecionar linhas aleatoriamente
+penguins_slice_sample <- penguins %>% 
+  dplyr::slice_sample(n = 30)
+head(penguins_slice_sample)
+```
+
+## distinct
+
+Retira linhas com valores duplicados com base nos valores de colunas
+
+```{r}
+# retirar linhas com valores duplicados
+penguins_distinct <- penguins %>% 
+  dplyr::distinct(body_mass_g)
+head(penguins_distinct)
+```
+
+## distinct
+
+Retira linhas com valores duplicados com base nos valores de colunas, mas mantendo as colunas
+
+```{r}
+# retirar linhas com valores duplicados e manter colunas
+penguins_distinct_keep_all <- penguins %>% 
+  dplyr::distinct(body_mass_g, .keep_all = TRUE)
+head(penguins_distinct_keep_all)
+```
+
+## count
+
+Conta valores de uma ou mais colunas (variáveis categóricas)
+
+```{r}
+# contagens de valores para uma coluna
+penguins_count <- penguins %>% 
+  dplyr::count(species)
+penguins_count
+```
+
+## count
+
+Conta valores de uma ou mais colunas (variáveis categóricas)
+
+```{r}
+# contagens de valores para mais de uma coluna
+penguins_count_two <- penguins %>% 
+  dplyr::count(species, island)
+penguins_count_two
+```
+
+## count
+
+Conta valores de uma ou mais colunas (variáveis categóricas) ordenando a contagem
+
+```{r}
+# contagens de valores para mais de uma coluna
+penguins_count_two_sort <- penguins %>% 
+  dplyr::count(species, island, sort = TRUE)
+penguins_count_two_sort
+```
+
+## group_by
+
+Transforma um `tibble` em um `tibble agrupado`, onde as operações são realizadas "por grupo"
+
+```{r}
+# agrupamento
+penguins_group_by <- penguins %>% 
+  dplyr::group_by(species)
+head(penguins_group_by)
+```
+
+## summarise
+
+Agrega ou resume dados através de funções síntese
+
+```{r}
+# resumo
+penguins_summarise <- penguins %>% 
+  dplyr::group_by(species) %>% 
+  dplyr::summarize(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
+                   body_mass_g_sd = sd(body_mass_g, na.rm = TRUE))
+penguins_summarise
+```
+
+# Exercícios 
+
+## Exercício 05 {.smaller}
+
+Use os dados `penguins`
+
+Adicione essas novas colunas: 
+
+- `bill_length_mm_log10`
+- `bill_depth_mm_log10`
+- `flipper_length_mm_log10`
+- `body_mass_g_log10`
+
+Que são a operação `log10()` das colunas: 
+
+- `bill_length_mm_log10`
+- `bill_depth_mm_log10`
+-  `flipper_length_mm_log10`
+- `body_mass_g_log10`
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 05
+
+**Solução**
+
+```{r}
+# exercicio 05
+penguins_log <- penguins %>% 
+  dplyr::mutate(bill_length_mm_log10 = log10(bill_length_mm), 
+                bill_depth_mm_log10 = log10(bill_depth_mm), 
+                flipper_length_mm_log10 = log10(flipper_length_mm), 
+                body_mass_g_log10 = log10(body_mass_g))
+penguins_log
+```
+
+## Exercício 06
+
+Use os dados `penguins` 
+
+Ordene as linhas de forma decrescente pela coluna `body_mass_g`
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 06
+
+**Solução**
+
+```{r}
+# exercicio 06
+penguins_arrange <- penguins %>% 
+  dplyr::arrange(-body_mass_g)
+penguins_arrange
+```
+
+## Exercício 07
+
+Usando os dados `penguins`
+
+Filtre as linhas com valores de:
+
+- `bill_length_mm` maior que 50 mm
+- `bill_depth_mm` menor que 20 mm
+- `flipper_length_mm` maior que 220 mm 
+- `body_mass_g` menor que 5500 g
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 07
+
+**Solução**
+
+```{r}
+# exercicio 07
+penguins_filter <- penguins %>% 
+  dplyr::filter(bill_length_mm > 50, 
+                bill_depth_mm < 20, 
+                flipper_length_mm > 220, 
+                body_mass_g < 5500)
+penguins_filter
+```
+
+## Exercício 08
+
+Use os dados `penguins` 
+
+Amostre aleatoriamente 70% das linhas com `body_mass_g` menor que 5000 g
+
+```{r echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, color_background = "gray30")
+```
+
+## Exercício 08
+
+**Solução**
+
+```{r}
+# exercicio 08
+penguins_sample <- penguins %>% 
+  dplyr::filter(body_mass_g < 5000) %>% 
+  dplyr::slice_sample(prop = .7)
+penguins_sample
+```
+
+# Dúvidas?
+
+# 3 Visualização de dados
+
+#
+<center>
+<img src="img/plot_saurus.png" style="width:90%"/>
+</center>
+
+:::footer
+[Matejka & Fitzmaurice (2017)](https://www.autodeskresearch.com/publications/samestats)
+:::
+
+## Script
+
+Abram o script
+
+<br><br><br><br>
+
+`03_script_r_introduction.R`
+
+# Contextualização
+
+## Contextualização
+
+:::{.incremental}
+- Melhor forma de apresentar, sintetizar, discutir e interpretar seus dados
+
+- Necessário em quase todas as análises estatísticas 
+
+- Necessário em quase todas as publicações, trabalhos de consultoria, TCC, dissertação, tese, etc. 
+
+- Existem vários tipos de gráficos para representar os padrões em seus dados para diferentes tipos de finalidades
+
+- De forma simplificada, os gráficos são representações dos nossos dados tabulares
+:::
+
+# 
+<center>
+<img src="img/meme_fake_news.jpg" style="width:60%"/>
+</center>
+
+:::footer
+[Corações e Mentes](https://coracoesementes.org.br/)
+:::
+
+# Principais pacotes
+
+## Principais pacotes {.smaller}
+
+<br> 
+
+:::{.incremental}
+- [graphics](http://search.r-project.org/R/library/graphics/html/00Index.html): simples e útil para visualizações rápidas
+
+- [ggplot2](https://ggplot2.tidyverse.org/): integrado ao tidyverse, possui uma sintaxe própria baseada na gramática de gráficos por camadas (*layers*)
+
+- [ggplot2 extentions](https://exts.ggplot2.tidyverse.org/): conjunto de pacotes com diversas expansões ao pacote [ggplot2](https://ggplot2.tidyverse.org/). Exemplos: [GGally](https://ggobi.github.io/ggally/), [gganimate](https://gganimate.com/) e [esquisse](https://dreamrs.github.io/esquisse/)
+
+- [visdat](https://docs.ropensci.org/visdat/): visualizações preliminares de conjuntos de dados para identificar problemas
+
+- [ggpubr](https://rpkgs.datanovia.com/ggpubr/): fornece funções simplificadas para criar gráficos para publicação
+
+- [cowplot](https://wilkelab.org/cowplot/): permite combinar vários gráficos
+
+- [pacthwork](https://patchwork.data-imaginist.com/): permite combinar vários gráficos
+
+- [plotly](https://plotly.com/r/): cria gráficos interativos usando JavaScript (*plotly.js*)
+:::
+
+# 
+<center>
+<img src="img/package_palmerpenguins.png" style="width:50%"/>
+</center>
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+## palmerpenguins
+
+```{r eval=FALSE}
+# instalar 
+install.packages("palmerpenguins")
+
+# carregar
+library(palmerpenguins)
+
+# ajuda dos dados
+?penguins
+?penguins_raw
+```
+
+```{r echo=FALSE}
+library(palmerpenguins)
+```
+
+<center>
+<img src="img/culmen_depth.png" style="width:50%"/>
+</center>
+
+:::footer
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## graphics {.smaller}
+
+- Default do R e mais simples
+
+- Pode ser utilizado para objetos de diversas classes
+
+- Funções:
+
+::: columns
+::: {.column width="30%"}
+`plot()`<br>
+`hist()`<br>
+`barplot()`<br>
+`boxplot()`<br>
+`abline()`<br>
+`points()`<br>
+`lines()`<br>
+`polygon()`<br>
+:::
+
+::: {.column width="70%"}
+```{r warning=FALSE, message=FALSE, fig.align="center"}
+# graphics
+plot(flipper_length_mm ~ body_mass_g, data = penguins)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## ggplot2 {.smaller}
+
+- Integrado ao tidyverse, possui uma sintaxe própria de camadas (layers)
+
+- Necessita de funções específicas para objetos de classes diferentes
+
+- Funções:
+
+::: columns
+::: {.column width="30%"}
+`ggplot() +`<br>
+`aes() +`<br>
+`geom_() +`<br>
+`facet_() +`<br>
+`stats_() +`<br>
+`coord_() +`<br>
+`theme_()`<br>
+:::
+
+::: {.column width="70%"}
+```{r warning=FALSE, message=FALSE, fig.align="center"}
+# ggplot2
+library(ggplot2)
+ggplot(data = penguins) + aes(x = body_mass_g, y = flipper_length_mm) + geom_point()
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## ggpubr {.smaller}
+
+- Funções para criar e personalizar plots para publicações baseadas no [ggplot2](https://ggplot2.tidyverse.org/)
+
+- Necessita de funções específicas para gerar gráficos específicos
+
+- Funções:
+
+::: columns
+::: {.column width="30%"}
+`gghistogram()`<br>
+`ggdensity()`<br>
+`ggboxplot()`<br>
+`ggviolin()`<br>
+`ggbarplot()`<br>
+`ggscatter()`<br>
+:::
+
+::: {.column width="70%"}
+```{r warning=FALSE, message=FALSE, fig.align="center"}
+# ggpubr
+library(ggpubr)
+ggscatter(penguins, x = "body_mass_g", y = "flipper_length_mm")
+```
+:::
+:::
+
+# Gramática dos gráficos
+
+## Descrição
+
+Wilkinson (2005) *Grammar of Graphics*: representação gráfica dos dados a partir de atributos estéticos (do inglês *aesthetic*)
+
+![](img/cover_grammar_graphics.jpg){.absolute width=200 height=300 right=830 top=300}
+![](img/ggplot2_structure.png){.absolute width=750 height=450 right=0 top=200}
+
+:::footer
+[Wilkinson (2005)](https://www.springer.com/gp/book/9780387245447)
+:::
+
+## Camadas (*layers*)
+
+<center>
+<img src="img/plot_ggplot.gif" style="width:100%"/>
+</center>
+
+:::footer
+[Think About the Grammar of Graphics When Improving Your Graphs](https://medium.com/tdebeus/think-about-the-grammar-of-graphics-when-improving-your-graphs-18e3744d8d18)
+:::
+
+## ggplot2
+
+Wickham (2008) criou o pacote `ggplot2`, onde “gg” representa a contração de *Grammar of Graphics*
+
+![](img/cover_ggplot2.jpg){.absolute width=200 height=300 right=830 top=300}
+![](img/ggplot2_gramatica.png){.absolute width=750 height=450 right=0 top=200}
+
+:::footer
+[Wickham (2008)](https://ggplot2-book.org/)
+:::
+
+# Material de estudo
+
+## Livros
+
+- [ggplot2 (2016)](https://ggplot2.tidyverse.org/)
+
+- [R Graphics Cookbook (2018)](http://www.cookbook-r.com/Graphs/)
+
+- [R for Data Science (2017)](https://r4ds.had.co.nz/)
+
+- [Data Visualization with R (2018)](https://rkabacoff.github.io/datavis/)
+
+- [Fundamentals of Data Visualization (2019)](https://serialmentor.com/dataviz/)
+
+- [Interactive web-based data visualization with R, plotly, and shiny (2019)](https://plotly-r.com/)
+
+## Sites
+
+- [ggplot2: Reference](https://ggplot2.tidyverse.org/reference/)
+
+- [R Graph Gallery](https://www.r-graph-gallery.com/)
+
+- [from Data to Viz](https://www.data-to-viz.com/)
+
+- [Statistical tools for high-throughput data analysis (STHDA)](http://www.sthda.com/english/)
+
+<center>
+<img src="img/plot_tree_s.png" style="width:30%"/>
+</center>
+
+# Principais tipos de gráficos
+
+## Elementos de um gráfico 
+
+Representações das colunas (eixos) e linhas (elementos)
+
+<center>
+<img src="img/plot_data_table_scatterplot.png" style="width:80%"/>
+</center>
+
+## Tipos de variáveis
+
+![](img/plot_variables.png){.absolute width=400 height=200 right=300 top=100}
+
+![](img/nominal_ordinal_binary.png){.absolute width=500 height=350 right=500 top=300}
+
+![](img/continuous_discrete.png){.absolute width=500 height=350 right=0 top=300}
+
+:::footer
+[Matthiopoulos (2011)](http://greenmaths.st-andrews.ac.uk/), [@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Tipos de variáveis e tipos gráficos
+
+<br>
+<center>
+<img src="img/ggplot_data_from_viz.png" style="width:85%"/>
+</center>
+
+:::footer
+[from Data to Viz](https://www.data-to-viz.com/)
+:::
+
+# Histograma (*Histogram*)
+
+## Histograma (*Histogram*) 
+
+- Representa dados de uma coluna
+
+- Dados do tipo discreto ou contínuo
+
+- Distribuição de frequência ou densidade
+
+![](img/plot_histogram.png){.absolute width=350 height=350 right=550 top=310}
+
+![](img/plot_density.png){.absolute width=350 height=350 right=100 top=310}
+
+:::footer
+[histogram](https://www.data-to-viz.com/graph/histogram.html), [density](https://www.data-to-viz.com/graph/density.html)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+hist(penguins$flipper_length_mm)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+hist(penguins$flipper_length_mm)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray")
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins")
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência")
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5,
+     prob = TRUE)
+lines(density(na.omit(penguins$flipper_length_mm)))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+par(mar = c(5, 5, 5, 5))
+hist(penguins$flipper_length_mm,
+     col = "gray50",
+     border = "gray",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     br = 50,
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5,
+     prob = TRUE)
+lines(density(na.omit(penguins$flipper_length_mm)))
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(5, 5, 5, 5))
+plot(density(na.omit(penguins$flipper_length_mm)),
+     col = "gray50",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
+polygon(density(na.omit(penguins$flipper_length_mm)), 
+        col = "gray50")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+par(mar = c(5, 5, 5, 5))
+plot(density(na.omit(penguins$flipper_length_mm)),
+     col = "gray50",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Densidade",
+     cex.main = 2,
+     cex.lab = 2, 
+     cex.axis = 1.5)
+polygon(density(na.omit(penguins$flipper_length_mm)), 
+        col = "gray50")
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**Exportar**
+
+```{r eval=FALSE}
+png(here::here("03_dados", "graficos", "plot_densidade.png"), 
+    wi = 15, he = 15, un = "cm", res = 300)
+```
+
+<br>
+
+. . . 
+
+```{r eval = FALSE}
+par(mar = c(5, 5, 5, 5))
+plot(density(na.omit(penguins$flipper_length_mm)),
+     col = "gray50",
+     main = "Comprimento da nadadeira dos penguins",
+     xlab = "Comprimento da nadadeira (mm)",
+     ylab = "Frequência",
+     cex.main = 2,  cex.lab = 2, cex.axis = 1.5)
+polygon(density(na.omit(penguins$flipper_length_mm)), col = "gray50")
+```
+
+<br>
+
+. . .
+
+```{r eval=FALSE}
+dev.off()
+```
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, aes(x = flipper_length_mm))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, aes(x = flipper_length_mm))
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram()
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram()
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins,  aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", bins = 10)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins,  aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", bins = 10)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", 
+                 bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(color = "black", fill = "cyan4", 
+                 bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5, position = "dodge") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(bins = 10, alpha = .5, position = "dodge") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(alpha = .5, position = "identity") +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(alpha = .5, position = "identity") +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_wrap(~ species, ncol = 2, scale = "free_y") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_wrap(~ species, ncol = 2, scale = "free_y") +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Histograma (*Histogram*) 
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_grid(species ~ .) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram() +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  facet_grid(species ~ .) +
+  labs(title = "Comprimento da nadadeira dos penguins",
+       fill = "Espécies",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Frequência") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins) +
+  aes(x = flipper_length_mm) +
+  geom_density(color = "black", fill = "cyan4", alpha = .5) + 
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins) +
+  aes(x = flipper_length_mm) +
+  geom_density(color = "black", fill = "cyan4", alpha = .5) + 
+  labs(title = "Comprimento da nadadeira dos penguins",
+       x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade", 
+       fill = "Espécie") +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, fill = species)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade", 
+       fill = "Espécie") +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+
+## Densidade (*Density*)
+
+**ggplot2**
+
+```{r}
+#| eval: false
+ggplot_densidade <- ggplot(data = penguins, 
+                           aes(x = flipper_length_mm, fill = species)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  labs(x = "Comprimento da nadadeira (mm)", 
+       y = "Densidade", 
+       fill = "Espécie") +
+  theme_bw(base_size = 20)
+
+ggsave(filename = here::here("03_dados", "graficos", "density_ggplot2.png"), 
+       plot = ggplot_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
+```
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Histograma (*Histogram*) 
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+gghistogram(data = penguins, 
+            x = "flipper_length_mm",
+            add = "median",
+            color = "species",
+            fill = "species",
+            palette = c("darkorange", "darkorchid", "cyan4"),
+            xlab = "Comprimento da nadadeira (mm)",
+            ylab = "Frequência")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+gghistogram(data = penguins, 
+            x = "flipper_length_mm",
+            add = "median",
+            color = "species",
+            fill = "species",
+            palette = c("darkorange", "darkorchid", "cyan4"),
+            xlab = "Comprimento da nadadeira (mm)",
+            ylab = "Frequência")
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+gghistogram(data = penguins, 
+            x = "flipper_length_mm",
+            add = "median",
+            color = "species",
+            fill = "species",
+            palette = c("darkorange", "darkorchid", "cyan4"),
+            xlab = "Comprimento da nadadeira (mm)",
+            ylab = "Frequência")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+ggdensity(data = penguins, 
+          x = "flipper_length_mm",
+          add = "median",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "darkorchid", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Densidade")
+```
+:::
+:::
+
+## Densidade (*Density*)
+
+**ggpubr**
+
+```{r}
+#| eval: false
+ggpubr_densidade <- ggdensity(data = penguins, 
+                              x = "flipper_length_mm",
+                              add = "median",
+                              fill = "cyan4",
+                              rug = TRUE,
+                              add_density = TRUE,
+                              xlab = "Comprimento da nadadeira (mm)",
+                              ylab = "Densidade")
+
+ggsave(filename = here::here("03_dados", "graficos", "densidade_ggpubr.png"), 
+       plot = ggpubr_densidade, wi = 20, he = 15, un = "cm", dpi = 300)
+```
+
+# Gráfico de setores <br> (*Pie chart*)
+
+## Gráfico de setores (*Pie chart*)
+
+- Representa dados de uma coluna
+
+- Dados do tipo categórico
+
+- Proporção ou porcentagem de dados categóricos
+
+![](img/plot_pie.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[pie](https://www.data-to-viz.com/caveat/pie.html)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Gráfico de setores (*Pie chart*)
+
+**graphic**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(0, 1, 0, 1))
+pie(c(280, 60, 20),
+    c("Sky", 
+      "Sunny side of pyramid", 
+      "Shady side of pyramid"),
+    col = c("#0292D8", 
+            "#F7EA39", 
+            "#C4B632"),
+    init.angle = -50, border = NA)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+par(mar = c(0, 1, 0, 1))
+pie(c(280, 60, 20),
+    c("Sky", "Sunny side of pyramid", "Shady side of pyramid"),
+    col = c("#0292D8", "#F7EA39", "#C4B632"),
+    init.angle = -50, border = NA)
+```
+:::
+:::
+
+## Gráfico de setores (*Pie chart*)
+
+```{r}
+# calculo da proporcao
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+penguins_prop
+```
+
+## Gráfico de setores (*Pie chart*)
+
+**graphic**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(5, 5, 5, 5))
+pie(penguins_prop$prop,
+    labels = paste(penguins_prop$prop, "%"), 
+    main = "Espécies",
+    col = c("darkorange", "darkorchid", "cyan4"))
+legend("topright", legend = penguins_prop$species, 
+       fill = c("darkorange", "darkorchid", "cyan4"))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+
+par(mar = c(5, 5, 5, 5))
+pie(penguins_prop$prop,
+    labels = paste(penguins_prop$prop, "%"), 
+    main = "Espécies",
+    col = c("darkorange", "darkorchid", "cyan4"))
+legend("topright", legend = penguins_prop$species, 
+       fill = c("darkorange", "darkorchid", "cyan4"))
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Gráfico de setores (*Pie chart*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins_prop, 
+       aes(x = "", y = prop, fill = species)) + 
+  geom_bar(stat = "identity", color = "white") +
+  coord_polar("y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white", 
+            position = position_stack(vjust = .5), size = 8) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_void() +
+  labs(fill = "Espécie")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+
+ggplot(data = penguins_prop, 
+       aes(x = "", y = prop, fill = species)) + 
+  geom_bar(stat = "identity", color = "white") +
+  coord_polar("y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white", 
+            position = position_stack(vjust = .5), size = 8) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_void() +
+  labs(fill = "Espécie")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Gráfico de setores (*Pie chart*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggpie(penguins_prop,
+      "prop", 
+      label = "prop",
+      lab.pos = "in", 
+      lab.font = c(8, "white"),
+      fill = "species", 
+      color = "white",
+      palette = c("darkorange", "purple", "cyan4"))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+
+ggpie(penguins_prop,
+      "prop", 
+      label = "prop",
+      lab.pos = "in", 
+      lab.font = c(8, "white"),
+      fill = "species", 
+      color = "white",
+      palette = c("darkorange", "purple", "cyan4"))
+```
+:::
+:::
+
+# Gráfico de setores (*Donut chart*)
+
+## Gráfico de setores (*Donut chart*)
+
+- Representa dados de uma coluna
+
+- Dados do tipo categórico
+
+- Proporção ou porcentagem de dados categóricos
+
+![](img/plot_donut.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[donut](https://r-graph-gallery.com/doughnut-plot)
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Gráfico de setores (*Donut chart*)
+
+**ggplot**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins_prop, aes(x = 2, y = prop, fill = species)) +
+  geom_bar(stat = "identity") +
+  coord_polar(theta = "y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white",
+            position = position_stack(vjust = .5), size = 5) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  xlim(0, 2.5) +
+  theme_void() +
+  theme(legend.position = c(.5, .5),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 15)) +
+  labs(fill = "Espécie")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+
+ggplot(data = penguins_prop, aes(x = 2, y = prop, fill = species)) +
+  geom_bar(stat = "identity") +
+  coord_polar(theta = "y", start = 0) +
+  geom_text(aes(label = paste0(prop, "%")), color = "white",
+            position = position_stack(vjust = .5), size = 5) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  xlim(0, 2.5) +
+  theme_void() +
+  theme(legend.position = c(.5, .5),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 15)) +
+  labs(fill = "Espécie")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Gráfico de setores (*Donut chart*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggdonutchart(penguins_prop,
+             "prop", 
+             label = "prop",
+             lab.pos = "in", 
+             lab.font = c(7, "white"),
+             fill = "species", 
+             color = "white",
+             palette = c("darkorange", "purple", "cyan4"))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_prop <- penguins %>%
+  dplyr::count(species) %>% 
+  dplyr::mutate(prop = round(n/sum(n), 4)*100)
+
+ggdonutchart(penguins_prop,
+             "prop", 
+             label = "prop",
+             lab.pos = "in", 
+             lab.font = c(7, "white"),
+             fill = "species", 
+             color = "white",
+             palette = c("darkorange", "purple", "cyan4"))
+```
+:::
+:::
+
+# Gráfico de barras <br> (*Bar plot*)
+
+## Gráfico de barras (*Bar plot*)
+
+- Representa dados de duas colunas
+
+- Dados do tipo categóricos: X = categórico e Y = categórico
+
+- Resume dados de contagens para uma coluna
+
+![](img/plot_barplot.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[barplot](https://www.data-to-viz.com/graph/barplot.html)
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**Tabela de Frequência**
+
+```{r}
+# numero de individuos coletados
+penguins_count <- penguins %>%
+  dplyr::count(species)
+penguins_count
+```
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+barplot(n ~ species,
+        data = penguins_count, 
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Número de indivíduos coletados por espécie",
+        xlab = "Espécies",
+        ylab = "Frequência absoluta",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_count <- penguins %>%
+  dplyr::count(species)
+
+barplot(n ~ species,
+        data = penguins_count, 
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Número de indivíduos coletados por espécie",
+        xlab = "Espécies",
+        ylab = "Frequência absoluta",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_count <- penguins %>%
+  dplyr::count(species)
+
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
+```
+:::
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  coord_flip() +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_count <- penguins %>%
+  dplyr::count(species)
+
+ggplot(data = penguins_count, 
+       aes(x = species, y = n, fill = species)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n), fill = "white") +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  coord_flip() +
+  theme_bw(base_size = 15) +
+  theme(legend.position = "none") +
+  labs(x = "Espécie", 
+       y = "Número de indivíduos", 
+       fill = "Espécie")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "in", 
+          lab.col = "white",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_count <- penguins %>%
+  dplyr::count(species)
+
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "in", 
+          lab.col = "white",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none")
+```
+:::
+:::
+
+## Gráfico de barras (*Bar plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "out", 
+          lab.col = "black",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none",
+          orientation = "horiz")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins_count <- penguins %>%
+  dplyr::count(species)
+
+ggbarplot(penguins_count,
+          x = "species",
+          y = "n", 
+          fill = "species", 
+          color = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          label = TRUE, 
+          lab.pos = "out", 
+          lab.col = "black",
+          lab.size = 8,
+          main = "Número de indivíduos coletados por espécie",
+          xlab = "Espécies",
+          ylab = "Frequência absoluta",
+          legend = "none",
+          orientation = "horiz")
+```
+:::
+:::
+
+# Gráfico de caixa <br> (*Box plot*)
+
+## Gráfico de caixa (*Box plot*)
+
+- Representa dados de duas colunas
+
+- Dados do tipo categóricos: X = categórico e Y = contínuo
+
+- Resume informações de medidas contínuas para dois ou mais fatores categóricos
+
+![](img/plot_boxplot.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[boxplot](https://www.data-to-viz.com/caveat/boxplot.html)
+:::
+
+## Gráfico de caixa (*Box plot*)
+
+- Intervalo inter-quartil (*interquartile range* - IQR)
+
+- Limite inferior e limite superipor (1.5 x IQR)
+
+- Valores exteriores (*outliers*)
+
+![](img/plot_boxplot1.png){.absolute width=500 height=280 right=520 top=350}
+![](img/plot_boxplot2.png){.absolute width=430 height=430 right=50 top=250}
+
+:::footer
+[Understanding Boxplots](https://www.kdnuggets.com/2019/11/understanding-boxplots.html)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Gráfico de caixa (*Box plot*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        border = "black",
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        border = "black",
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Gráfico de caixa (*Box plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+```
+:::
+:::
+
+## Gráfico de caixa (*Box plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+```
+:::
+:::
+
+## Gráfico de caixa (*Violin plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_violin(width = .3, 
+              show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(title = "Pontos com jitter", x = "Species", y = "Flipper length (mm)")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot(data = penguins, 
+       aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_violin(width = .3, 
+              show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(title = "Pontos com jitter", x = "Species", y = "Flipper length (mm)")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Gráfico de caixa (*Box plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggboxplot(data = penguins, 
+          x = "species", 
+          y = "flipper_length_mm",
+          add = "jitter", 
+          shape = "species",
+          fill = "species",
+          color = "black",
+          palette = c("darkorange", "purple", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Frequência absoluta",
+          legend = "none")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggboxplot(data = penguins, 
+          x = "species", 
+          y = "flipper_length_mm",
+          add = "jitter", 
+          shape = "species",
+          fill = "species",
+          color = "black",
+          palette = c("darkorange", "purple", "cyan4"),
+          xlab = "Comprimento da nadadeira (mm)",
+          ylab = "Frequência absoluta",
+          legend = "none")
+```
+:::
+:::
+
+## Gráfico de caixa (*Violin plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggviolin(data = penguins, 
+         x = "species", 
+         y = "flipper_length_mm",
+         add = "jitter", 
+         shape = "species",
+         fill = "species",
+         color = "black",
+         palette = c("darkorange", "purple", "cyan4"),
+         xlab = "Comprimento da nadadeira (mm)",
+         ylab = "Frequência absoluta",
+         legend = "none")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggviolin(data = penguins, 
+         x = "species", 
+         y = "flipper_length_mm",
+         add = "jitter", 
+         shape = "species",
+         fill = "species",
+         color = "black",
+         palette = c("darkorange", "purple", "cyan4"),
+         xlab = "Comprimento da nadadeira (mm)",
+         ylab = "Frequência absoluta",
+         legend = "none")
+```
+:::
+:::
+
+# Gráfico de dispersão (*Scatter plot*)
+
+## Gráfico de dispersão (*Scatter plot*)
+
+- Representa dados de duas colunas
+
+- Dados do tipo categóricos: X = contínuo e Y = contínuo
+
+- Plota a relação entre duas variáveis contínuas
+
+![](img/plot_scatter.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[scatterplot](https://www.data-to-viz.com/graph/scatter.html)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mar = c(5, 5, 1, 1))
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5,
+     cex.axis = 1.3,
+     bty = "l")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+par(mar = c(5, 5, 1, 1))
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5,
+     cex.axis = 1.3,
+     bty = "l")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, 
+           y = bill_depth_mm,
+           color = species,
+           shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*) {.smaller}
+
+Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing
+
+**Justin Matejka, George Fitzmaurice**
+
+<center>
+<img src="img/gif_data_dino_statistics.gif" style="width:100%"/>
+</center>
+
+:::footer
+[Matejka & Fitzmaurice (2017)](https://www.autodeskresearch.com/publications/samestats)
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# package
+library(datasauRus)
+
+# data + plot
+datasaurus_dozen %>% 
+  dplyr::filter(dataset == "dino") %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 5, alpha = .75, pch = 21) +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# package
+library(datasauRus)
+
+# data + plot
+datasaurus_dozen %>% 
+  dplyr::filter(dataset == "dino") %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 5, alpha = .75, pch = 21) +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+datasaurus_dozen %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 1, alpha = .75, pch = 21) +
+  facet_wrap(~dataset) +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+datasaurus_dozen %>% 
+  ggplot() +
+  aes(x = x, y = y) +
+  geom_point(colour = "black", fill = "black", 
+             size = 1, alpha = .75, pch = 21) +
+  facet_wrap(~dataset) +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggpubr.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggpubr](https://rpkgs.datanovia.com/ggpubr/)
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)")
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)",
+          ellipse = TRUE, 
+          mean.point = TRUE)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggscatter(data = penguins,
+          x = "flipper_length_mm", 
+          y = "bill_depth_mm",
+          color = "species",
+          fill = "species",
+          palette = c("darkorange", "purple", "cyan4"),
+          shape = "species", 
+          size = 5,
+          xlab = "Comprimento do bico (mm)", 
+          ylab = "Profundidade do bico (mm)",
+          ellipse = TRUE, 
+          mean.point = TRUE)
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggscatter(data = datasaurus_dozen %>% 
+            dplyr::filter(dataset == "dino"),
+          x = "x", 
+          y = "y",
+          size = 5,
+          xlab = "X", 
+          ylab = "Y")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggscatter(data = datasaurus_dozen %>% 
+            dplyr::filter(dataset == "dino"),
+          x = "x", 
+          y = "y",
+          size = 5,
+          xlab = "X", 
+          ylab = "Y")
+```
+:::
+:::
+
+## Gráfico de dispersão (*Scatter plot*)
+
+**ggpubr**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggscatter(data = datasaurus_dozen,
+          x = "x", 
+          y = "y",
+          size = 1,
+          xlab = "X", 
+          ylab = "Y",
+          facet.by = "dataset")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggscatter(data = datasaurus_dozen,
+          x = "x", 
+          y = "y",
+          size = 1,
+          xlab = "X", 
+          ylab = "Y",
+          facet.by = "dataset")
+```
+:::
+:::
+
+# Gráfico pareado <br> (*Pairs plot*)
+
+## Gráfico pareado (*Pairs plot*)
+
+- Representa dados de duas colunas
+
+- Dados do tipo categóricos: X = contínuo e Y = contínuo
+
+- Plota a relação entre duas variáveis contínuas, mas para várias colunas
+
+![](img/plot_correlogram.png){.absolute width=350 height=350 right=360 top=310}
+
+:::footer
+[correlogram](https://www.data-to-viz.com/#correlogram)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Gráfico pareado (*Pairs plot*)
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs(pch = 20,
+        upper.panel = NULL)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs(pch = 20,
+        upper.panel = NULL)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[GGally](http://ggobi.github.io/ggally/)
+:::
+
+## Gráfico pareado (*Pairs plot*)
+
+**GGally**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("GGally")
+library(GGally)
+
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  ggpairs() +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# pacote
+# install.packages("GGally")
+library(GGally)
+
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  ggpairs() +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Gráfico pareado (*Pairs plot*)
+
+**GGally**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+penguins %>%
+  dplyr::select(species, sex, body_mass_g, ends_with("_mm")) %>%
+  GGally::ggpairs(aes(color = species)) +
+  scale_colour_manual(values = c("darkorange", "purple", "cyan4")) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+penguins %>%
+  dplyr::select(species, sex, body_mass_g, ends_with("_mm")) %>%
+  GGally::ggpairs(aes(color = species)) +
+  scale_colour_manual(values = c("darkorange", "purple", "cyan4")) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 20)
+```
+:::
+:::
+
+## Gráfico pareado (*Pairs plot*)
+
+**psych**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("psych")
+library(psych)
+
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs.panels(pch = 20, 
+               ellipses = FALSE, 
+               density = FALSE, 
+               stars = TRUE, 
+               hist.col = "gray",
+               digits = 2,
+               rug = FALSE,
+               breaks = 10,
+               ci = TRUE)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# pacote
+# install.packages("psych")
+library(psych)
+
+penguins %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
+  pairs.panels(pch = 20, 
+               ellipses = FALSE, 
+               density = FALSE, 
+               stars = TRUE, 
+               hist.col = "gray",
+               digits = 2,
+               rug = FALSE,
+               breaks = 10,
+               ci = TRUE)
+```
+:::
+:::
+
+# Combinando gráficos
+
+## Descrição {.smaller}
+
+- Muitas vezes precisamos **combinar gráficos** para representar nossos dados
+
+- Essa tarefa pode ser realizada depois da criação dos gráficos em aplicativos como [Inkskape](https://inkscape.org/pt-br/) ou [GIMP](https://www.gimp.org/)
+
+- Outras vezes, podemos usar códigos e pacotes do R para fazer essa tarefa
+
+<center>
+<img src="img/patchwork_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[patchwork](https://patchwork.data-imaginist.com/)
+:::
+
+# 
+<center>
+<img src="img/package_graphics.png" style="width:50%"/>
+</center>
+
+:::footer
+[graphics](http://search.r-project.org/R/library/graphics/html/00Index.html)
+:::
+
+## Combinando gráficos
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mfrow = c(1, 2))
+
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+par(mfrow = c(1, 2))
+
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
+```
+:::
+:::
+
+## Combinando gráficos
+
+**graphics**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+par(mfrow = c(2, 1))
+
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+par(mfrow = c(2, 1))
+
+boxplot(flipper_length_mm ~ as.factor(species),
+        data = penguins,
+        col = c("darkorange", "purple", "cyan4"),
+        main = "Espécies por amostragens",
+        xlab = "Espécies",
+        ylab = "Comprimento da nadadeira (mm)",
+        cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.2)
+
+plot(bill_depth_mm ~ bill_length_mm,
+     data = penguins,
+     pch = 20,
+     cex = 1.5,
+     main = "Comprimento e profundidade do bico", 
+     xlab = "Comprimento do bico (mm)", 
+     ylab = "Profundidade do bico (mm)",
+     cex.lab = 1.5, cex.axis = 1.3)
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_ggplot2.png" style="width:50%"/>
+</center>
+
+:::footer
+[ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+## Combinando gráficos
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot_boxplot <- ggplot(data = penguins, 
+                         aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+ggplot_boxplot
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot_boxplot <- ggplot(data = penguins, 
+                         aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(width = .3, 
+               show.legend = FALSE) +
+  geom_jitter(alpha = .5, 
+              show.legend = FALSE, 
+              position = position_jitter(width = .1, seed = 0)) +
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Species", y = "Flipper length (mm)")
+ggplot_boxplot
+```
+:::
+:::
+
+## Combinando gráficos
+
+**ggplot2**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot_scatterplot <- ggplot(data = penguins, 
+                             aes(x = bill_length_mm, 
+                                 y = bill_depth_mm,
+                                 color = species,
+                                 shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+ggplot_scatterplot
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot_scatterplot <- ggplot(data = penguins, 
+                             aes(x = bill_length_mm, 
+                                 y = bill_depth_mm,
+                                 color = species,
+                                 shape = species)) +
+  geom_point(size = 3, alpha = .8) +
+  scale_shape_manual(values = c(19, 15, 17)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies")
+ggplot_scatterplot
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_cowplot.png" style="width:50%"/>
+</center>
+
+:::footer
+[cowplot](https://wilkelab.org/cowplot/)
+:::
+
+## Combinando gráficos
+
+**cowplot**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("cowplot")
+library(cowplot)
+
+# combinacao horizontal
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          align = "h", rel_widths = c(1, 1.5),
+          labels = "AUTO")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# pacote
+# install.packages("cowplot")
+library(cowplot)
+
+# combinacao horizontal
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          align = "h", rel_widths = c(1, 1.5),
+          labels = "AUTO")
+```
+:::
+:::
+
+## Combinando gráficos
+
+**cowplot**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# combinacao vertical
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          ncol = 1, align = "v", 
+          labels = "AUTO")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# combinacao vertical
+plot_grid(ggplot_boxplot, ggplot_scatterplot, 
+          ncol = 1, align = "v", 
+          labels = "AUTO")
+```
+:::
+:::
+
+# 
+<center>
+<img src="img/package_patchwork.png" style="width:50%"/>
+</center>
+
+:::footer
+[patchwork](https://patchwork.data-imaginist.com/)
+:::
+
+## Combinando gráficos
+
+**patchwork**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("patchwork")
+library(patchwork)
+
+# combinacao horizontal
+ggplot_boxplot + ggplot_scatterplot
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+# pacote
+# install.packages("patchwork")
+library(patchwork)
+
+# combinacao horizontal
+ggplot_boxplot + ggplot_scatterplot
+```
+:::
+:::
+
+## Combinando gráficos
+
+**patchwork**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+ggplot_boxplot / ggplot_scatterplot
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 10
+#| echo: false
+#| fig-weight: 15
+
+ggplot_boxplot / ggplot_scatterplot
+```
+:::
+:::
+
+# Gráficos animados
+
+# 
+<center>
+<img src="img/package_gganimate.png" style="width:50%"/>
+</center>
+
+:::footer
+[gganimate](https://gganimate.com/)
+:::
+
+## Gráficos animados
+
+**gganimate**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("gganimate")
+library(gganimate)
+
+plot_animate <- ggplot(data = penguins,
+                       aes(x = bill_length_mm, 
+                           y = bill_depth_mm, 
+                           color = species)) +
+  geom_point() +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_bw(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)", 
+       y = "Profundidade do bico (mm)", 
+       color = "Espécies", shape = "Espécies") +
+  labs(title = "{closest_state}") +
+  transition_states(species) +
+  enter_grow() + 
+  exit_fade()
+plot_animate
+```
+
+:::
+
+::: {.column width="50%"}
+<center>
+<img src="img/plot_animate.gif" style="width:100%"/>
+</center>
+:::
+:::
+
+## Gráficos animados
+
+**gganimate**
+
+```{r}
+#| eval: false
+gganimate::anim_save(filename = "03_dados/graficos/plot_animate.gif",
+                     animation = plot_animate, wi = 700, he = 500, un = "px")
+```
+
+<br>
+<center>
+<img src="img/plot_animate.gif" style="width:55%"/>
+</center>
+
+# Gráficos interativos
+
+# 
+<center>
+<img src="img/package_plotly.png" style="width:70%"/>
+</center>
+
+:::footer
+[plotly](https://plotly.com/r/)
+:::
+
+## Gráficos interativos
+
+**plotly**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("plotly")
+library(plotly)
+
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        type = "scatter",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(xaxis = list(title = "Comprimento do bico (mm)"),
+         yaxis = list(title = "Profundidade do bico (mm)"))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+# pacote
+# install.packages("plotly")
+library(plotly)
+
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        type = "scatter",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(xaxis = list(title = "Comprimento do bico (mm)"),
+         yaxis = list(title = "Profundidade do bico (mm)"))
+```
+:::
+:::
+
+## Gráficos interativos
+
+**plotly**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        z = ~body_mass_g,
+        type = "scatter3d",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(scene = list(xaxis = list(title = "Comprimento do bico (mm)"),
+                      yaxis = list(title = "Profundidade do bico (mm)"),
+                      zaxis = list(title = "Massa (g)")))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+plot_ly(data = penguins,
+        x = ~bill_length_mm, 
+        y = ~bill_depth_mm, 
+        z = ~body_mass_g,
+        type = "scatter3d",
+        color = ~species,
+        colors = c("darkorange", "purple", "cyan4")) %>% 
+  layout(scene = list(xaxis = list(title = "Comprimento do bico (mm)"),
+                      yaxis = list(title = "Profundidade do bico (mm)"),
+                      zaxis = list(title = "Massa (g)")))
+```
+:::
+:::
+
+## Gráficos interativos
+
+**plotly**
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+plot_penguins_scatter_int <- ggplotly(
+  ggplot(data = penguins, 
+         aes(x = bill_length_mm, 
+             y = bill_depth_mm,
+             color = species,
+             shape = species)) +
+    geom_point(size = 3, alpha = .8) +
+    geom_smooth(method = "lm", se = FALSE) +
+    scale_shape_manual(values = c(19, 15, 17)) +
+    scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+    theme_bw(base_size = 15) +
+    labs(x = "Comprimento do bico (mm)", 
+         y = "Profundidade do bico (mm)", 
+         color = "Espécies", shape = "Espécies"))
+plot_penguins_scatter_int
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+plot_penguins_scatter_int <- ggplotly(
+  ggplot(data = penguins, 
+         aes(x = bill_length_mm, 
+             y = bill_depth_mm,
+             color = species,
+             shape = species)) +
+    geom_point(size = 3, alpha = .8) +
+    geom_smooth(method = "lm", se = FALSE) +
+    scale_shape_manual(values = c(19, 15, 17)) +
+    scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+    theme_bw(base_size = 15) +
+    labs(x = "Comprimento do bico (mm)", 
+         y = "Profundidade do bico (mm)", 
+         color = "Espécies", shape = "Espécies"))
+plot_penguins_scatter_int
+```
+:::
+:::
+
+## Gráficos interativos
+
+**plotly**
+
+```{r}
+#| eval: false
+
+# pacote
+# install.packages("htmlwidgets")
+library(htmlwidgets)
+
+# export
+htmlwidgets::saveWidget(widget = plot_penguins_scatter_int, 
+                        file = "03_dados/graficos/plot_penguins_scatter_int.html")
+```
+
+# Gráficos usando interface
+
+# 
+<center>
+<img src="img/package_esquisse.png" style="width:60%"/>
+</center>
+
+:::footer
+[esquisse](https://dreamrs.github.io/esquisse/)
+:::
+
+## Gráficos usando interface
+
+**esquisse**
+
+::: columns
+::: {.column width="40%"}
+```{r}
+#| eval: false
+# pacote
+# install.packages("esquisse")
+library(esquisse)
+
+# iniciar
+esquisse::esquisser(iris)
+esquisse::esquisser(penguins)
+```
+
+:::
+
+::: {.column width="60%"}
+<center>
+<img src="img/esquisse.gif" style="width:100%"/>
+</center>
+:::
+:::
+
+# Dúvidas?
+
+## Muito obrigado!
+
+::: columns
+::: {.column width="50%"}
+Agradecimentos:
+
+- [Comissão SEE]()
+- [Alunes]()
+- [Prof. Tadeu Siqueira]()
+- [Prof. Miltinho]()
+- [Fapesp #2022/01899-6](https://bv.fapesp.br/pt/bolsas/203713/estrutura-da-paisagem-como-preditor-da-diversidade-taxonomica-e-funcional-de-anfibios-na-mata-atlant/)
+:::
+
+::: {.column width="50%"}
+Contato:
+
+<center>
+[`r icons::icon_style(icons::fontawesome("link"), fill = "#2268bc")`](https://mauriciovancine.github.io/)
+[`r icons::icon_style(icons::fontawesome("envelope", style = "solid"), fill = "#2268bc")`](mailto:mauricio.vancine@gmail.com)
+[`r icons::icon_style(icons::fontawesome("twitter"), fill = "#2268bc")`](https://twitter.com/mauriciovancine)
+[`r icons::icon_style(icons::fontawesome("github"), fill = "#2268bc")`](https://github.com/mauriciovancine)
+
+<img src="img/gif_frogs.gif" style="width:80%"/>
+</center>
+
+:::
+:::
+
+:::footer
+Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r/01_slides/slides.qmd).
+:::

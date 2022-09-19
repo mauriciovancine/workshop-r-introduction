@@ -1,7 +1,7 @@
 #' ---
 #' title: aula 02 - introducao ao tidyverse
 #' author: mauricio vancine
-#' date: 2021-10-11
+#' date: 2022-11-11
 #' ---
 
 # packages ----------------------------------------------------------------
@@ -13,16 +13,14 @@ library(writexl)
 
 # topics ------------------------------------------------------------------
 
-# 1. contextualizacao
-# 2. tidyverse
-# 3. here
-# 4. readr, readxl e writexl
-# 5. tibble
-# 6. magrittr (pipe - %>%)
-# 7. tidyr
-# 8. dplyr
+# 1. tidyverse
+# 2. readr, readxl e writexl
+# 3. tibble
+# 4. magrittr (pipe - %>%)
+# 5. tidyr
+# 6. dplyr
 
-# 2. tidyverse -----------------------------------------------------------
+# 1. tidyverse -----------------------------------------------------------
 # instalar pacote
 # install.packages("tidyverse")
 
@@ -32,20 +30,8 @@ library(tidyverse)
 # list all packages in the tidyverse 
 tidyverse::tidyverse_packages(include_self = TRUE)
 
-# 3. here -----------------------------------------------------------------
-# instalar
-# install.packages("here")
+# 2. readr, readxl e writexl ----------------------------------------------
 
-# carregar
-library(here)
-
-# conferir
-here::here()
-
-# criar um arquivo .here
-# here::set_here()
-
-# 4. readr, readxl e writexl ----------------------------------------------
 # formato .csv
 # importar sites com here
 si <- readr::read_csv(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.csv"))
@@ -73,12 +59,12 @@ si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx")
                         sheet = 1)
 si
 
-# 5. tibble --------------------------------------------------------------
+# 3. tibble --------------------------------------------------------------
 
 # view the sites data
 tibble::glimpse(si)
 
-# 6. magrittr (pipe - %>%) -----------------------------------------------
+# 4. magrittr (pipe - %>%) -----------------------------------------------
 # sem pipe
 sqrt(sum(1:100))
 
@@ -125,7 +111,7 @@ penguins_raw
 tibble::glimpse(penguins)
 tibble::glimpse(penguins_raw)
 
-# 7. tidyr ---------------------------------------------------------------
+# 5. tidyr ---------------------------------------------------------------
 # funcoes
 # 1. unite(): junta dados de múltiplas colunas em uma
 # 2. separate(): separa caracteres em múlplica colunas
@@ -163,7 +149,7 @@ penguins_raw_colunas_na <- tidyr::drop_na(data = penguins_raw,
                                           any_of("Comments"))
 head(penguins_raw_colunas_na[, "Comments"])
 
-# 8. dplyr ---------------------------------------------------------------
+# 6. dplyr ---------------------------------------------------------------
 # funcoes
 # 1. relocate(): muda a ordem das colunas
 # 2. rename(): muda o nome das colunas

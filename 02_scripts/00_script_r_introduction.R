@@ -1,21 +1,18 @@
 #' ---
 #' title: install packages
 #' author: mauricio vancine
-#' date: 2021-10-10
+#' date: 2022-11-11
 #' ---
 
 # github packages ----------------------------------------------------------
+if(!require(remotes)) install.packages("remotes", dep = TRUE, quiet = TRUE)
 if(!require(devtools)) install.packages("devtools", dep = TRUE, quiet = TRUE)
 
 # data manipulation and visualization -------------------------------------
 # manipulation and visualization
 if(!require(tidyverse)) install.packages("tidyverse", dep = TRUE, quiet = TRUE)
 
-# directory
-if(!require(here)) install.packages("here", dep = TRUE, quiet = TRUE)
-
 # xlsx
-if(!require(openxlsx)) install.packages("openxlsx", dep = TRUE, quiet = TRUE)
 if(!require(readxl)) install.packages("readxl", dep = TRUE, quiet = TRUE)
 if(!require(writexl)) install.packages("writexl", dep = TRUE, quiet = TRUE)
 
