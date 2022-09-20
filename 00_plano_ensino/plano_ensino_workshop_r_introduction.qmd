@@ -1,20 +1,20 @@
 ---
-title: "Introdução à linguagem R para manipulação e visualização de dados"
+title: "Linguagem R para manipulação e visualização de dados"
 format: pdf
 editor: visual
 ---
 
 ## Resumo
 
-O minicurso apresentará os fundamentos da linguagem R e do IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura e sintaxe, visando ajudar os usuários a criar um código eficiente e organizado. Os pacotes são focados principalmente na organização (leitura, filtragem, organização, seleção e resumo) e visualização de dados. Serão abordados os seguintes temas: (1) funcionamento da linguagem R, (2) introdução ao tidyverse e (3) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos introdutórios do funcionamento da linguagem através do *tidyverse*, assim como na manipulação e visualização de dados tabulares.
+O minicurso apresentará os principais conceitos da linguagem R e do IDE RStudio para a manipulação e visualização de dados através do *tidyverse*. O *tidyverse* é um conjunto de pacotes e funções que compartilham uma mesma estrutura e sintaxe, com o intuito de criar códigos eficientes e organizados. Os pacotes são focados principalmente na organização (leitura, filtragem, organização, seleção e resumo) e visualização de dados (gráficos). Serão abordados os seguintes temas: (1) linguagem R, (2) tidyverse e (3) visualização de dados. Ao final do minicurso espera-se que os participantes adquiram conhecimentos básicos do funcionamento da linguagem R através do *tidyverse*, permitindo realização manipulação e visualização de dados tabulares.
 
 ## Carga horária
 
-08 horas
+09 horas
 
 ## Repositório do GitHub
 
-[https://github.com/mauriciovancine/workshop-r-introduction](https://github.com/mauriciovancine/workshop-r-introduction)
+<https://github.com/mauriciovancine/workshop-r-introduction>
 
 ## Pré-requisitos
 
@@ -26,56 +26,55 @@ Maurício Vancine é Bacharel em Ecologia, Mestre em Zoologia e Doutorando em Ec
 
 Mais informações:
 
-- Website: [https://mauriciovancine.github.io/](https://mauriciovancine.github.io/) 
-- Twitter: [https://twitter.com/mauriciovancine](https://twitter.com/mauriciovancine)
-- GitHub: [https://github.com/mauriciovancine](https://github.com/mauriciovancine)
+-   Website: <https://mauriciovancine.github.io/>
+-   Twitter: <https://twitter.com/mauriciovancine>
+-   GitHub: <https://github.com/mauriciovancine>
 
 ## Conteúdo
 
-### 1 Funcionamento da linguagem R (1 h)
+### 1 Funcionamento da linguagem R (2 h)
 
-1. Linguagem R
-1. RStudio
-1. Console
-1. Scripts
-1. Operadores
-1. Objetos
-1. Funções
-1. Pacotes
-1. Ajuda
-1. Ambiente
-1. Citações
-1. Principais erros
-1. Principal material de estudo
+1.  Linguagem R
+2.  RStudio
+3.  Console
+4.  Script
+5.  Operadores
+6.  Objetos
+7.  Funções
+8.  Ajuda
+9.  Ambiente
+10. Pacotes
+11. Citações
+12. Principais erros
+13. Material de estudo
+14. Extra: estrutura dos objetos
 
 ### 2 Introdução ao tidyverse (4 h)
 
-1. Contextualização
-1. tidyverse
-1. here
-1. readr, readxl e writexl
-1. tibble
-1. magrittr (pipe - %>%)
-1. tidyr
-1. dplyr
+1.  tidyverse
+2.  readr, readxl e writexl
+3.  tibble
+4.  magrittr (pipe - %\>%)
+5.  tidyr
+6.  dplyr
 
 ### 3 Visualização de dados (3 h)
 
-1. Contextualização
-1. Principais pacotes para gráficos 
-1. Grámatica dos gráficos
-1. Principais livros e sites 
-1. Principais tipos de gráficos 
-1. Histograma e Densidade
-1. Gráfico de setores
-1. Gráfico de barras
-1. Gráfico de caixas
-1. Gráfico de dispersão
-1. Gráfico pareado
-1. Combinando gráficos
-1. Gráficos animados
-1. Gráficos interativos
-1. Gráficos usando uma interface
+1.  Contextualização
+2.  Principais pacotes
+3.  Grámatica dos gráficos
+4.  Principais livros e sites
+5.  Principais tipos de gráficos
+6.  Histograma e Densidade
+7.  Gráfico de setores
+8.  Gráfico de barras
+9.  Gráfico de caixas
+10. Gráfico de dispersão
+11. Gráfico pareado
+12. Combinando gráficos
+13. Gráficos animados
+14. Gráficos interativos
+15. Gráficos usando uma interface
 
 ### Bibliografia
 
@@ -105,7 +104,7 @@ Crawley MJ. 2012. The R book. John Wiley & Sons.
 
 Davies TM. 2016. The Book of R: A first course in programming and statistics. No Starch Press.
 
-Engel C. 2019. Introduction to R. [https://cengel.github.io/R-intro/](https://cengel.github.io/R-intro/)
+Engel C. 2019. Introduction to R. <https://cengel.github.io/R-intro/>
 
 Field A, Miles J, Field Z. 2012. Discovering statistics using R. Sage publications.
 
@@ -119,7 +118,7 @@ Gillespie C, Lovelace R. 2016. Efficient R programming: a practical guide to sma
 
 Grolemund G. 2014. Hands-On Programming with R: Write Your Own Functions and Simulations. O'Reilly Media, Inc.
 
-Hastie T, Tibshirani R, Friedman J. 2009. The elements of statistical learning: data mining, inference, and prediction. Springer Science & Business Media. [https://web.stanford.edu/~hastie/ElemStatLearn/](https://web.stanford.edu/~hastie/ElemStatLearn/)
+Hastie T, Tibshirani R, Friedman J. 2009. The elements of statistical learning: data mining, inference, and prediction. Springer Science & Business Media. <https://web.stanford.edu/~hastie/ElemStatLearn/>
 
 Healy K. 2018. Data visualization: a practical introduction. Princeton University Press.
 
@@ -127,13 +126,13 @@ Hector A. 2015. The new statistics with R: an introduction for biologists. Oxfor
 
 Hilfiger JJ. 2015. Graphing Data with R: An Introduction. O'Reilly Media, Inc.
 
-Holmes S, Huber W. 2018. Modern statistics for modern biology. Cambridge University Press. [http://web.stanford.edu/class/bios221/book/index.html](http://web.stanford.edu/class/bios221/book/index.html)
+Holmes S, Huber W. 2018. Modern statistics for modern biology. Cambridge University Press. <http://web.stanford.edu/class/bios221/book/index.html>
 
-Irizarry RA, Love MI. 2016. Data Analysis for the Life Sciences with R. Chapman and Hall/CRC. [http://www.rwdc2.com/files/rafa.pdf](http://www.rwdc2.com/files/rafa.pdf)
+Irizarry RA, Love MI. 2016. Data Analysis for the Life Sciences with R. Chapman and Hall/CRC. <http://www.rwdc2.com/files/rafa.pdf>
 
-Ismay C, Kim AY. 2019. Statistical Inference via Data Science: A ModernDive into R and the Tidyverse. CRC Press. [https://moderndive.com/](https://moderndive.com/)
+Ismay C, Kim AY. 2019. Statistical Inference via Data Science: A ModernDive into R and the Tidyverse. CRC Press. <https://moderndive.com/>
 
-James G, Witten D, Hastie T,& Tibshirani R. 2013. An introduction to statistical learning (Vol. 112, p. 18). New York: springer. [http://faculty.marshall.usc.edu/gareth-james/ISL/](http://faculty.marshall.usc.edu/gareth-james/ISL/)
+James G, Witten D, Hastie T,& Tibshirani R. 2013. An introduction to statistical learning (Vol. 112, p. 18). New York: springer. <http://faculty.marshall.usc.edu/gareth-james/ISL/>
 
 Jones O, Maillardet R, Robinson A. 2014. Introduction to scientific programming and simulation using R. Chapman and Hall/CRC.
 
@@ -149,9 +148,9 @@ McGrath M. 2018. R for Data Analysis in easy steps - R Programming essentials. I
 
 Micheaux PL, Drouilhet R, Liquet B. 2013. The R software The R Software: Fundamentals of Programming and Statistical Analysis. Springer Science & Business Media.
 
-Oliveira PF, Guerra S, Mcdonnell R. 2018. Ciência de dados com R – Introdução. IBPAD. [https://cdr.ibpad.com.br/](https://cdr.ibpad.com.br/)
+Oliveira PF, Guerra S, Mcdonnell R. 2018. Ciência de dados com R -- Introdução. IBPAD. <https://cdr.ibpad.com.br/>
 
-R Core Team. 2021. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. [https://www.r-project.org/](https://www.r-project.org/)
+R Core Team. 2021. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. <https://www.r-project.org/>
 
 Racine JS. 2012. RStudio: a platform‐independent IDE for R and Sweave. Journal of Applied Econometrics, 27(1), 167-172.
 
@@ -167,13 +166,13 @@ Wickham H. 2016. ggplot2: elegant graphics for data analysis. Springer.
 
 Wickham H. 2019. Advanced r. Chapman and Hall/CRC.
 
-Wickham H, Grolemund G. 2016. R for data science: import, tidy, transform, visualize, and model data. O'Reilly Media, Inc. [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+Wickham H, Grolemund G. 2016. R for data science: import, tidy, transform, visualize, and model data. O'Reilly Media, Inc. <https://r4ds.had.co.nz/>
 
 Wiley M, Wiley, JF. 2016. Advanced R Data Programming and the Cloud. Apress.
 
-Wilke CO. 2019. Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures. O'Reilly Media. [https://serialmentor.com/dataviz/](https://serialmentor.com/dataviz/)
+Wilke CO. 2019. Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures. O'Reilly Media. <https://serialmentor.com/dataviz/>
 
-Xie Y, Allaire, JJ, Grolemund G. 2018. R markdown: The definitive guide. CRC Press. [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/)
+Xie Y, Allaire, JJ, Grolemund G. 2018. R markdown: The definitive guide. CRC Press. <https://bookdown.org/yihui/rmarkdown/>
 
 Zumel N, Mount J. 2014. Practical data science with R. Manning Publications Co.
 
