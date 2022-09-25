@@ -248,7 +248,7 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 
 ::: {.column width="60%"}
 
-- 15 capítulos: linguagem R, *tidyverse*, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
+- 15 capítulos: linguagem R, `tidyverse`, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
 
 - [bookdown](https://analises-ecologicas.com/)
 
@@ -1466,7 +1466,7 @@ ma_cbind
 
 **Array** 
 
-Representa combinação de tabelas, com linhas (locais), colunas (variáveis) e dimensões (tempo)
+Combinação de tabelas, com linhas (locais), colunas (variáveis) e dimensões (tempo)
 
 ::: columns
 ::: {.column width="50%"}
@@ -1601,7 +1601,7 @@ Abram o script
 
 ## Descrição
 
-- O tidyverse é um conjunto de pacotes designados para *Data Science*
+- O `tidyverse` é um conjunto de pacotes designados para *Data Science*
 
 - Todos os pacotes compartilham uma filosofia de design, gramática e estruturas de dados
 
@@ -1697,8 +1697,9 @@ tidyverse::tidyverse_packages(include_self = TRUE)
 
 ## Sintaxe
 
-Todas as funções dos pacotes tidyverse usam `fonte minúscula` e `_` para separar os nomes internos das funções (`snake_case`)
+Todas as funções dos pacotes `tidyverse` usam `fonte minúscula` e `_` para separar os nomes internos das funções (`snake_case`)
 
+<br>
 `read_csv()`
 
 `read_xlsx()`
@@ -1715,6 +1716,8 @@ Todas as funções dos pacotes tidyverse usam `fonte minúscula` e `_` para sepa
 
 Geralmente indica-se de quais pacotes as funções são utilizadas (`pacote::função`) para evitar erros com outros pacotes
 
+
+<br>
 `readr::read_csv()`
 
 `readxl::read_xlsx()`
@@ -1870,7 +1873,7 @@ si
 
 - `tibble` (classe `tbl_df`) é um tipo especial de data frame
 
-- Classe adequada para o funcionamento das das funções do tidyverse
+- Classe adequada para o funcionamento das das funções do `tidyverse`
 
 ```{r eval=FALSE}
 # tibble
@@ -1941,7 +1944,7 @@ obj <- dados %>%
   funcao2()
 ```
 
-# Se preparem para uma revisão de funções compostas fog() e gof()
+# Se preparem para uma revisão de funções compostas
 
 ## Função composta
 
@@ -2901,7 +2904,7 @@ plot(flipper_length_mm ~ body_mass_g, data = penguins)
 
 ## ggplot2 {.smaller}
 
-- Integrado ao tidyverse, possui uma sintaxe própria de camadas (layers)
+- Integrado ao `tidyverse`, possui uma sintaxe própria de camadas (layers)
 
 - Necessita de funções específicas para objetos de classes diferentes
 
@@ -6290,9 +6293,14 @@ Agradecimentos:
 
 - [Comissão SEE]()
 - [Alunes]()
-- [Prof. Tadeu Siqueira]()
-- [Prof. Miltinho]()
+- [Prof. Tadeu Siqueira](https://tsiqueiralab.weebly.com/)
+- [Prof. Miltinho](https://leec.eco.br/)
 - [Fapesp #2022/01899-6](https://bv.fapesp.br/pt/bolsas/203713/estrutura-da-paisagem-como-preditor-da-diversidade-taxonomica-e-funcional-de-anfibios-na-mata-atlant/)
+
+<center>
+<img src="img/fapesp.png" style="width:70%"/>
+</center>
+
 :::
 
 ::: {.column width="50%"}
