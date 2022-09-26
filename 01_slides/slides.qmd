@@ -2762,7 +2762,7 @@ penguins_sample
 
 # Dúvidas?
 
-# 3 Visualização de dados
+# 3. Visualização de dados
 
 #
 <center>
