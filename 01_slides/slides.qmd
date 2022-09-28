@@ -67,34 +67,37 @@ format:
 
 ## Minicurso
 
-- Carga horária bem enxuta: 08 horas
+::: {.incremental}
+- Carga horária bem enxuta: 09 horas
 
 - Talvez não vejamos todo o conteúdo
 
-- Meu principal intuito, no entanto, é fazer uma sólida introdução
+- Meu principal objetivo é fazer uma sólida introdução ao tema
 
 - Vou indicar muito material para estudo
 
 - É muito difícil aprender apenas com cursos
 
+:::
+
 ## Horários
 
-**10/11**
+**07/11**
 
 - 08 h - 11 h
 
-**11/11**
+**08/11**
 
 - 08 h - 11 h
 
-**12/11**
+**09/11**
 
 - 08 h - 11 h
 
 ## Conteúdo
 
 ::: panel-tabset
-## 1. Linguagem R
+## 1. Linguagem R (2 h)
 
 ::: columns
 ::: {.column width="50%"}
@@ -123,7 +126,7 @@ format:
 :::
 :::
 
-## 2. tidyverse
+## 2. tidyverse (4 h)
 
 ::: nonincremental
 - tidyverse
@@ -134,7 +137,7 @@ format:
 - dplyr
 :::
 
-## 3. Visualização de dados
+## 3. Visualização de dados (3 h)
 
 ::: columns
 ::: {.column width="50%"}

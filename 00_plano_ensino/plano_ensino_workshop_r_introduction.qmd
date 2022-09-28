@@ -102,9 +102,13 @@ Cotton R. 2017. Testing R Code. Chapman and Hall/CRC.
 
 Crawley MJ. 2012. The R book. John Wiley & Sons.
 
+Da Silva FR, Gonçalves-Souza T, Paterno GB, Provete DB, Vancine MH. 2022. Análises ecológicas no R. Nupeea, Canal 6.
+
 Davies TM. 2016. The Book of R: A first course in programming and statistics. No Starch Press.
 
 Engel C. 2019. Introduction to R. <https://cengel.github.io/R-intro/>
+
+Faria PD, Parga JPFA. 2022. Introdução à Linguagem R: seus fundamentos e sua prática. Edição própria.
 
 Field A, Miles J, Field Z. 2012. Discovering statistics using R. Sage publications.
 

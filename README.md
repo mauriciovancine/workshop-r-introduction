@@ -19,7 +19,7 @@ O minicurso apresentará os principais conceitos da linguagem R e do IDE RStudio
 ### Informações aos participantes
 
 **Datas e horários**  
-10-11-12/11/2022 das 08 h - 11 h
+07-09/11/2022 das 08 h - 11 h
 
 **Plano de ensino**  
 [pdf](https://raw.githubusercontent.com/mauriciovancine/workshop-intro-r/master/00_plano_ensino/plano_ensino_workshop_r_introduction.pdf)
@@ -38,7 +38,7 @@ Será necessário que todos usem seus notebooks ou desktops
 Instalar a versão mais recente
 
 1. [R (4.2)](https://www.r-project.org)
-2. [RStudio (2022.07.1-554)](https://www.rstudio.com)
+2. [RStudio (2022.07.2-576)](https://www.rstudio.com)
 
 - [Vídeo de instalação do R e do RStudio](https://youtu.be/l1bWvZMNMCM)
 
@@ -46,18 +46,17 @@ Instalar a versão mais recente
 
 ```
 # r
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-gpg --keyserver keyserver.ubuntu.com --recv-key E298A3A825C0D65DFD57CBB651716619E084DAB9
-gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | sudo apt-key add -
-sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/"
-sudo apt update
-sudo apt install -y r-base r-base-core r-recommended r-base-dev
+sudo apt update -qq
+sudo apt install --no-install-recommends software-properties-common dirmngr
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+sudo apt install --no-install-recommends r-base
 
 # rstudio
-wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.0%2B351-amd64.deb &&
-sudo dpkg -i rstudio-2022.07.1-554-amd64.deb &&
+wget -c https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.07.2-576-amd64.deb &&
+sudo dpkg -i rstudio-2022.07.2-576-amd64.deb &&
 sudo apt install -fy && 
-rm rstudio-2022.07.1-554-amd64.deb
+rm rstudio-2022.07.2-576-amd64.deb
 ```
 
 ---
