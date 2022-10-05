@@ -76,28 +76,28 @@ format:
 
 - Vou indicar muito material para estudo
 
-- É muito difícil aprender apenas com cursos
+- Verdade (ao menos para mim): é muito difícil aprender apenas com cursos...
 
 :::
 
 ## Horários
 
-**07/11**
+**Segunda (07/11)**
 
 - 08 h - 11 h
 
-**08/11**
+**Terça (08/11)**
 
 - 08 h - 11 h
 
-**09/11**
+**Quarta (09/11)**
 
 - 08 h - 11 h
 
 ## Conteúdo
 
 ::: panel-tabset
-## 1. Linguagem R (2 h)
+## 1. Linguagem R
 
 ::: columns
 ::: {.column width="50%"}
@@ -126,7 +126,7 @@ format:
 :::
 :::
 
-## 2. tidyverse (4 h)
+## 2. tidyverse
 
 ::: nonincremental
 - tidyverse
@@ -137,7 +137,7 @@ format:
 - dplyr
 :::
 
-## 3. Visualização de dados (3 h)
+## 3. Visualização de dados
 
 ::: columns
 ::: {.column width="50%"}
@@ -6322,5 +6322,5 @@ Contato:
 :::
 
 :::footer
-Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r/01_slides/slides.qmd).
+Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r/blob/master/01_slides/slides.qmd).
 :::
