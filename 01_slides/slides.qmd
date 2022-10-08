@@ -23,6 +23,15 @@ format:
 
 # Eu amo ensinar R! `r icons::icon_style(icons::fontawesome("heart", style = "solid"), fill = "#2268bc")`
 
+# 
+<center>
+<img src="img/ciencia_brasil.jpeg" style="width:60%"/>
+</center>
+
+:::footer
+[Raphael Salimena - ciência na rua](https://ciencianarua.net/tirinha-de-raphael-salimena-07-10-2022/)
+:::
+
 ## Maurício Vancine 
 
 ::: columns
@@ -41,6 +50,8 @@ format:
 :::
 
 ::: {.column width="60%"}
+
+- Ecólogo (2014)
 
 - Doutorando em Ecologia (2020-?)
 
@@ -735,7 +746,7 @@ eco
 
 ## Objetos {.smaller}
 
-**Seja criativo, mas nem tanto**
+**Seja criativo, mas nem tanto...**
 
 - O R tem limitações ao nomear objetos!
 
