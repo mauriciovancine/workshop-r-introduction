@@ -70,6 +70,8 @@ format:
 
 ## Quem são vocês?
 
+<br>
+
 1. Nome
 1. Formação
 1. O que faz ou pensa em fazer da vida?
@@ -83,27 +85,15 @@ format:
 
 - Talvez não vejamos todo o conteúdo
 
-- Meu principal objetivo é fazer uma sólida introdução ao tema
+- Meu principal objetivo é introduzir o uso da linguagem
+
+- Não veremos estatística
 
 - Vou indicar muito material para estudo
 
-- Verdade (ao menos para mim): é muito difícil aprender apenas com cursos...
+- Cursos são ótimo para "quebrar o gelo", mas o aprendizado depende de vocês
 
 :::
-
-## Horários
-
-**Segunda (07/11)**
-
-- 08 h - 11 h
-
-**Terça (08/11)**
-
-- 08 h - 11 h
-
-**Quarta (09/11)**
-
-- 08 h - 11 h
 
 ## Conteúdo
 
