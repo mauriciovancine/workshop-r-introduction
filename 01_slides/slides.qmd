@@ -195,11 +195,15 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 
 **Estamos num espaço seguro e amigável**
 
-- Sintam-se à vontade para me interromper e tirar dúvidas
+Sintam-se à vontade para me interromper e tirar dúvidas
 
 <center>
 <img src="img/general_starwars_teamwork.png" style="width:50%"/>
 </center>
+
+:::footer
+[@allison_horst](https://twitter.com/allison_horst)
+:::
 
 # Mas por que aprender a linguagem R? Inglês não basta?!
 
