@@ -1576,6 +1576,19 @@ df
 [Introduction to Environmental Data Science](https://bookdown.org/igisc/EnvDataSci/)
 :::
 
+
+## Ecoinformatics
+
+<br>
+<center>
+<img src="img/ecoinformatics_diagram.png" style="width:50%"/>
+</center>
+
+:::footer
+[Ecoinformatics Initiative](http://www.uwyo.edu/wygisc/our_research/ongoing_research/ecoinformatics_initiative.html),
+ [Michener & Jones (2012)](https://doi.org/10.1016/j.tree.2011.11.016), [Lin et al. (2020)](https://doi.org/10.22920/PNIE.2020.1.1.9)
+:::
+
 ## Ciência de dados para ecólogos <br> (*Data Science for Ecologists*)
 
 <center>
@@ -1595,6 +1608,28 @@ df
 
 :::footer
 [Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
+:::
+
+# Legal, mas ainda está distante...
+
+## Monitoramento automatizado
+
+<br>
+<center>
+<img src="img/auto_sampling02.webp" style="width:100%"/>
+</center>
+
+:::footer
+[Besson et al. (2022)](https://doi.org/10.1111/ele.14123)
+:::
+
+## Monitoramento automatizado
+
+![](img/auto_sampling01.webp){.absolute width=600 height=450 right=450 top=150}
+![](img/auto_sampling03.jpg){.absolute width=400 height=550 right=0 top=100}
+
+:::footer
+[Besson et al. (2022)](https://doi.org/10.1111/ele.14123)
 :::
 
 ## Script
