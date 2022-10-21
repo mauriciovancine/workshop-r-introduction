@@ -1610,8 +1610,11 @@ df
 [Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
 :::
 
+<<<<<<< HEAD
 # Legal, mas ainda está distante...
 
+=======
+>>>>>>> f5ab0cb6c839427af6f8a49d1976d525b511a952
 ## Monitoramento automatizado
 
 <br>
