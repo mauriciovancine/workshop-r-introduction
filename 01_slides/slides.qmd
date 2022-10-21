@@ -1597,6 +1597,26 @@ df
 [Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
 :::
 
+## Monitoramento automatizado
+
+<br>
+<center>
+<img src="img/auto_sampling02.webp" style="width:100%"/>
+</center>
+
+:::footer
+[Besson et al. (2022)](https://doi.org/10.1111/ele.14123)
+:::
+
+## Monitoramento automatizado
+
+![](img/auto_sampling01.webp){.absolute width=600 height=450 right=450 top=150}
+![](img/auto_sampling03.jpg){.absolute width=400 height=550 right=0 top=100}
+
+:::footer
+[Besson et al. (2022)](https://doi.org/10.1111/ele.14123)
+:::
+
 ## Script
 
 Abram o script
