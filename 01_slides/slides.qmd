@@ -91,7 +91,7 @@ format:
 
 - Vou indicar muito material para estudo
 
-- Cursos são ótimo para "quebrar o gelo", mas o aprendizado depende de vocês
+- Cursos são ótimas oportunidades para o "quebrar o gelo", o aprendizado depende de vocês
 
 :::
 
@@ -179,16 +179,6 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 
 :::footer
 [GitHub](https://github.com/mauriciovancine/workshop-intro-r)
-:::
-
-## Conferindo os computadores
-
-<center>
-<img src="img/general_hard_soft_bg.png" style="width:80%"/>
-</center>
-
-:::footer
-[Café com Código](https://www.instagram.com/cafecomcodigo/?hl=pt)
 :::
 
 ## IMPORTANTE!!!
@@ -376,8 +366,8 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 - Análises de dados ecológicos
 - Análise de dados espaciais, temporais e sonoros
 - Análise de dados funcionais, genéticos e filogenéticos
-- Análise de dados geoespaciais e sensoriamento retomo
-- Visualização de todos os dados anteriores
+- Análise de dados geoespaciais e sensoriamento remoto
+- Visualização de todos os tipos de dados anteriores
 
 **R Markdown e quarto**
 
@@ -443,6 +433,8 @@ Mudanças no RStudio...
 
 ## Janelas e abas {.smaller}
 
+<br>
+
 **1. Editor/Script**: é onde escrevemos nossos códigos em R ou R Markdown  
 **2. Console**: é onde os códigos são rodados e vemos as saídas  
 **3. Environment**: painel com todos os objetos criados na sessão  
@@ -463,6 +455,8 @@ Mudanças no RStudio...
 :::
 
 ## Atalhos {.smaller}
+
+<br>
 
 **f1**: abre o painel de *Help*  
 **ctrl + enter**: roda a linha selecionada no script  
@@ -498,6 +492,16 @@ Mudanças no RStudio...
 [RStudio](https://www.rstudio.com/)
 :::
 
+## Conferindo os computadores
+
+<center>
+<img src="img/general_hard_soft_bg.png" style="width:80%"/>
+</center>
+
+:::footer
+[Café com Código](https://www.instagram.com/cafecomcodigo/?hl=pt)
+:::
+
 # Console
 
 ## Console
@@ -530,7 +534,7 @@ O console é onde a linguagem R instalada é carregada para executar os códigos
 
 - Vamos criar uma sequência usando o operador `:` para demonstrar isso
 
-- o número que aparecer nos colchetes vai depender da largura das janelas
+- O número que aparecer nos colchetes vai depender da largura das janelas
 
 ```{r}
 1:42
@@ -550,7 +554,7 @@ Onde os códigos são escritos e salvos no formato .R
 
 ## Script
 
-- Os códigos são digitados preferencialmente no script
+- Os códigos devem ser digitados preferencialmente no script
 
 - Para executar um código, deixem o cursor em qualquer lugar da linha
 
@@ -613,11 +617,11 @@ Onde os códigos são escritos e salvos no formato .R
 - Ajuda a lembrar o que o script faz e quando foi escrito
 
 ```{r}
-#' ---
+#' ----
 #' titulo: Linguagem R para manipulação e visualização de dados
 #' autor: seu nome
 #' data: 10-11-2022
-#' ---
+#' ----
 ```
 
 #
@@ -681,7 +685,7 @@ Onde os códigos são escritos e salvos no formato .R
 
 ## Objetos
 
-Palavras que atribuímos dados e possibilita sua manipulação
+Palavras que atribuímos (guardamos) dados possibilitando sua manipulação
 
 - Atribuição (<-)
 
@@ -708,9 +712,9 @@ eco <- 10
 
 ## Objetos
 
-- Sempre confira a atribuição!
+- Sempre confira a atribuição
 
-- Chame o objeto novamente
+- Dica: chame o objeto novamente
 
 ```{r}
 # atribuicao - simbolo (<-)
@@ -722,7 +726,7 @@ eco
 
 **Seja criativo**
 
-- O R sobrescreve os valores dos objetos com o mesmo nome
+O R sobrescreve os valores dos objetos com o mesmo nome
 
 ```{r}
 # eco vale 10
@@ -742,7 +746,7 @@ eco
 
 **Seja criativo, mas nem tanto...**
 
-- O R tem limitações ao nomear objetos!
+O R tem limitações ao nomear objetos!
 
 1. Começar por letras (a-z ou A-Z) ou pontos (.)
 
@@ -763,7 +767,7 @@ for <- 1
 
 **Ambiente (*Environment*)**
 
-- Os objetos podem ser visualizados no painel *Environment*
+Os objetos podem ser visualizados no painel *Environment*
 
 <center>
 <img src="img/rstudio_script.png" style="width:50%"/>
@@ -771,7 +775,7 @@ for <- 1
 
 ## Objetos
 
-- Podemos utilizar objetos para fazer operações
+Podemos utilizar objetos para fazer operações
 
 ```{r}
 # definir dois objetos
@@ -791,7 +795,7 @@ eco1 / eco2 # divisao
 
 ## Objetos
 
-- Podemos utilizar objetos para atribuir resultados de operações
+Podemos utilizar objetos para atribuir resultados de operações
 
 ```{r}
 # operacoes com objetos e atribuicao
@@ -851,7 +855,7 @@ Os argumentos podem ser de dois tipos:
 
 1. **Objetos ou valores**: dados onde a função irá atuar
 
-2. **Parâmetros**: valores que mudam o comportamento da função (texto = TRUE|FALSE ou "texto")
+2. **Parâmetros**: mudam o comportamento da função (texto = TRUE|FALSE ou "texto")
 
 ```{r}
 sum(1, 2, 3, NA)
@@ -977,8 +981,8 @@ help("mean") # arquivo .html
 
 ::: {.column width="50%"}
 <br>
-**Description**: resumo da função  
-**Usage**: como utilizar a função e argumentos  
+**Description**: descrição da função  
+**Usage**: uso da função e argumentos  
 **Arguments**: argumentos e suas especificações  
 **Details**: detalhes da função  
 **Value**: interpretar a saída (*output*)  
@@ -1058,7 +1062,7 @@ load("todos_meus_objetos.RData")
 
 ## Pacotes
 
-Conjunto de funções para executar tarefas específicas
+Conjunto de funções extras para executar tarefas específicas
 
 <center>
 <img src="img/r_packages.svg" style="width:70%"/>
@@ -1088,8 +1092,7 @@ nrow(available.packages())
 
 **Instalação de pacotes**
 
-1. Download do pacote para o computador (como um software/APP)
-1. Instala-se apenas uma vez
+1. Download do pacote para o computador (como instalar um software/APP)
 1. Precisa estar conectado à internet
 1. O nome do pacote precisa estar entre aspas
 1. Função (CRAN): `install.packages("pacote")`
@@ -1610,11 +1613,8 @@ df
 [Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science)
 :::
 
-<<<<<<< HEAD
 # Legal, mas ainda está distante...
 
-=======
->>>>>>> f5ab0cb6c839427af6f8a49d1976d525b511a952
 ## Monitoramento automatizado
 
 <br>
@@ -1680,13 +1680,17 @@ Abram o script
 
 ## Artigos {.smaller}
 
-- Wickham, Hadley. ["Tidy data."](https://www.jstatsoft.org/article/view/v059i10) Journal of Statistical Software 59.10 (2014): 1-23.
+- Wickham, Hadley. "Tidy data." Journal of Statistical Software 59.10 (2014): 1-23.
 
-- Wickham, Hadley, et al. ["Welcome to the Tidyverse."](https://joss.theoj.org/papers/10.21105/joss.01686) Journal of Open Source Software 4.43 (2019): 1686.
+- Wickham, Hadley, et al. "Welcome to the Tidyverse." Journal of Open Source Software 4.43 (2019): 1686.
 
 <center>
 <img src="img/tidyverse_papers.png" style="width:45%"/>
 </center>
+
+:::footer
+[Wickham (2014)](https://www.jstatsoft.org/article/view/v059i10), [Wickham et al. (2019)](https://joss.theoj.org/papers/10.21105/joss.01686)
+:::
 
 ## Livro
 
@@ -2039,6 +2043,7 @@ set.seed(42)
 ve <- sqrt(sum(sample(0:60, 6)))
 ve
 ```
+
 **Com pipe**
 
 ```{r}
@@ -2391,15 +2396,15 @@ Gramática simples que contém funções verbais para a manipulação de dados
 
 **Agrupamento**
 
-`count()`: conta observações para uma coluna  
+`count()`: conta observações para uma ou mais coluna  
 `group_by()`: agrupa linhas pelos valores das colunas  
 `summarise()`: resume os dados através de funções considerando valores das colunas  
 
 ## Sintaxe
 
-O `tibble` é sempre o primeiro argumento das funções verbais
+- O `tibble` é sempre o primeiro argumento das funções verbais
 
-Todas seguem a mesma sintaxe: 
+- Todas seguem a mesma sintaxe: 
 
 1. tibble
 1. operador pipe 
@@ -2950,7 +2955,7 @@ plot(flipper_length_mm ~ body_mass_g, data = penguins)
 
 ## ggplot2 {.smaller}
 
-- Integrado ao `tidyverse`, possui uma sintaxe própria de camadas (layers)
+- Integrado ao `tidyverse`, possui uma sintaxe própria de camadas (*layers*)
 
 - Necessita de funções específicas para objetos de classes diferentes
 
@@ -3061,9 +3066,9 @@ Representações das colunas (eixos) e linhas (elementos)
 
 ![](img/plot_variables.png){.absolute width=500 height=250 right=300 top=100}
 
-![](img/nominal_ordinal_binary.png){.absolute width=500 height=350 right=500 top=350}
+![](img/nominal_ordinal_binary.png){.absolute width=500 height=350 right=550 top=350}
 
-![](img/continuous_discrete.png){.absolute width=500 height=350 right=0 top=350}
+![](img/continuous_discrete_inv.png){.absolute width=500 height=350 right=50 top=350}
 
 :::footer
 [Matthiopoulos (2011)](http://greenmaths.st-andrews.ac.uk/), [@allison_horst](https://twitter.com/allison_horst)
