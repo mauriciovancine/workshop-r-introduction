@@ -22,7 +22,7 @@ O minicurso apresentará os principais conceitos da linguagem R e do IDE RStudio
 07-09/11/2022 das 08 h - 11 h
 
 **Plano de ensino**  
-[pdf](https://raw.githubusercontent.com/mauriciovancine/workshop-intro-r/master/00_plano_ensino/plano_ensino_workshop_r_introduction.pdf)
+[pdf](https://raw.githubusercontent.com/mauriciovancine/workshop-r-introduction/master/00_plano_ensino/plano_ensino_workshop_r_introduction.pdf)
 
 **Contato**  
 Para mais informações ou dúvidas, envie e-mail para Maurício Vancine (mauricio.vancine@gmail.com)
@@ -63,7 +63,7 @@ rm rstudio-2022.07.2-576-amd64.deb
 
 ## Slides
 
-[slides](https://mauriciovancine.github.io/workshop-introduction-r/01_slides/slides)
+[slides](https://mauriciovancine.github.io/workshop-r-introduction/01_slides/slides)
 
 ---
 

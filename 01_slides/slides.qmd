@@ -171,14 +171,14 @@ format:
 
 ## Material
 
-Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-introduction-r)
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-r-introduction)
 
 <center>
 <img src="img/github.png" style="width:50%"/>
 </center>
 
 :::footer
-[GitHub](https://github.com/mauriciovancine/workshop-introduction-r)
+[GitHub](https://github.com/mauriciovancine/workshop-r-introduction)
 :::
 
 ## IMPORTANTE!!!
@@ -6370,5 +6370,5 @@ Contato:
 :::
 
 :::footer
-Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-introduction-r/blob/master/01_slides/slides.qmd).
+Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-r-introduction/blob/master/01_slides/slides.qmd).
 :::
