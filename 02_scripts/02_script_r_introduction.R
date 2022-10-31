@@ -58,7 +58,7 @@ library("readxl")
 library("writexl")
 
 # importar sites
-si <- readxl::read_xlsx(here::here("03_dados", "ATLANTIC_AMPHIBIANS_sites.xlsx"), sheet = 1)
+si <- readxl::read_xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx", sheet = 1)
 si
 
 # 3. tibble --------------------------------------------------------------
