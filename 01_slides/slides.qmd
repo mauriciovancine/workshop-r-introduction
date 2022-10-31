@@ -171,14 +171,14 @@ format:
 
 ## Material
 
-Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r)
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-introduction-r)
 
 <center>
 <img src="img/github.png" style="width:50%"/>
 </center>
 
 :::footer
-[GitHub](https://github.com/mauriciovancine/workshop-intro-r)
+[GitHub](https://github.com/mauriciovancine/workshop-introduction-r)
 :::
 
 ## IMPORTANTE!!!
@@ -246,7 +246,7 @@ Sintam-se à vontade para me interromper e tirar dúvidas
 
 ::: {.column width="60%"}
 
-- 15 capítulos: linguagem R, `tidyverse`, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
+- 15 capítulos: linguagem R, tidyverse, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
 
 - [bookdown](https://analises-ecologicas.com/)
 
@@ -448,7 +448,7 @@ Mudanças no RStudio...
 **4. Help**: painel onde a documentação das funções é exibida  
 **4. Viewer**: painel de visualização 
 
-![](img/rstudio.png){.absolute width=500 height=250 right=-170 top=400}
+![](img/rstudio.png){.absolute width=500 height=250 right=-170 top=420}
 
 :::footer
 [RStudio](https://www.rstudio.com/)
@@ -6370,5 +6370,5 @@ Contato:
 :::
 
 :::footer
-Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-intro-r/blob/master/01_slides/slides.qmd).
+Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-introduction-r/blob/master/01_slides/slides.qmd).
 :::

@@ -63,7 +63,7 @@ rm rstudio-2022.07.2-576-amd64.deb
 
 ## Slides
 
-[slides](https://mauriciovancine.github.io/workshop-intro-r/01_slides/slides#/)
+[slides](https://mauriciovancine.github.io/workshop-introduction-r/01_slides/slides)
 
 ---
 
