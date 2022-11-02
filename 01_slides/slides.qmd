@@ -394,7 +394,7 @@ Ambiente de Desenvolvimento Integrado (*Integrated Development Environment*)
 </center>
 
 :::footer
-[RStudio](https://www.rstudio.com/)
+[RStudio](https://posit.co/downloads/)
 :::
 
 ## IDE 
@@ -405,16 +405,15 @@ Ambiente de Desenvolvimento Integrado (*Integrated Development Environment*)
 ![](img/r_rstudio02.png){.absolute width=700 height=280 right=180 top=370}
 
 :::footer
-[Ismay & Kim (2020)](https://moderndive.com/)
+[Ismay & Kim (2020)](https://posit.co/downloads/)
 :::
 
 ## Posit 
 
-Mudanças no RStudio...
+Mudanças na empresa RStudio...
 
-<br>
 <center>
-<img src="img/posit.jpg" style="width:80%"/>
+<img src="img/posit.png" style="width:85%"/>
 </center>
 
 :::footer
