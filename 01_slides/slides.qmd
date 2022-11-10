@@ -1249,13 +1249,13 @@ Parênteses
 
 ```{r error=TRUE}
 sum(1, 2
-+
-```
+    +
+      ```
     
-Aspas
+    Aspas
     
-```{r error=TRUE}
-"string
+    ```{r error=TRUE}
+    "string
 +
 ```
 
@@ -1588,7 +1588,7 @@ df
 
 :::footer
 [Ecoinformatics Initiative](http://www.uwyo.edu/wygisc/our_research/ongoing_research/ecoinformatics_initiative.html),
- [Michener & Jones (2012)](https://doi.org/10.1016/j.tree.2011.11.016), [Lin et al. (2020)](https://doi.org/10.22920/PNIE.2020.1.1.9)
+[Michener & Jones (2012)](https://doi.org/10.1016/j.tree.2011.11.016), [Lin et al. (2020)](https://doi.org/10.22920/PNIE.2020.1.1.9)
 :::
 
 ## Ciência de dados para ecólogos <br> (*Data Science for Ecologists*)
@@ -1798,13 +1798,13 @@ Geralmente indica-se de quais pacotes as funções são utilizadas (`pacote::fun
 
 - Funções:
 
-  - `read_csv()`: lê arquivos *Comma-separated values*
-  - `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
-  - `read_tsv()`: lê arquivos *Tab-separated values*
-  - `read_delim()`: lê arquivos *delim-separated values*
-  - `write_csv()`: escreve arquivos *Comma-separated values*
-  - `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
-  - `write_delim()`: escreve arquivos *delim-separated values*
+- `read_csv()`: lê arquivos *Comma-separated values*
+- `read_csv2()`: lê arquivos *Comma-separated values* (separado por ;)
+- `read_tsv()`: lê arquivos *Tab-separated values*
+- `read_delim()`: lê arquivos *delim-separated values*
+- `write_csv()`: escreve arquivos *Comma-separated values*
+- `write_csv2()`: escreve arquivos *Comma-separated values* (separado por ;)
+- `write_delim()`: escreve arquivos *delim-separated values*
 
 ## Diretório
 
@@ -1883,9 +1883,9 @@ Pacotes para importar e exportar planilhas no formato Excel®
 
 - Funções:
 
-  - `read_excel()`: lê arquivos de planilhas Excel®
-  - `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
-  - `write_xlsx()`: escreve arquivos de planilhas Excel®
+- `read_excel()`: lê arquivos de planilhas Excel®
+- `read_xls()`: lê arquivos de planilhas Excel® (antes de 2010)
+- `write_xlsx()`: escreve arquivos de planilhas Excel®
 
 ```{r eval=FALSE}
 # importar .xlsx
@@ -1907,6 +1907,20 @@ si <- readxl::read_excel("../03_dados/ATLANTIC_AMPHIBIANS_sites.xlsx")
 si
 ```
 
+## Exportar dados
+
+**Diversos formatos**
+```{r}
+# exportar csv
+readr::write_csv(si, "ATLANTIC_AMPHIBIANS_sites_exportado.csv")
+
+# exportar txt
+readr::write_tsv(si, "ATLANTIC_AMPHIBIANS_sites_exportado.txt")
+
+# exportar excel
+writexl::write_xlsx(si, "ATLANTIC_AMPHIBIANS_sites_exportado.xlsx")
+```
+
 # 
 <center>
 <img src="img/package_tibble.png" style="width:50%"/>
@@ -1918,7 +1932,7 @@ si
 
 ## Descrição {.smaller}
 
-- Dados importados de planilhas eletrônicas são data frames (quadro de dados)
+- Dados importados de planilhas eletrônicas são *data frames* (quadro de dados)
 
 - `tibble` (classe `tbl_df`) é um tipo especial de data frame
 
@@ -2847,6 +2861,15 @@ Abram o script
 - De forma simplificada, os gráficos são representações dos nossos dados tabulares
 :::
 
+## Como mentir com estatística?
+
+![](img/cover_mentir_estatistica.jpg){.absolute width=270 height=400 right=800 top=200}
+![](img/como_mentir_est.png){.absolute width=850 height=450 right=-100 top=150}
+
+:::footer
+[Heff (2016)](https://www.intrinseca.com.br/livro/624/), [Como MENTIR com ESTATÍSTICA](https://youtu.be/r6d-RBDlc5I)
+:::
+
 # Principais pacotes
 
 ## Principais pacotes {.smaller}
@@ -2866,7 +2889,7 @@ Abram o script
 
 - [cowplot](https://wilkelab.org/cowplot/): permite combinar vários gráficos
 
-- [pacthwork](https://patchwork.data-imaginist.com/): permite combinar vários gráficos
+- [patchwork](https://patchwork.data-imaginist.com/): permite combinar vários gráficos
 
 - [plotly](https://plotly.com/r/): cria gráficos interativos usando JavaScript (*plotly.js*)
 :::
@@ -3449,8 +3472,7 @@ polygon(density(na.omit(penguins$flipper_length_mm)),
 **Exportar**
 
 ```{r eval=FALSE}
-png(here::here("03_dados", "graficos", "plot_densidade.png"), 
-    wi = 15, he = 15, un = "cm", res = 300)
+png("../03_dados/plot_densidade.png"), wi = 15, he = 15, un = "cm", res = 300)
 ```
 
 <br>
@@ -4443,7 +4465,7 @@ barplot(n ~ species,
 ggplot(data = penguins_count, 
        aes(x = species, y = n, fill = species)) +
   geom_bar(stat = "identity") +
-  geom_label(aes(label = n), fill = "white") +
+  geom_label(aes(label = n), fill = "white", size = 10) +
   scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
   theme_bw(base_size = 15) +
   theme(legend.position = "none") +
@@ -4466,7 +4488,7 @@ penguins_count <- penguins %>%
 ggplot(data = penguins_count, 
        aes(x = species, y = n, fill = species)) +
   geom_bar(stat = "identity") +
-  geom_label(aes(label = n), fill = "white") +
+  geom_label(aes(label = n), fill = "white", size = 10) +
   scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
   theme_bw(base_size = 15) +
   theme(legend.position = "none") +
@@ -4488,7 +4510,7 @@ ggplot(data = penguins_count,
 ggplot(data = penguins_count, 
        aes(x = species, y = n, fill = species)) +
   geom_bar(stat = "identity") +
-  geom_label(aes(label = n), fill = "white") +
+  geom_label(aes(label = n), fill = "white", size = 10) +
   scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
   coord_flip() +
   theme_bw(base_size = 15) +
@@ -4512,7 +4534,7 @@ penguins_count <- penguins %>%
 ggplot(data = penguins_count, 
        aes(x = species, y = n, fill = species)) +
   geom_bar(stat = "identity") +
-  geom_label(aes(label = n), fill = "white") +
+  geom_label(aes(label = n), fill = "white",size = 10) +
   scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
   coord_flip() +
   theme_bw(base_size = 15) +
@@ -6334,6 +6356,8 @@ esquisse::esquisser(na.omit(palmerpenguins::penguins))
 - [plotly](https://plotly.com)
 
 - [Statistical tools for high-throughput data analysis (STHDA)](http://www.sthda.com/english/)
+
+# Gostaria de ouvir sugestões de melhorias para o curso =]
 
 ## Muito obrigado!
 

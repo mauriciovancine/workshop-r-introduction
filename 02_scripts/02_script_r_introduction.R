@@ -61,6 +61,15 @@ library("writexl")
 si <- readxl::read_xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx", sheet = 1)
 si
 
+# exportar csv
+readr::write_csv(si, "ATLANTIC_AMPHIBIANS_sites_exportado.csv")
+
+# exportar txt
+readr::write_tsv(si, "ATLANTIC_AMPHIBIANS_sites_exportado.txt")
+
+# exportar excel
+writexl::write_xlsx(si, "ATLANTIC_AMPHIBIANS_sites_exportado.xlsx")
+
 # 3. tibble --------------------------------------------------------------
 
 # tibble
