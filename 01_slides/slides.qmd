@@ -1,7 +1,8 @@
 ---
 title: "Linguagem R para manipulação e visualização de dados"
 author: "<br> [Maurício Vancine](https://mauriciovancine.github.io/) • [LEEC/Unesp](https://leec.eco.br/)"
-date: "Novembro de 2022 <br><br><br> Licença: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)"
+date: "<br> Novembro de 2022"
+license: "Licença: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)"
 format: 
   revealjs:
     theme: [custom.scss]
@@ -10,6 +11,7 @@ format:
     hash-type: number
     preview-links: false
     chalkboard: true
+    logo: https://www.r-project.org/logo/Rlogo.svg
     execute:
       echo: true
       eval: true
@@ -1206,7 +1208,7 @@ citation("vegan")
 
 # 
 <center>
-<img src="img/general_make_impossible.jpeg" style="width:50%"/>
+<img src="img/general_make_impossible.png" style="width:60%"/>
 </center>
 
 #
@@ -2946,6 +2948,8 @@ library(palmerpenguins)
 
 - Funções:
 
+<br>
+
 ::: columns
 ::: {.column width="30%"}
 `plot()`<br>
@@ -3079,9 +3083,8 @@ Wickham (2008) criou o pacote `ggplot2`, onde “gg” representa a contração 
 
 Representações das colunas (eixos) e linhas (elementos)
 
-<br>
 <center>
-<img src="img/plot_data_table_scatterplot.png" style="width:80%"/>
+<img src="img/plot_data_table_scatterplot.png" style="width:90%"/>
 </center>
 
 ## Tipos de variáveis
@@ -3105,6 +3108,22 @@ Representações das colunas (eixos) e linhas (elementos)
 
 :::footer
 [from Data to Viz](https://www.data-to-viz.com/)
+:::
+
+## Tipos de variáveis e tipos gráficos
+
+<center>
+<img src="img/r_charts_suggests.png" style="width:100%"/>
+</center>
+
+## R CHARTS
+
+<center>
+<img src="img/rcharts-featured.png" style="width:100%"/>
+</center>
+
+:::footer
+[R CHARTShttps://r-charts.com/](https://r-charts.com/)
 :::
 
 # Histograma (*Histogram*)
