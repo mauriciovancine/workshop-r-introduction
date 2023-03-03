@@ -302,7 +302,7 @@ head(penguins_filter_na)
 ## slice ----
 # selecionar linhas por intervalos
 penguins_slice <- penguins %>% 
-  dplyr::slice(n = c(1, 3, 300:n()))
+  dplyr::slice(c(1, 3, 300:n()))
 head(penguins_slice)
 
 # selecionar linhas iniciais

@@ -360,6 +360,31 @@ O R é uma **linguagem de programação livre** (*open source*), direcionada à 
 [Wickham (2013)](http://vita.had.co.nz/papers/r-s.pdf)
 :::
 
+## Histórico - Linguagem R {.smaller}
+
+::: columns
+::: {.column width="50%"}
+
+::: nonincremental
+<center>
+<img src="img/r_history.png" style="width:75%"/>
+</center>
+:::
+:::
+
+::: {.column width="50%"}
+::: nonincremental
+<center>
+<img src="img/r_history_plot.png" style="width:100%"/>
+</center>
+:::
+:::
+:::
+
+:::footer
+[Giorgi et al. (2022)](https://doi.org/10.3390/life12050648)
+:::
+
 ## Aplicações {.smaller}
 
 **Manipulação, visualização e análise de dados**
@@ -516,6 +541,12 @@ O console é onde a linguagem R instalada é carregada para executar os códigos
 :::footer
 [RStudio](https://www.rstudio.com/)
 :::
+
+# 
+
+<center>
+<img src="img/code.png" style="width:45%"/>
+</center>
 
 ## Console
 
@@ -1912,7 +1943,7 @@ si
 ## Exportar dados
 
 **Diversos formatos**
-```{r}
+```{r eval=FALSE}
 # exportar csv
 readr::write_csv(si, "ATLANTIC_AMPHIBIANS_sites_exportado.csv")
 
@@ -2611,7 +2642,7 @@ Seleciona linhas por intervalos, indicando quais linhas desejamos
 ```{r}
 # selecionar linhas por intervalos
 penguins_slice <- penguins %>% 
-  dplyr::slice(n = c(1, 3, 300:n()))
+  dplyr::slice(c(1, 3, 300:n()))
 head(penguins_slice)
 ```
 
