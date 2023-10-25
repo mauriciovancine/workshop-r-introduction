@@ -1213,17 +1213,13 @@ Parênteses
 
 ```{r error=TRUE}
 sum(1, 2
-    +
 ```
 
-````         
 Aspas
 
 ```{r error=TRUE}
 "string
-+
 ```
-````
 
 ## Principais erros
 
